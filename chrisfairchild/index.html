@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-title" content="Chris Fairchild"/>
+    <title>Chris Fairchild — Creative Director</title>
+    <meta name="description" content="Creative Director"/>
+    
+    <link rel="icon" href="https://c-p.rmcdn1.net/60453235cf50d8009279337d/Favicon-96ad314b-362b-4314-af65-a460eca3ef08_144.png" type="image/png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://c-p.rmcdn1.net/60453235cf50d8009279337d/Favicon-96ad314b-362b-4314-af65-a460eca3ef08_144.png"/>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            dark: '#282828',
+                            gray: '#A2A2A2',
+                            light: '#F5F5F5'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'system-ui', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Ubuntu', 'Arial', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer base {
+            ::selection {
+                background-color: #A2A2A2;
+                color: #ffffff;
+            }
+            html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+                -webkit-font-smoothing: antialiased;
+            }
+            a, button, label, div, span, input, *:hover {
+                -webkit-tap-highlight-color: rgba(0,0,0,0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-brand-dark font-sans antialiased selection:bg-brand-gray selection:text-white">
+
+    <!-- Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 py-6 md:px-12 md:py-8 flex justify-between items-center bg-white/90 backdrop-blur-md transition-all duration-300">
+        <a href="/" class="text-xl md:text-2xl font-bold tracking-tight text-brand-dark hover:opacity-70 transition-opacity">
+            CHRIS FAIRCHILD
+        </a>
+        
+        <!-- Desktop Nav -->
+        <nav class="hidden md:flex space-x-10 text-sm font-semibold tracking-wide uppercase text-brand-dark">
+            <a href="#work" class="hover:text-brand-gray transition-colors duration-300">Work</a>
+            <a href="#about" class="hover:text-brand-gray transition-colors duration-300">About</a>
+            <a href="#contact" class="hover:text-brand-gray transition-colors duration-300">Contact</a>
+        </nav>
+
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-btn" class="md:hidden text-brand-dark focus:outline-none z-50 relative" aria-label="Toggle Menu">
+            <svg class="w-8 h-8 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+        </button>
+    </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 flex flex-col items-center justify-center space-y-10 opacity-0 pointer-events-none transition-opacity duration-500 ease-in-out">
+        <a href="#work" class="text-4xl font-bold tracking-tight text-brand-dark hover:text-brand-gray transition-colors">Work</a>
+        <a href="#about" class="text-4xl font-bold tracking-tight text-brand-dark hover:text-brand-gray transition-colors">About</a>
+        <a href="#contact" class="text-4xl font-bold tracking-tight text-brand-dark hover:text-brand-gray transition-colors">Contact</a>
+        <div class="flex space-x-8 mt-12">
+            <a href="#" class="text-brand-dark hover:text-brand-gray transition-colors"><i class="fab fa-instagram text-3xl"></i></a>
+            <a href="#" class="text-brand-dark hover:text-brand-gray transition-colors"><i class="fab fa-linkedin text-3xl"></i></a>
+        </div>
+    </div>
+
+    <main>
+        <!-- Hero Section -->
+        <section class="min-h-screen flex flex-col justify-center px-6 md:px-12 pt-32 pb-20 max-w-[1800px] mx-auto">
+            <div class="animate-[fadeIn_1s_ease-out]">
+                <h1 class="text-[4rem] sm:text-[6rem] md:text-[8rem] lg:text-[11rem] font-bold text-brand-dark leading-[0.85] tracking-tighter uppercase">
+                    Creative<br>Director
+                </h1>
+            </div>
+            
+            <div class="mt-16 md:mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-end animate-[fadeIn_1.5s_ease-out]">
+                <div class="lg:col-span-4 text-xl md:text-2xl text-brand-gray font-medium leading-relaxed max-w-md">
+                    Crafting digital experiences, brand identities, and visual narratives for forward-thinking companies worldwide.
+                </div>
+                <div class="lg:col-span-8 w-full">
+                    <img src="https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?q=80&w=2564&auto=format&fit=crop" alt="Abstract Creative Work" class="w-full h-[50vh] md:h-[65vh] object-cover rounded-sm shadow-2xl">
+                </div>
+            </div>
+        </section>
+
+        <!-- Selected Works Section -->
+        <section id="work" class="px-6 md:px-12 py-32 max-w-[1800px] mx-auto bg-white">
+            <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-20">
+                <h2 class="text-5xl md:text-7xl font-bold text-brand-dark tracking-tighter uppercase">Selected<br>Works</h2>
+                <a href="#" class="hidden md:inline-block text-lg font-semibold uppercase tracking-wide border-b-2 border-brand-dark pb-1 hover:text-brand-gray hover:border-brand-gray transition-all duration-300 mt-8 md:mt-0">
+                    View All Projects
+                </a>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
+                <!-- Project 1 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-sm bg-brand-light relative">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2000&auto=format&fit=crop" alt="Brand Evolution Project" class="w-full h-[60vh] md:h-[80vh] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold text-brand-dark tracking-tight">Aura Dynamics</h3>
+                            <p class="mt-2 text-lg text-brand-gray font-medium">Art Direction, Identity</p>
+                        </div>
+                        <span class="text-brand-dark font-bold text-lg">2023</span>
+                    </div>
+                </article>
+
+                <!-- Project 2 -->
+                <article class="group cursor-pointer md:mt-32">
+                    <div class="overflow-hidden rounded-sm bg-brand-light relative">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?q=80&w=2000&auto=format&fit=crop" alt="Digital Platform Project" class="w-full h-[60vh] md:h-[80vh] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold text-brand-dark tracking-tight">Nexus Platform</h3>
+                            <p class="mt-2 text-lg text-brand-gray font-medium">UX/UI, Web Design</p>
+                        </div>
+                        <span class="text-brand-dark font-bold text-lg">2023</span>
+                    </div>
+                </article>
+
+                <!-- Project 3 -->
+                <article class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-sm bg-brand-light relative">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?q=80&w=2000&auto=format&fit=crop" alt="Editorial Campaign Project" class="w-full h-[60vh] md:h-[80vh] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold text-brand-dark tracking-tight">Vogue Essentials</h3>
+                            <p class="mt-2 text-lg text-brand-gray font-medium">Photography, Print</p>
+                        </div>
+                        <span class="text-brand-dark font-bold text-lg">2022</span>
+                    </div>
+                </article>
+
+                <!-- Project 4 -->
+                <article class="group cursor-pointer md:mt-32">
+                    <div class="overflow-hidden rounded-sm bg-brand-light relative">
+                        <div class="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1541462608143-67571c6738dd?q=80&w=2000&auto=format&fit=crop" alt="Spatial Design Project" class="w-full h-[60vh] md:h-[80vh] object-cover transform group-hover:scale-105 transition-transform duration-1000 ease-out">
+                    </div>
+                    <div class="mt-8 flex justify-between items-start">
+                        <div>
+                            <h3 class="text-3xl font-bold text-brand-dark tracking-tight">Echo Exhibition</h3>
+                            <p class="mt-2 text-lg text-brand-gray font-medium">Spatial Design, 3D</p>
+                        </div>
+                        <span class="text-brand-dark font-bold text-lg">2022</span>
+                    </div>
+                </article>
+            </div>
+
+            <div class="mt-20 md:hidden text-center">
+                <a href="#" class="inline-block text-lg font-semibold uppercase tracking-wide border-b-2 border-brand-dark pb-1 hover:text-brand-gray hover:border-brand-gray transition-colors">
+                    View All Projects
+                </a>
+            </div>
+        </section>
+
+        <!-- About Teaser Section -->
+        <section id="about" class="px-6 md:px-12 py-32 bg-brand-light">
+            <div class="max-w-[1200px] mx-auto text-center">
+                <h2 class="text-3xl md:text-5xl lg:text-6xl font-bold text-brand-dark leading-tight tracking-tight">
+                    I believe in design that solves problems, tells compelling stories, and creates meaningful connections between brands and people.
+                </h2>
+                <div class="mt-16">
+                    <a href="#" class="inline-flex items-center justify-center px-8 py-4 bg-brand-dark text-white text-lg font-semibold uppercase tracking-wide hover:bg-brand-gray transition-colors duration-300 rounded-sm">
+                        More About Me
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer id="contact" class="bg-brand-dark text-white py-24 px-6 md:px-12">
+        <div class="max-w-[1800px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-12">
+            <div>
+                <h2 class="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter uppercase leading-[0.9] mb-12">
+                    Let's work<br>together.
+                </h2>
+                <a href="mailto:hello@chrisfairchild.co" class="text-2xl md:text-4xl font-medium border-b-2 border-white/30 pb-2 hover:border-white transition-colors duration-300">
+                    hello@chrisfairchild.co
+                </a>
+            </div>
+            
+            <div class="flex flex-col lg:items-end justify-between h-full pt-4 lg:pt-0">
+                <div class="flex space-x-8 mb-16 lg:mb-0">
+                    <a href="#" class="text-white hover:text-brand-gray transition-colors duration-300 transform hover:-translate-y-1" aria-label="Instagram">
+                        <i class="fab fa-instagram text-4xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-brand-gray transition-colors duration-300 transform hover:-translate-y-1" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin text-4xl"></i>
+                    </a>
+                    <a href="#" class="text-white hover:text-brand-gray transition-colors duration-300 transform hover:-translate-y-1" aria-label="Behance">
+                        <i class="fab fa-behance text-4xl"></i>
+                    </a>
+                </div>
+                
+                <div class="flex flex-col lg:items-end space-y-4">
+                    <nav class="flex space-x-6 text-sm font-semibold tracking-wide uppercase text-brand-gray">
+                        <a href="#work" class="hover:text-white transition-colors">Work</a>
+                        <a href="#about" class="hover:text-white transition-colors">About</a>
+                        <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                    </nav>
+                    <p class="text-brand-gray text-sm font-medium">
+                        &copy; 2024 Chris Fairchild. All rights reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript for Interactions -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Mobile Menu Logic
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn.querySelector('svg');
+            let isOpen = false;
+
+            const toggleMenu = () => {
+                isOpen = !isOpen;
+                if (isOpen) {
+                    menu.classList.remove('opacity-0', 'pointer-events-none');
+                    menu.classList.add('opacity-100', 'pointer-events-auto');
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M6 6l12 12"></path>';
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    menu.classList.add('opacity-0', 'pointer-events-none');
+                    menu.classList.remove('opacity-100', 'pointer-events-auto');
+                    icon.innerHTML = '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 6h16M4 12h16M4 18h16"></path>';
+                    document.body.style.overflow = '';
+                }
+            };
+
+            btn.addEventListener('click', toggleMenu);
+
+            // Close menu when clicking a link
+            const links = menu.querySelectorAll('a');
+            links.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (isOpen) toggleMenu();
+                });
+            });
+
+            // Header Scroll Effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.classList.add('shadow-sm', 'py-4');
+                    header.classList.remove('py-6', 'md:py-8');
+                } else {
+                    header.classList.remove('shadow-sm', 'py-4');
+                    header.classList.add('py-6', 'md:py-8');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
