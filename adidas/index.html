@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <title>adidas台灣官方購物網站</title>
+  <meta property="og:title" content="adidas台灣官方購物網站">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://cms-static.cdn.91app.com/images/original/41571/e132beac-2183-48c0-aa4c-3030054bfe6a-1703156352-8zs5oa0fs0_m_1280x720_1124x632_800x450_600x338_400x225.jpg">
+  <meta property="og:url" content="https://www.adidas.com.tw/">
+  <meta property="og:description" content="adidas 台灣官方購物網站，歡迎選購跑步、訓練、足球、籃球、網球、滑板、高爾夫、戶外、Originals等專業運動以及時尚潮流各式鞋款服飾產品。滿1500即享免運。瀏覽最新商品及優惠。">
+  <meta name="fb:app_id" content="809153884661830">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="adidas 台灣官方購物網站，歡迎選購跑步、訓練、足球、籃球、網球、滑板、高爾夫、戶外、Originals等專業運動以及時尚潮流各式鞋款服飾產品。滿1500即享免運。瀏覽最新商品及優惠。">
+  <link rel="alternate" hreflang="x-default" href="https://www.adidas.com.tw/" />
+  <link rel="alternate" href="https://www.adidas.com.tw/?lang=zh-TW" hreflang="zh-TW" />
+  <link rel="canonical" href="https://www.adidas.com.tw/" />
+  
+  <!-- Fonts & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Oswald:wght@500;700&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            condensed: ['Oswald', 'sans-serif'],
+          },
+          colors: {
+            brand: '#000000',
+            sale: '#e32b2b',
+            graybg: '#eceff1',
+            yellowpromo: '#ede734'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Custom Scrollbar & Utilities */
+    ::-webkit-scrollbar { width: 8px; height: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #888; }
+    ::-webkit-scrollbar-thumb:hover { background: #555; }
+    .hide-scroll::-webkit-scrollbar { display: none; }
+    .hide-scroll { -ms-overflow-style: none; scrollbar-width: none; }
+    
+    /* Adidas specific button hover effect */
+    .btn-adidas {
+      position: relative;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-adidas::after {
+      content: '';
+      position: absolute;
+      top: 3px;
+      left: 3px;
+      width: 100%;
+      height: 100%;
+      border: 1px solid black;
+      z-index: -1;
+      transition: all 0.1s ease-in-out;
+    }
+    .btn-adidas:hover::after {
+      top: 0px;
+      left: 0px;
+    }
+  </style>
+</head>
+<body class="font-sans text-black bg-white antialiased overflow-x-hidden">
+
+  <!-- Top Announcement Bar -->
+  <div class="bg-black text-white text-xs font-bold text-center py-2 tracking-widest uppercase cursor-pointer hover:text-gray-300 transition-colors">
+    滿1500即享免運 | 加入會員享專屬優惠 <i class="fa-solid fa-chevron-down ml-2 text-[10px]"></i>
+  </div>
+
+  <!-- Main Navigation -->
+  <header class="sticky top-0 bg-white z-50 border-b border-gray-200">
+    <div class="max-w-[1920px] mx-auto px-4 md:px-8 flex items-center justify-between h-20">
+      
+      <!-- Mobile Menu Button & Logo -->
+      <div class="flex items-center gap-4 lg:hidden">
+        <button id="mobile-menu-btn" aria-label="Menu" class="text-2xl">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+        <a href="#" class="block">
+          <svg viewBox="0 0 50 35" class="w-12 h-12">
+            <path d="M33.6 32.4L45.2 12.3c.5-.8 1.5-1.1 2.3-.6.8.5 1.1 1.5.6 2.3L36.5 34.1h-2.9v-1.7zM22.7 32.4L34.3 12.3c.5-.8 1.5-1.1 2.3-.6.8.5 1.1 1.5.6 2.3L25.6 34.1h-2.9v-1.7zM11.8 32.4L23.4 12.3c.5-.8 1.5-1.1 2.3-.6.8.5 1.1 1.5.6 2.3L14.7 34.1h-2.9v-1.7z" fill="#000"/>
+          </svg>
+        </a>
+      </div>
+
+      <!-- Desktop Logo -->
+      <a href="#" class="hidden lg:block">
+        <svg viewBox="0 0 50 35" class="w-16 h-16">
+          <path d="M33.6 32.4L45.2 12.3c.5-.8 1.5-1.1 2.3-.6.8.5 1.1 1.5.6 2.3L36.5 34.1h-2.9v-1.7zM22.7 32.4L34.3 12.3c.5-.8 1.5-1.1 2.3-.6.8.5 1.1 1.5.6 2.3L25.6 34.1h-2.9v-1.7zM11.8 32.4L23.4 12.3c.5-.8 1.5-1.1 2.3-.6.8.5 1.1 1.5.6 2.3L14.7 34.1h-2.9v-1.7z" fill="#000"/>
+        </svg>
+      </a>
+
+      <!-- Desktop Nav Links -->
+      <nav class="hidden lg:flex items-center h-full space-x-8">
+        <a href="#" class="font-bold text-sm tracking-widest uppercase h-full flex items-center border-b-2 border-transparent hover:border-black transition-colors">男子</a>
+        <a href="#" class="font-bold text-sm tracking-widest uppercase h-full flex items-center border-b-2 border-transparent hover:border-black transition-colors">女子</a>
+        <a href="#" class="font-bold text-sm tracking-widest uppercase h-full flex items-center border-b-2 border-transparent hover:border-black transition-colors">兒童</a>
+        <a href="#" class="font-bold text-sm tracking-widest uppercase h-full flex items-center border-b-2 border-transparent hover:border-black transition-colors">運動</a>
+        <a href="#" class="font-bold text-sm tracking-widest uppercase h-full flex items-center border-b-2 border-transparent hover:border-black transition-colors">品牌</a>
+        <a href="#" class="font-bold text-sm tracking-widest uppercase h-full flex items-center text-sale border-b-2 border-transparent hover:border-sale transition-colors">SALE</a>
+      </nav>
+
+      <!-- Right Icons & Search -->
+      <div class="flex items-center gap-4 md:gap-6">
+        <div class="hidden md:flex items-center bg-graybg px-4 py-2 rounded-sm">
+          <input type="text" placeholder="搜尋" class="bg-transparent outline-none text-sm w-40 placeholder-gray-500">
+          <i class="fa-solid fa-magnifying-glass text-gray-500 cursor-pointer"></i>
+        </div>
+        <a href="#" class="text-xl hover:text-gray-500 transition-colors hidden md:block"><i class="fa-regular fa-user"></i></a>
+        <a href="#" class="text-xl hover:text-gray-500 transition-colors hidden md:block"><i class="fa-regular fa-heart"></i></a>
+        <a href="#" class="text-xl hover:text-gray-500 transition-colors relative">
+          <i class="fa-solid fa-bag-shopping"></i>
+          <span class="absolute -top-2 -right-2 bg-sale text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full">0</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-menu" class="fixed inset-0 bg-white z-40 transform -translate-x-full transition-transform duration-300 lg:hidden overflow-y-auto pt-20 pb-10 px-6">
+      <div class="flex flex-col space-y-6 text-lg font-bold tracking-widest uppercase">
+        <a href="#" class="flex justify-between items-center border-b border-gray-200 pb-4">男子 <i class="fa-solid fa-chevron-right text-sm text-gray-400"></i></a>
+        <a href="#" class="flex justify-between items-center border-b border-gray-200 pb-4">女子 <i class="fa-solid fa-chevron-right text-sm text-gray-400"></i></a>
+        <a href="#" class="flex justify-between items-center border-b border-gray-200 pb-4">兒童 <i class="fa-solid fa-chevron-right text-sm text-gray-400"></i></a>
+        <a href="#" class="flex justify-between items-center border-b border-gray-200 pb-4">運動 <i class="fa-solid fa-chevron-right text-sm text-gray-400"></i></a>
+        <a href="#" class="flex justify-between items-center border-b border-gray-200 pb-4">品牌 <i class="fa-solid fa-chevron-right text-sm text-gray-400"></i></a>
+        <a href="#" class="flex justify-between items-center border-b border-gray-200 pb-4 text-sale">SALE <i class="fa-solid fa-chevron-right text-sm text-gray-400"></i></a>
+      </div>
+      <div class="mt-8 flex flex-col space-y-4 text-sm font-medium text-gray-600">
+        <a href="#" class="flex items-center gap-3"><i class="fa-regular fa-user text-xl w-6"></i> 會員中心</a>
+        <a href="#" class="flex items-center gap-3"><i class="fa-regular fa-heart text-xl w-6"></i> 願望清單</a>
+        <a href="#" class="flex items-center gap-3"><i class="fa-solid fa-truck-fast text-xl w-6"></i> 訂單查詢</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="relative w-full h-[70vh] md:h-[85vh] bg-gray-900 overflow-hidden">
+      <img src="https://images.unsplash.com/photo-1556906781-9a412961c28c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Adidas Campaign" class="w-full h-full object-cover opacity-80">
+      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+      <div class="absolute bottom-10 left-6 md:bottom-20 md:left-20 text-white max-w-2xl">
+        <h1 class="font-condensed text-5xl md:text-7xl font-bold uppercase mb-2 tracking-wide">T-TOE COLLECTION</h1>
+        <p class="text-lg md:text-xl mb-8 font-medium">SAMBA, GAZELLE, HANDBALL SPEZIAL. 經典復古，引領街頭風潮。</p>
+        <div class="flex flex-wrap gap-4">
+          <a href="#" class="btn-adidas bg-white text-black px-6 py-3 font-bold uppercase flex items-center gap-3 hover:text-gray-600">
+            選購男子鞋款 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+          <a href="#" class="btn-adidas bg-white text-black px-6 py-3 font-bold uppercase flex items-center gap-3 hover:text-gray-600">
+            選購女子鞋款 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick Categories -->
+    <section class="max-w-[1920px] mx-auto px-4 md:px-8 py-12">
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="#" class="group relative h-64 md:h-80 overflow-hidden bg-graybg">
+          <img src="https://images.unsplash.com/photo-1518002171953-a080ee817e1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Running" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 bg-white px-4 py-2 font-bold uppercase text-sm tracking-wider">跑步</div>
+        </a>
+        <a href="#" class="group relative h-64 md:h-80 overflow-hidden bg-graybg">
+          <img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Training" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 bg-white px-4 py-2 font-bold uppercase text-sm tracking-wider">訓練</div>
+        </a>
+        <a href="#" class="group relative h-64 md:h-80 overflow-hidden bg-graybg">
+          <img src="https://images.unsplash.com/photo-1511886929837-354d827aae26?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Football" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 bg-white px-4 py-2 font-bold uppercase text-sm tracking-wider">足球</div>
+        </a>
+        <a href="#" class="group relative h-64 md:h-80 overflow-hidden bg-graybg">
+          <img src="https://images.unsplash.com/photo-1549060279-7e168fcee0c2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Basketball" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+          <div class="absolute bottom-4 left-4 bg-white px-4 py-2 font-bold uppercase text-sm tracking-wider">籃球</div>
+        </a>
+      </div>
+    </section>
+
+    <!-- Trending Products Carousel -->
+    <section class="max-w-[1920px] mx-auto px-4 md:px-8 py-12">
+      <div class="flex justify-between items-end mb-8">
+        <h2 class="font-condensed text-3xl md:text-4xl font-bold uppercase tracking-wide">熱門商品</h2>
+        <a href="#" class="font-bold text-sm underline hover:text-gray-600 uppercase">查看全部</a>
+      </div>
+      
+      <div class="flex overflow-x-auto hide-scroll gap-4 pb-4">
+        
+        <!-- Product Card 1 -->
+        <div class="min-w-[280px] md:min-w-[320px] group cursor-pointer flex-shrink-0">
+          <div class="relative bg-graybg aspect-square overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1608231387042-66d1773070a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Samba OG" class="w-full h-full object-cover mix-blend-multiply">
+            <button class="absolute top-3 right-3 text-xl text-black hover:text-gray-500 z-10"><i class="fa-regular fa-heart"></i></button>
+            <div class="absolute bottom-0 left-0 bg-white px-2 py-1 text-sm font-bold border border-black transform translate-y-full group-hover:translate-y-0 transition-transform">NT$ 3,490</div>
+          </div>
+          <div class="text-sm text-gray-500 mb-1">Originals</div>
+          <div class="font-bold text-base uppercase truncate">Samba OG 運動休閒鞋</div>
+          <div class="text-sm text-gray-500 mt-1">2 種顏色</div>
+        </div>
+
+        <!-- Product Card 2 -->
+        <div class="min-w-[280px] md:min-w-[320px] group cursor-pointer flex-shrink-0">
+          <div class="relative bg-graybg aspect-square overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Ultraboost" class="w-full h-full object-cover mix-blend-multiply">
+            <button class="absolute top-3 right-3 text-xl text-black hover:text-gray-500 z-10"><i class="fa-regular fa-heart"></i></button>
+            <div class="absolute bottom-0 left-0 bg-white px-2 py-1 text-sm font-bold border border-black transform translate-y-full group-hover:translate-y-0 transition-transform">NT$ 5,990</div>
+          </div>
+          <div class="text-sm text-gray-500 mb-1">Running</div>
+          <div class="font-bold text-base uppercase truncate">Ultraboost Light 跑鞋</div>
+          <div class="text-sm text-gray-500 mt-1">5 種顏色</div>
+        </div>
+
+        <!-- Product Card 3 -->
+        <div class="min-w-[280px] md:min-w-[320px] group cursor-pointer flex-shrink-0">
+          <div class="relative bg-graybg aspect-square overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Gazelle" class="w-full h-full object-cover mix-blend-multiply">
+            <button class="absolute top-3 right-3 text-xl text-black hover:text-gray-500 z-10"><i class="fa-regular fa-heart"></i></button>
+            <div class="absolute bottom-0 left-0 bg-white px-2 py-1 text-sm font-bold border border-black transform translate-y-full group-hover:translate-y-0 transition-transform">NT$ 3,490</div>
+          </div>
+          <div class="text-sm text-gray-500 mb-1">Originals</div>
+          <div class="font-bold text-base uppercase truncate">Gazelle 運動休閒鞋</div>
+          <div class="text-sm text-gray-500 mt-1">3 種顏色</div>
+        </div>
+
+        <!-- Product Card 4 -->
+        <div class="min-w-[280px] md:min-w-[320px] group cursor-pointer flex-shrink-0">
+          <div class="relative bg-graybg aspect-square overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Superstar" class="w-full h-full object-cover mix-blend-multiply">
+            <button class="absolute top-3 right-3 text-xl text-black hover:text-gray-500 z-10"><i class="fa-regular fa-heart"></i></button>
+            <div class="absolute bottom-0 left-0 bg-white px-2 py-1 text-sm font-bold border border-black transform translate-y-full group-hover:translate-y-0 transition-transform">NT$ 3,290</div>
+          </div>
+          <div class="text-sm text-gray-500 mb-1">Originals</div>
+          <div class="font-bold text-base uppercase truncate">Superstar 經典鞋</div>
+          <div class="text-sm text-gray-500 mt-1">1 種顏色</div>
+        </div>
+
+        <!-- Product Card 5 -->
+        <div class="min-w-[280px] md:min-w-[320px] group cursor-pointer flex-shrink-0">
+          <div class="relative bg-graybg aspect-square overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="NMD" class="w-full h-full object-cover mix-blend-multiply">
+            <button class="absolute top-3 right-3 text-xl text-black hover:text-gray-500 z-10"><i class="fa-regular fa-heart"></i></button>
+            <div class="absolute bottom-0 left-0 bg-white px-2 py-1 text-sm font-bold border border-black transform translate-y-full group-hover:translate-y-0 transition-transform">NT$ 5,290</div>
+          </div>
+          <div class="text-sm text-gray-500 mb-1">Originals</div>
+          <div class="font-bold text-base uppercase truncate">NMD_R1 運動休閒鞋</div>
+          <div class="text-sm text-gray-500 mt-1">4 種顏色</div>
+        </div>
+
+        <!-- Product Card 6 -->
+        <div class="min-w-[280px] md:min-w-[320px] group cursor-pointer flex-shrink-0">
+          <div class="relative bg-graybg aspect-square overflow-hidden mb-3">
+            <img src="https://images.unsplash.com/photo-1584735175315-9d5df23860e6?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Boston 12" class="w-full h-full object-cover mix-blend-multiply">
+            <button class="absolute top-3 right-3 text-xl text-black hover:text-gray-500 z-10"><i class="fa-regular fa-heart"></i></button>
+            <div class="absolute bottom-0 left-0 bg-white px-2 py-1 text-sm font-bold border border-black transform translate-y-full group-hover:translate-y-0 transition-transform">NT$ 4,290</div>
+          </div>
+          <div class="text-sm text-gray-500 mb-1">Running</div>
+          <div class="font-bold text-base uppercase truncate">Adizero Boston 12 跑鞋</div>
+          <div class="text-sm text-gray-500 mt-1">2 種顏色</div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Secondary Banner -->
+    <section class="max-w-[1920px] mx-auto px-4 md:px-8 py-12">
+      <div class="relative w-full h-[400px] md:h-[500px] bg-gray-100 flex items-center overflow-hidden">
+        <img src="https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Originals" class="absolute inset-0 w-full h-full object-cover">
+        <div class="absolute inset-0 bg-black/40"></div>
+        <div class="relative z-10 px-8 md:px-16 text-white max-w-xl">
+          <h2 class="font-condensed text-4xl md:text-5xl font-bold uppercase mb-4">ADIDAS ORIGINALS</h2>
+          <p class="mb-8 text-lg">探索最新街頭潮流服飾與經典鞋款，展現你的原創精神。</p>
+          <a href="#" class="btn-adidas bg-white text-black px-6 py-3 font-bold uppercase inline-flex items-center gap-3 hover:text-gray-600">
+            立即選購 <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- SEO Text Block -->
+    <section class="bg-graybg py-16 px-4 md:px-8 mt-12">
+      <div class="max-w-4xl mx-auto text-center">
+        <h3 class="font-condensed text-2xl font-bold uppercase mb-4">ADIDAS 台灣官方購物網站</h3>
+        <p class="text-sm text-gray-600 leading-relaxed mb-4">
+          歡迎來到 adidas 台灣官方購物網站。我們提供最齊全的跑步、訓練、足球、籃球、網球、滑板、高爾夫、戶外等專業運動裝備，以及 Originals 經典復古與時尚潮流各式鞋款、服飾與配件產品。無論你是專業運動員還是街頭潮流愛好者，都能在這裡找到適合你的完美裝備。
+        </p>
+        <p class="text-sm text-gray-600 leading-relaxed">
+          全站消費滿 NT$1,500 即享免運優惠。加入 adiClub 會員，更可享有專屬折扣、生日禮遇及搶先購買限量商品的特權。立即瀏覽最新商品，與 adidas 一起突破極限，創造無限可能。
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-black text-white pt-16 pb-8">
+    
+    <!-- Newsletter -->
+    <div class="bg-yellowpromo text-black py-10 px-4 md:px-8 flex flex-col md:flex-row justify-center items-center gap-6 mb-16">
+      <h3 class="font-condensed text-2xl md:text-3xl font-bold uppercase">加入 ADICLUB 享專屬優惠</h3>
+      <a href="#" class="btn-adidas bg-black text-white px-8 py-4 font-bold uppercase flex items-center gap-3 hover:bg-gray-800">
+        免費註冊 <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+
+    <div class="max-w-[1920px] mx-auto px-4 md:px-8 grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+      <!-- Column 1 -->
+      <div>
+        <h4 class="font-bold text-lg uppercase mb-6">產品</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white transition-colors">鞋款</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">服飾</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">配件</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">最新上市</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">發售日曆</a></li>
+        </ul>
+      </div>
+      
+      <!-- Column 2 -->
+      <div>
+        <h4 class="font-bold text-lg uppercase mb-6">運動</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white transition-colors">跑步</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">訓練</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">籃球</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">足球</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">高爾夫</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3 -->
+      <div>
+        <h4 class="font-bold text-lg uppercase mb-6">系列</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white transition-colors">Originals</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Sportswear</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Y-3</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Ultraboost</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">Samba</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4 -->
+      <div>
+        <h4 class="font-bold text-lg uppercase mb-6">支援服務</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white transition-colors">幫助中心</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">退換貨政策</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">尺寸指南</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">訂單查詢</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">聯絡我們</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 5 -->
+      <div>
+        <h4 class="font-bold text-lg uppercase mb-6">公司資訊</h4>
+        <ul class="space-y-3 text-sm text-gray-400">
+          <li><a href="#" class="hover:text-white transition-colors">關於我們</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">職涯發展</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">媒體中心</a></li>
+          <li><a href="#" class="hover:text-white transition-colors">永續發展</a></li>
+        </ul>
+        <div class="mt-8 flex gap-4 text-xl">
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-facebook-f"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-youtube"></i></a>
+          <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fa-brands fa-line"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Legal -->
+    <div class="border-t border-gray-800 pt-8 px-4 md:px-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-500">
+      <div class="flex flex-wrap justify-center gap-4 mb-4 md:mb-0">
+        <a href="#" class="hover:text-white transition-colors">台灣</a>
+        <span class="hidden md:inline">|</span>
+        <a href="#" class="hover:text-white transition-colors">隱私權政策</a>
+        <span class="hidden md:inline">|</span>
+        <a href="#" class="hover:text-white transition-colors">條款與條件</a>
+      </div>
+      <p>© 2024 adidas Taiwan Limited All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript for Mobile Menu -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      const icon = mobileMenuBtn.querySelector('i');
+      let isMenuOpen = false;
+
+      mobileMenuBtn.addEventListener('click', () => {
+        isMenuOpen = !isMenuOpen;
+        if (isMenuOpen) {
+          mobileMenu.classList.remove('-translate-x-full');
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-xmark');
+          document.body.style.overflow = 'hidden';
+        } else {
+          mobileMenu.classList.add('-translate-x-full');
+          icon.classList.remove('fa-xmark');
+          icon.classList.add('fa-bars');
+          document.body.style.overflow = '';
+        }
+      });
+    });
+  </script>
+</body>
+</html>
