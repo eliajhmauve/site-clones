@@ -1,819 +1,693 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <meta name="theme-color" content="#FFFDF7">
-    <link rel="canonical" href="https://mk.gd/">
-    <title>Sustainable Shoes Made From Nature • Make Good®</title>
-    <meta name="description" content="Step into the future of footwear. Podiatrist-designed everyday classic shoes, made from bio-friendly materials. Meet The Derby.">
-
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome 6.4+ CDN -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
-    <!-- Alpine.js CDN for interactivity -->
-    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <style>
-        :root {
-            --color-scheme-text: 3 3 3; /* Almost black */
-            --color-scheme-background: 255 254 247; /* Off-white/cream */
-            --color-scheme-accent: 215 231 43; /* Lime green */
-            --color-scheme-accent-contrast: 0 0 0; /* Black for contrast on accent */
-            --color-scheme-secondary: 237 237 237; /* Light grey */
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sustainable Shoes Made From Nature • Make Good®</title>
+  <meta name="description" content="Step into the future of footwear. Podiatrist-designed everyday classic shoes, made from bio-friendly materials. Meet The Derby.">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+  
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            background: '#fffef7',
+            text: '#030303',
+            secondary: '#ededed',
+            accent: '#030303',
+          },
+          fontFamily: {
+            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+          }
         }
+      }
+    }
+  </script>
 
-        body {
-            font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
-            background-color: rgb(var(--color-scheme-background));
-            color: rgb(var(--color-scheme-text));
-        }
-
-        @keyframes scrolling-items {
-            0% { transform: translate3d(0, 0, 0); }
-            100% { transform: translate3d(-50%, 0, 0); }
-        }
-
-        .animate-scroll {
-            animation: scrolling-items 30s linear infinite;
-        }
-
-        .universal-popup {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            visibility: hidden;
-            opacity: 0;
-            transition: visibility 0s, opacity 0.3s ease-in-out;
-        }
-
-        .universal-popup.open {
-            visibility: visible;
-            opacity: 1;
-        }
-
-        .universal-popup-backdrop {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.5);
-        }
-
-        .universal-popup-dialog {
-            background-color: rgb(var(--color-scheme-background));
-            padding: 2rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-            position: relative;
-            z-index: 1001;
-            max-width: 90%;
-            max-height: 90%;
-            overflow-y: auto;
-            color: rgb(var(--color-scheme-text));
-        }
-
-        .universal-popup-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 2rem;
-            cursor: pointer;
-            color: rgb(var(--color-scheme-text));
-        }
-
-        .universal-popup-title {
-            font-size: 1.5rem;
-            font-weight: bold;
-            margin-bottom: 1rem;
-            text-align: center;
-        }
-
-        .universal-popup-content h2, .universal-popup-content h3 {
-            font-weight: bold;
-            margin-top: 1.5rem;
-            margin-bottom: 0.5rem;
-        }
-        .universal-popup-content h2 { font-size: 1.25rem; }
-        .universal-popup-content h3 { font-size: 1.125rem; }
-        .universal-popup-content p { margin-bottom: 1rem; line-height: 1.6; }
-        .universal-popup-content a { color: rgb(var(--color-scheme-text)); text-decoration: underline; }
-        .universal-popup-content a:hover { color: rgb(var(--color-scheme-accent)); }
-        .universal-popup-content hr { border-color: rgb(var(--color-scheme-secondary)); margin: 2rem 0; }
-
-        .size-guide-intro {
-            text-align: center;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-        }
-
-        .size-chart-scroll {
-            overflow-x: auto;
-        }
-
-        .size-chart-table {
-            width: 100%;
-            border-collapse: collapse;
-            min-width: 400px; /* Ensure table doesn't shrink too much on mobile */
-        }
-
-        .size-chart-table th, .size-chart-table td {
-            border: 1px solid rgb(var(--color-scheme-secondary));
-            padding: 0.75rem;
-            text-align: center;
-        }
-
-        .size-chart-table th {
-            background-color: rgb(var(--color-scheme-secondary));
-            font-weight: bold;
-        }
-    </style>
+  <style>
+    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
+    .animate-marquee { animation: marquee 20s linear infinite; display: flex; width: max-content; }
+    .universal-popup { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
+    .universal-popup.active { display: flex; opacity: 1; }
+    .universal-popup-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
+    .universal-popup-dialog { position: relative; background: #fffef7; width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto; padding: 2.5rem; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: translateY(20px); transition: transform 0.3s ease; }
+    .universal-popup.active .universal-popup-dialog { transform: translateY(0); }
+    .universal-popup-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2rem; line-height: 1; cursor: pointer; color: #030303; transition: color 0.2s; background: none; border: none; }
+    .universal-popup-close:hover { color: #666; }
+    .popup-content h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; text-transform: uppercase; }
+    .popup-content h3 { font-size: 1.125rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .popup-content h4 { font-size: 1rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; }
+    .popup-content p { margin-bottom: 1rem; line-height: 1.6; color: #333; }
+    .popup-content hr { margin: 2rem 0; border-color: #ededed; }
+    .popup-content a { text-decoration: underline; text-underline-offset: 4px; }
+    .popup-content a:hover { color: #666; }
+  </style>
 </head>
-<body class="antialiased">
-    <!-- Header -->
-    <header class="sticky top-0 z-50 bg-[rgb(255,254,247)] py-4 px-4 md:px-8 lg:px-12 border-b border-[rgb(237,237,237)]" x-data="{ open: false }">
-        <nav class="flex items-center justify-between max-w-7xl mx-auto">
-            <!-- Logo -->
-            <a href="#" class="flex items-center space-x-2">
-                <img src="https://mk.gd/cdn/shop/files/LOGO_2.svg?crop=center&height=32&v=1761054046&width=32" alt="Make Good Logo" class="h-8 w-8">
-                <span class="text-xl font-bold uppercase text-[rgb(3,3,3)]">Make Good®</span>
-            </a>
+<body class="bg-background text-text font-sans antialiased selection:bg-accent selection:text-white flex flex-col min-h-screen">
 
-            <!-- Desktop Navigation -->
-            <div class="hidden md:flex space-x-8">
-                <a href="#shop" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-sm font-medium">Shop</a>
-                <a href="#about" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-sm font-medium">About</a>
-                <a href="#journal" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-sm font-medium">Journal</a>
-                <a href="#contact" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-sm font-medium">Contact</a>
-            </div>
-
-            <!-- Cart Icon & Hamburger Menu -->
-            <div class="flex items-center space-x-4">
-                <a href="#cart" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)]">
-                    <i class="fa-solid fa-bag-shopping text-xl"></i>
-                </a>
-                <button @click="open = !open" class="md:hidden text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] focus:outline-none">
-                    <i class="fa-solid fa-bars text-xl" x-show="!open"></i>
-                    <i class="fa-solid fa-times text-xl" x-show="open" x-cloak></i>
-                </button>
-            </div>
-        </nav>
-
-        <!-- Mobile Navigation (Hamburger Menu Content) -->
-        <div x-show="open" x-cloak @click.away="open = false"
-             x-transition:enter="transition ease-out duration-300"
-             x-transition:enter-start="opacity-0 -translate-y-4"
-             x-transition:enter-end="opacity-100 translate-y-0"
-             x-transition:leave="transition ease-in duration-200"
-             x-transition:leave-start="opacity-100 translate-y-0"
-             x-transition:leave-end="opacity-0 -translate-y-4"
-             class="md:hidden absolute top-full left-0 w-full bg-[rgb(255,254,247)] border-b border-[rgb(237,237,237)] py-4 px-4">
-            <div class="flex flex-col space-y-4">
-                <a href="#shop" @click="open = false" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-base font-medium py-2 border-b border-[rgb(237,237,237)]">Shop</a>
-                <a href="#about" @click="open = false" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-base font-medium py-2 border-b border-[rgb(237,237,237)]">About</a>
-                <a href="#journal" @click="open = false" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-base font-medium py-2 border-b border-[rgb(237,237,237)]">Journal</a>
-                <a href="#contact" @click="open = false" class="text-[rgb(3,3,3)] hover:text-[rgb(215,231,43)] uppercase text-base font-medium py-2">Contact</a>
-            </div>
+  <!-- Navigation -->
+  <nav class="fixed w-full z-40 top-0 transition-all duration-300" id="navbar">
+    <div class="px-4 md:px-8 py-5 flex justify-between items-center bg-background/95 backdrop-blur-md border-b border-secondary">
+      <button class="md:hidden text-2xl" id="mobile-menu-btn" aria-label="Open Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+      
+      <a href="#" class="text-2xl font-bold tracking-tighter uppercase">Make Good®</a>
+      
+      <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest">
+        <a href="#shop" class="hover:text-gray-500 transition-colors">Shop</a>
+        <a href="#features" class="hover:text-gray-500 transition-colors">Features</a>
+        <a href="#about" class="hover:text-gray-500 transition-colors">About</a>
+      </div>
+      
+      <button class="text-lg flex items-center gap-3 group">
+        <span class="hidden md:inline text-sm font-bold uppercase tracking-widest group-hover:text-gray-500 transition-colors">Cart</span>
+        <div class="relative">
+          <i class="fa-solid fa-cart-shopping group-hover:text-gray-500 transition-colors"></i>
+          <span class="absolute -top-2 -right-3 bg-text text-background text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
         </div>
-    </header>
+      </button>
+    </div>
+  </nav>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="hero" class="relative h-[70vh] md:h-[85vh] bg-cover bg-center flex items-center justify-center text-center p-4"
-            style="background-image: url('https://picsum.photos/seed/mk-hero/1920/1080');">
-            <div class="absolute inset-0 bg-black opacity-20"></div>
-            <div class="relative z-10 text-white max-w-3xl mx-auto">
-                <h1 class="text-3xl md:text-6xl lg:text-7xl font-bold leading-tight mb-4 uppercase">Sustainable Shoes Made From Nature</h1>
-                <p class="text-base md:text-xl lg:text-2xl mb-8 font-light">Podiatrist-designed everyday classic shoes, made from bio-friendly materials. Meet The Derby.</p>
-                <a href="#shop" class="inline-block bg-[rgb(3,3,3)] text-[rgb(255,254,247)] px-8 py-3 rounded-full text-lg font-medium uppercase tracking-wide hover:bg-[rgb(215,231,43)] hover:text-[rgb(0,0,0)] transition-colors duration-300">
-                    Shop The Derby
-                </a>
-            </div>
-        </section>
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu" class="fixed inset-0 bg-background z-50 hidden flex-col pt-24 px-8">
+    <button id="mobile-menu-close" class="absolute top-6 left-4 text-3xl" aria-label="Close Menu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
+    <div class="flex flex-col space-y-8 text-4xl font-bold uppercase tracking-tighter mt-10">
+      <a href="#shop" class="mobile-link hover:text-gray-500 transition-colors">Shop</a>
+      <a href="#features" class="mobile-link hover:text-gray-500 transition-colors">Features</a>
+      <a href="#about" class="mobile-link hover:text-gray-500 transition-colors">About</a>
+    </div>
+    <div class="mt-auto mb-12 flex space-x-6 text-2xl">
+      <a href="#" class="hover:text-gray-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="hover:text-gray-500 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+    </div>
+  </div>
 
-        <!-- Scrolling Text Section -->
-        <section class="overflow-hidden py-4 md:py-6 bg-[rgb(215,231,43)] text-[rgb(0,0,0)] whitespace-nowrap border-y border-[rgb(0,0,0)]">
-            <div class="inline-block animate-scroll text-xl md:text-3xl lg:text-4xl font-bold uppercase py-2">
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-            </div>
-        </section>
+  <!-- Hero Section -->
+  <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-8 min-h-[90vh] flex flex-col justify-center">
+    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div class="order-2 lg:order-1 flex flex-col items-start">
+        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.9] mb-8 uppercase">
+          Sustainable<br>Shoes Made<br>From Nature
+        </h1>
+        <p class="text-lg md:text-xl mb-10 max-w-md text-gray-700 leading-relaxed">
+          Step into the future of footwear. Podiatrist-designed everyday classic shoes, made from bio-friendly materials. Meet The Derby.
+        </p>
+        <a href="#shop" class="bg-text text-background px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#333] transition-colors flex items-center gap-4">
+          Shop The Derby <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+      <div class="order-1 lg:order-2 w-full aspect-square md:aspect-[4/3] lg:aspect-square relative overflow-hidden rounded-2xl bg-secondary">
+        <img src="https://picsum.photos/seed/makegoodhero/1200/1200" alt="The Derby Shoe" class="object-cover w-full h-full hover:scale-105 transition-transform duration-1000">
+      </div>
+    </div>
+  </section>
 
-        <!-- Product/Feature Section: The Derby -->
-        <section id="shop" class="py-16 md:py-24 px-4 md:px-8 lg:px-12 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
-                <div class="order-2 lg:order-1">
-                    <img src="https://picsum.photos/seed/mk-derby/800/600" alt="The Derby Shoes" class="w-full h-auto object-cover rounded-lg shadow-lg">
-                </div>
-                <div class="order-1 lg:order-2 text-center lg:text-left">
-                    <h2 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 uppercase text-[rgb(3,3,3)]">The Derby</h2>
-                    <p class="text-lg md:text-xl leading-relaxed mb-8 text-[rgb(3,3,3)]">
-                        A classic silhouette, reimagined for a better future. Made from bio-friendly materials, designed for comfort and durability.
-                    </p>
-                    <a href="#shop-now" class="inline-block bg-[rgb(3,3,3)] text-[rgb(255,254,247)] px-8 py-3 rounded-full text-lg font-medium uppercase tracking-wide hover:bg-[rgb(215,231,43)] hover:text-[rgb(0,0,0)] transition-colors duration-300">
-                        Shop The Derby
-                    </a>
-                </div>
-            </div>
-        </section>
+  <!-- Marquee -->
+  <div class="w-full overflow-hidden bg-text text-background py-5 border-y border-text flex whitespace-nowrap">
+    <div class="animate-marquee flex space-x-8 text-sm md:text-base font-bold uppercase tracking-widest px-4">
+      <span>Podiatrist-Designed</span><span>•</span>
+      <span>Bio-Friendly Materials</span><span>•</span>
+      <span>Everyday Classic</span><span>•</span>
+      <span>Carbon Neutral</span><span>•</span>
+      <span>Podiatrist-Designed</span><span>•</span>
+      <span>Bio-Friendly Materials</span><span>•</span>
+      <span>Everyday Classic</span><span>•</span>
+      <span>Carbon Neutral</span><span>•</span>
+      <span>Podiatrist-Designed</span><span>•</span>
+      <span>Bio-Friendly Materials</span><span>•</span>
+      <span>Everyday Classic</span><span>•</span>
+      <span>Carbon Neutral</span><span>•</span>
+      <span>Podiatrist-Designed</span><span>•</span>
+      <span>Bio-Friendly Materials</span><span>•</span>
+      <span>Everyday Classic</span><span>•</span>
+      <span>Carbon Neutral</span><span>•</span>
+    </div>
+  </div>
 
-        <!-- Sustainability Features Section -->
-        <section id="about" class="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-[rgb(237,237,237)]">
-            <div class="max-w-7xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 uppercase text-[rgb(3,3,3)]">Our Commitment</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    <div class="p-6 bg-[rgb(255,254,247)] rounded-lg shadow-md">
-                        <i class="fa-solid fa-shoe-prints text-5xl text-[rgb(215,231,43)] mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2 uppercase text-[rgb(3,3,3)]">Podiatrist Designed</h3>
-                        <p class="text-[rgb(3,3,3)]">Engineered for optimal foot health and all-day comfort, ensuring every step is supported.</p>
-                    </div>
-                    <div class="p-6 bg-[rgb(255,254,247)] rounded-lg shadow-md">
-                        <i class="fa-solid fa-leaf text-5xl text-[rgb(215,231,43)] mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2 uppercase text-[rgb(3,3,3)]">Bio-Friendly Materials</h3>
-                        <p class="text-[rgb(3,3,3)]">Crafted from sustainable and recycled materials, reducing our environmental footprint.</p>
-                    </div>
-                    <div class="p-6 bg-[rgb(255,254,247)] rounded-lg shadow-md">
-                        <i class="fa-solid fa-recycle text-5xl text-[rgb(215,231,43)] mb-4"></i>
-                        <h3 class="text-xl font-bold mb-2 uppercase text-[rgb(3,3,3)]">Made To Last</h3>
-                        <p class="text-[rgb(3,3,3)]">Durable construction and timeless design mean your shoes will stand the test of time.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Scrolling Text Section (again) -->
-        <section class="overflow-hidden py-4 md:py-6 bg-[rgb(215,231,43)] text-[rgb(0,0,0)] whitespace-nowrap border-y border-[rgb(0,0,0)]">
-            <div class="inline-block animate-scroll text-xl md:text-3xl lg:text-4xl font-bold uppercase py-2">
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-                <span class="px-8">MAKE GOOD® —</span>
-            </div>
-        </section>
-
-        <!-- Image Gallery/Product Showcase -->
-        <section class="py-16 md:py-24 px-4 md:px-8 lg:px-12 max-w-7xl mx-auto">
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <img src="https://picsum.photos/seed/mk-gallery1/600/800" alt="Shoes in nature" class="w-full h-auto object-cover rounded-lg shadow-md">
-                <img src="https://picsum.photos/seed/mk-gallery2/600/800" alt="Shoes close-up" class="w-full h-auto object-cover rounded-lg shadow-md">
-                <img src="https://picsum.photos/seed/mk-gallery3/600/800" alt="Shoes on person" class="w-full h-auto object-cover rounded-lg shadow-md">
-                <img src="https://picsum.photos/seed/mk-gallery4/600/800" alt="Shoes on pavement" class="w-full h-auto object-cover rounded-lg shadow-md md:col-span-2 lg:col-span-1">
-                <img src="https://picsum.photos/seed/mk-gallery5/600/800" alt="Shoes with outfit" class="w-full h-auto object-cover rounded-lg shadow-md lg:col-span-2">
-            </div>
-        </section>
-
-        <!-- Testimonials Section (Slider) -->
-        <section id="journal" class="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-[rgb(237,237,237)]" x-data="{ activeSlide: 0, slides: [
-            { quote: 'These are the most comfortable and stylish shoes I own. Plus, knowing they\'re sustainable makes them even better!', author: 'Sarah J.' },
-            { quote: 'I\'ve been looking for eco-friendly footwear that doesn\'t compromise on design, and Make Good delivered perfectly.', author: 'Mark T.' },
-            { quote: 'From the moment I put them on, I knew these were special. Great quality and fantastic mission.', author: 'Emily R.' },
-            { quote: 'Finally, a shoe that feels good and does good. Highly recommend!', author: 'David L.' }
-        ]}">
-            <div class="max-w-4xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-12 uppercase text-[rgb(3,3,3)]">What Our Customers Say</h2>
-
-                <div class="relative">
-                    <!-- Slides -->
-                    <div class="overflow-hidden">
-                        <div class="flex transition-transform duration-500 ease-in-out" :style="`transform: translateX(-${activeSlide * 100}%)`">
-                            <template x-for="(slide, index) in slides" :key="index">
-                                <div class="w-full flex-shrink-0 p-4">
-                                    <p class="text-xl md:text-2xl italic mb-6 text-[rgb(3,3,3)]" x-text="`&ldquo;${slide.quote}&rdquo;`"></p>
-                                    <p class="text-lg font-semibold text-[rgb(3,3,3)]" x-text="slide.author"></p>
-                                </div>
-                            </template>
-                        </div>
-                    </div>
-
-                    <!-- Navigation Buttons -->
-                    <button @click="activeSlide = (activeSlide === 0) ? slides.length - 1 : activeSlide - 1"
-                            class="absolute left-0 top-1/2 -translate-y-1/2 bg-[rgb(3,3,3)] text-[rgb(255,254,247)] p-3 rounded-full shadow-md hover:bg-[rgb(215,231,43)] hover:text-[rgb(0,0,0)] transition-colors duration-300">
-                        <i class="fa-solid fa-chevron-left"></i>
-                    </button>
-                    <button @click="activeSlide = (activeSlide === slides.length - 1) ? 0 : activeSlide + 1"
-                            class="absolute right-0 top-1/2 -translate-y-1/2 bg-[rgb(3,3,3)] text-[rgb(255,254,247)] p-3 rounded-full shadow-md hover:bg-[rgb(215,231,43)] hover:text-[rgb(0,0,0)] transition-colors duration-300">
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </button>
-
-                    <!-- Dots Indicator -->
-                    <div class="flex justify-center space-x-2 mt-8">
-                        <template x-for="(slide, index) in slides" :key="index">
-                            <button @click="activeSlide = index"
-                                    :class="{ 'bg-[rgb(3,3,3)]': activeSlide === index, 'bg-[rgb(157,157,157)]': activeSlide !== index }"
-                                    class="w-3 h-3 rounded-full transition-colors duration-300"></button>
-                        </template>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section (Accordion) -->
-        <section id="contact" class="py-16 md:py-24 px-4 md:px-8 lg:px-12 max-w-4xl mx-auto">
-            <h2 class="text-3xl md:text-4xl font-bold mb-12 text-center uppercase text-[rgb(3,3,3)]">Frequently Asked Questions</h2>
-
-            <div class="space-y-4">
-                <div x-data="{ open: false }" class="border border-[rgb(237,237,237)] rounded-lg">
-                    <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left text-lg font-medium text-[rgb(3,3,3)] hover:bg-[rgb(237,237,237)] transition-colors duration-200">
-                        <span>What are Make Good shoes made from?</span>
-                        <i class="fa-solid" :class="open ? 'fa-minus' : 'fa-plus'"></i>
-                    </button>
-                    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-5 pb-5 text-[rgb(3,3,3)] overflow-hidden">
-                        <p>Our shoes are crafted from a blend of innovative bio-friendly materials, including recycled plastics, natural rubber, and plant-based leathers, minimizing environmental impact.</p>
-                    </div>
-                </div>
-
-                <div x-data="{ open: false }" class="border border-[rgb(237,237,237)] rounded-lg">
-                    <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left text-lg font-medium text-[rgb(3,3,3)] hover:bg-[rgb(237,237,237)] transition-colors duration-200">
-                        <span>Are they waterproof?</span>
-                        <i class="fa-solid" :class="open ? 'fa-minus' : 'fa-plus'"></i>
-                    </button>
-                    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-5 pb-5 text-[rgb(3,3,3)] overflow-hidden">
-                        <p>While our shoes are designed to be water-resistant and handle light rain, they are not fully waterproof. We recommend avoiding prolonged exposure to heavy water.</p>
-                    </div>
-                </div>
-
-                <div x-data="{ open: false }" class="border border-[rgb(237,237,237)] rounded-lg">
-                    <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left text-lg font-medium text-[rgb(3,3,3)] hover:bg-[rgb(237,237,237)] transition-colors duration-200">
-                        <span>How do I care for my shoes?</span>
-                        <i class="fa-solid" :class="open ? 'fa-minus' : 'fa-plus'"></i>
-                    </button>
-                    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-5 pb-5 text-[rgb(3,3,3)] overflow-hidden">
-                        <p>For best care, wipe them clean with a damp cloth and mild soap. Air dry away from direct sunlight. Avoid machine washing.</p>
-                    </div>
-                </div>
-
-                <div x-data="{ open: false }" class="border border-[rgb(237,237,237)] rounded-lg">
-                    <button @click="open = !open" class="flex justify-between items-center w-full p-5 text-left text-lg font-medium text-[rgb(3,3,3)] hover:bg-[rgb(237,237,237)] transition-colors duration-200">
-                        <span>What is your returns policy?</span>
-                        <i class="fa-solid" :class="open ? 'fa-minus' : 'fa-plus'"></i>
-                    </button>
-                    <div x-show="open" x-cloak x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0 max-h-0" x-transition:enter-end="opacity-100 max-h-screen" x-transition:leave="transition ease-in duration-200" x-transition:leave-start="opacity-100 max-h-screen" x-transition:leave-end="opacity-0 max-h-0" class="px-5 pb-5 text-[rgb(3,3,3)] overflow-hidden">
-                        <p>We offer free returns and exchanges within Australia and New Zealand within 14 days of delivery. Shoes must be clean, in original condition, and tried indoors only. For international returns, please see our full policy.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Newsletter Signup -->
-        <section class="py-16 md:py-24 px-4 md:px-8 lg:px-12 bg-[rgb(215,231,43)] text-[rgb(0,0,0)]">
-            <div class="max-w-3xl mx-auto text-center">
-                <h2 class="text-3xl md:text-4xl font-bold mb-4 uppercase">Join the Good Life</h2>
-                <p class="text-lg md:text-xl mb-8">Be the first to know about new products, sales, and sustainability initiatives.</p>
-                <form class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <input type="email" placeholder="Enter your email" aria-label="Email address"
-                           class="w-full sm:w-auto flex-grow px-6 py-3 rounded-full border border-[rgb(0,0,0)] bg-[rgb(255,254,247)] text-[rgb(3,3,3)] focus:outline-none focus:ring-2 focus:ring-[rgb(3,3,3)]">
-                    <button type="submit" class="w-full sm:w-auto bg-[rgb(3,3,3)] text-[rgb(255,254,247)] px-8 py-3 rounded-full text-lg font-medium uppercase tracking-wide hover:bg-[rgb(255,254,247)] hover:text-[rgb(0,0,0)] border border-[rgb(3,3,3)] transition-colors duration-300">
-                        Subscribe
-                    </button>
-                </form>
-            </div>
-        </section>
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[rgb(3,3,3)] text-[rgb(255,254,247)] py-16 md:py-24 px-4 md:px-8 lg:px-12">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-            <!-- Logo & Social -->
-            <div class="col-span-1 md:col-span-1">
-                <a href="#" class="flex items-center space-x-2 mb-6">
-                    <img src="https://mk.gd/cdn/shop/files/LOGO_2.svg?crop=center&height=32&v=1761054046&width=32" alt="Make Good Logo" class="h-8 w-8 filter invert">
-                    <span class="text-xl font-bold uppercase">Make Good®</span>
-                </a>
-                <div class="flex space-x-4">
-                    <a href="https://instagram.com/makegood" target="_blank" rel="noopener noreferrer" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300">
-                        <i class="fa-brands fa-instagram text-2xl"></i>
-                    </a>
-                    <a href="https://facebook.com/makegood" target="_blank" rel="noopener noreferrer" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300">
-                        <i class="fa-brands fa-facebook-f text-2xl"></i>
-                    </a>
-                    <a href="https://pinterest.com/makegood" target="_blank" rel="noopener noreferrer" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300">
-                        <i class="fa-brands fa-pinterest-p text-2xl"></i>
-                    </a>
-                </div>
-            </div>
-
-            <!-- Shop Links -->
-            <div>
-                <h3 class="text-lg font-bold mb-4 uppercase">Shop</h3>
-                <ul class="space-y-2">
-                    <li><a href="#shop" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">The Derby</a></li>
-                    <li><a href="#accessories" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">Accessories</a></li>
-                    <li><a href="#gift-cards" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">Gift Cards</a></li>
-                </ul>
-            </div>
-
-            <!-- About Links -->
-            <div>
-                <h3 class="text-lg font-bold mb-4 uppercase">About</h3>
-                <ul class="space-y-2">
-                    <li><a href="#our-story" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">Our Story</a></li>
-                    <li><a href="#journal" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">Journal</a></li>
-                    <li><a href="#contact" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">Contact</a></li>
-                </ul>
-            </div>
-
-            <!-- Help Links -->
-            <div>
-                <h3 class="text-lg font-bold mb-4 uppercase">Help</h3>
-                <ul class="space-y-2">
-                    <li><a href="#faq" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm">FAQs</a></li>
-                    <li><button onclick="openPopup('popup-shipping')" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm block w-full text-left">Shipping</button></li>
-                    <li><button onclick="openPopup('popup-returns')" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm block w-full text-left">Returns</button></li>
-                    <li><button onclick="openPopup('popup-size-chart')" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm block w-full text-left">Size Guide</button></li>
-                    <li><button onclick="openPopup('popup-terms')" class="text-[rgb(255,254,247)] hover:text-[rgb(215,231,43)] transition-colors duration-300 text-sm block w-full text-left">Terms & Privacy</button></li>
-                </ul>
-            </div>
+  <!-- Features Section -->
+  <section id="features" class="py-24 md:py-32 px-4 md:px-8 bg-[#f5f4ef]">
+    <div class="max-w-7xl mx-auto">
+      <div class="text-center mb-16 md:mb-24">
+        <h2 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-6">Made For Good</h2>
+        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">We believe in creating footwear that respects the planet without compromising on style, durability, or all-day comfort.</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
+        <div class="group cursor-pointer">
+          <div class="overflow-hidden rounded-2xl mb-8 aspect-[4/3] bg-secondary">
+            <img src="https://picsum.photos/seed/biofriendly/1000/750" alt="Bio-friendly materials" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">Bio-Friendly Materials</h3>
+          <p class="text-gray-700 leading-relaxed text-lg">Crafted from innovative plant-based materials and recycled components, reducing our carbon footprint step by step while maintaining premium quality.</p>
         </div>
-
-        <div class="border-t border-[rgb(157,157,157)] mt-12 pt-8 text-center text-sm">
-            <p>&copy; 2024 Make Good®. All rights reserved.</p>
-            <div class="flex justify-center items-center space-x-4 mt-4">
-                <i class="fa-brands fa-cc-visa text-2xl"></i>
-                <i class="fa-brands fa-cc-mastercard text-2xl"></i>
-                <i class="fa-brands fa-cc-amex text-2xl"></i>
-                <i class="fa-brands fa-paypal text-2xl"></i>
-                <i class="fa-brands fa-shopify text-2xl"></i>
-                <i class="fa-brands fa-google-pay text-2xl"></i>
-                <i class="fa-brands fa-apple-pay text-2xl"></i>
-            </div>
+        <div class="group cursor-pointer mt-0 md:mt-24">
+          <div class="overflow-hidden rounded-2xl mb-8 aspect-[4/3] bg-secondary">
+            <img src="https://picsum.photos/seed/podiatrist/1000/750" alt="Podiatrist Designed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
+          </div>
+          <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">Podiatrist Designed</h3>
+          <p class="text-gray-700 leading-relaxed text-lg">Engineered for all-day comfort with anatomical arch support, a wider toe box for natural splay, and shock-absorbing natural rubber soles.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <!-- Popups -->
-    <!-- TERMS & PRIVACY POPUP -->
-    <div id="popup-terms" class="universal-popup">
-      <div class="universal-popup-backdrop" onclick="closePopup('popup-terms')"></div>
-      <div class="universal-popup-dialog">
-        <button class="universal-popup-close" aria-label="Close" onclick="closePopup('popup-terms')">&times;</button>
-        <h2 class="universal-popup-title">Terms & Privacy</h2>
+  <!-- Product Section -->
+  <section id="shop" class="py-24 md:py-32 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
+      
+      <!-- Product Images Gallery -->
+      <div class="relative">
+        <div class="lg:sticky lg:top-32 grid grid-cols-1 gap-4">
+          <div class="aspect-square rounded-2xl overflow-hidden bg-secondary">
+            <img src="https://picsum.photos/seed/derby1/1200/1200" alt="The Derby - Main" class="w-full h-full object-cover transition-opacity duration-300" id="main-product-image">
+          </div>
+          <div class="grid grid-cols-4 gap-4">
+            <button class="aspect-square rounded-xl overflow-hidden border-2 border-text product-thumb" data-src="https://picsum.photos/seed/derby1/1200/1200">
+              <img src="https://picsum.photos/seed/derby1/300/300" alt="Thumb 1" class="w-full h-full object-cover">
+            </button>
+            <button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-text/50 product-thumb" data-src="https://picsum.photos/seed/derby2/1200/1200">
+              <img src="https://picsum.photos/seed/derby2/300/300" alt="Thumb 2" class="w-full h-full object-cover">
+            </button>
+            <button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-text/50 product-thumb" data-src="https://picsum.photos/seed/derby3/1200/1200">
+              <img src="https://picsum.photos/seed/derby3/300/300" alt="Thumb 3" class="w-full h-full object-cover">
+            </button>
+            <button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-text/50 product-thumb" data-src="https://picsum.photos/seed/derby4/1200/1200">
+              <img src="https://picsum.photos/seed/derby4/300/300" alt="Thumb 4" class="w-full h-full object-cover">
+            </button>
+          </div>
+        </div>
+      </div>
 
-        <div class="universal-popup-content">
+      <!-- Product Info -->
+      <div class="flex flex-col pt-4 lg:pt-10">
+        <div class="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gray-500">
+          <span>Make Good®</span>
+        </div>
+        <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-4">The Derby</h1>
+        <div class="text-2xl md:text-3xl mb-8">$189.00 AUD</div>
         
-    <h2>TERMS OF SERVICE</h2>
+        <p class="text-gray-700 mb-10 leading-relaxed text-lg">
+          The everyday classic, reimagined. A unisex derby shoe designed by podiatrists for ultimate comfort, made entirely from bio-friendly and recycled materials. Step lightly on the earth.
+        </p>
 
-    <h3>Access and account</h3>
-    <p><strong>SECTION 1</strong></p>
-    <p>By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, and you have given us your consent to allow any of your minor dependents to use the Services on devices you own, purchase or manage.</p>
-    <p>To use the Services, you may be asked to provide information such as your email address, billing, payment, and shipping information. You represent and warrant that all information you provide is correct, current, and complete.</p>
-    <p>You are solely responsible for maintaining the security of your account credentials and all activity under your account. You may not transfer or assign your account.</p>
+        <!-- Color Selection -->
+        <div class="mb-10">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-sm font-bold uppercase tracking-widest">Color: <span id="color-name" class="text-gray-500">Onyx Black</span></span>
+          </div>
+          <div class="flex gap-4">
+            <button class="w-12 h-12 rounded-full bg-[#1a1a1a] border border-gray-300 ring-2 ring-offset-4 ring-text transition-all" aria-label="Onyx Black"></button>
+            <button class="w-12 h-12 rounded-full bg-[#e8e5df] border border-gray-300 ring-2 ring-offset-4 ring-transparent hover:ring-gray-300 transition-all" aria-label="Oatmeal"></button>
+            <button class="w-12 h-12 rounded-full bg-[#4a5d4e] border border-gray-300 ring-2 ring-offset-4 ring-transparent hover:ring-gray-300 transition-all" aria-label="Olive Green"></button>
+          </div>
+        </div>
 
-    <h3>Our products</h3>
-    <p><strong>SECTION 2</strong></p>
-    <p>We make reasonable efforts to display products accurately. However, colors and appearance may vary depending on your device. We do not guarantee that product appearance or quality will meet expectations.</p>
-    <p>Product descriptions and availability may change without notice.</p>
+        <!-- Size Selection -->
+        <div class="mb-10">
+          <div class="flex justify-between items-center mb-4">
+            <span class="text-sm font-bold uppercase tracking-widest">Select Size (EU)</span>
+            <button class="text-sm font-bold uppercase tracking-widest underline underline-offset-4 hover:text-gray-500 transition-colors popup-trigger" data-target="popup-size-chart">Size Guide</button>
+          </div>
+          <div class="grid grid-cols-4 md:grid-cols-5 gap-3">
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">37</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">38</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">39</button>
+            <button class="py-4 border border-text bg-text text-background rounded-xl text-sm font-bold transition-colors size-btn active">40</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">41</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">42</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">43</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">44</button>
+            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">45</button>
+            <button class="py-4 border border-gray-200 rounded-xl text-sm font-bold text-gray-400 cursor-not-allowed bg-gray-50" disabled>46</button>
+          </div>
+        </div>
 
-    <h3>Orders</h3>
-    <p><strong>SECTION 3</strong></p>
-    <p>Placing an order constitutes an offer to purchase. Orders are not accepted until confirmed by Make Good and payment is processed. Cancellation may not be possible after acceptance.</p>
-    <p>Returns and exchanges are governed by our Refund Policy [LINK]. Purchases are for personal use only.</p>
+        <!-- Add to Cart -->
+        <button class="w-full bg-text text-background py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#333] transition-colors mb-12 flex justify-center items-center gap-3">
+          Add to Cart <i class="fa-solid fa-cart-plus"></i>
+        </button>
 
-    <h3>Prices and billing</h3>
-    <p><strong>SECTION 4</strong></p>
-    <p>Prices are subject to change without notice and exclude taxes and shipping unless stated. Promotions may be governed by separate terms.</p>
-    <p>You agree to provide accurate payment information and authorise charges incurred.</p>
+        <!-- Accordions -->
+        <div class="border-t border-gray-300">
+          <div class="accordion-item border-b border-gray-300">
+            <button class="accordion-header w-full py-6 flex justify-between items-center text-left font-bold uppercase tracking-widest text-sm hover:text-gray-600 transition-colors">
+              Materials & Care
+              <i class="fa-solid fa-plus transition-transform duration-300 text-lg"></i>
+            </button>
+            <div class="accordion-content hidden pb-6 text-gray-700 text-base leading-relaxed">
+              <ul class="list-disc pl-5 space-y-3">
+                <li><strong>Upper:</strong> 100% Bio-based vegan leather (corn & apple waste)</li>
+                <li><strong>Lining:</strong> Organic cotton & bamboo blend for breathability</li>
+                <li><strong>Outsole:</strong> Natural rubber & recycled cork for shock absorption</li>
+                <li><strong>Laces:</strong> 100% Recycled PET</li>
+                <li><strong>Care:</strong> Wipe clean with a damp cloth. Do not machine wash or tumble dry.</li>
+              </ul>
+            </div>
+          </div>
+          <div class="accordion-item border-b border-gray-300">
+            <button class="accordion-header w-full py-6 flex justify-between items-center text-left font-bold uppercase tracking-widest text-sm hover:text-gray-600 transition-colors">
+              Shipping & Returns
+              <i class="fa-solid fa-plus transition-transform duration-300 text-lg"></i>
+            </button>
+            <div class="accordion-content hidden pb-6 text-gray-700 text-base leading-relaxed">
+              <p class="mb-3">Free shipping on all orders within Australia and New Zealand.</p>
+              <p class="mb-4">We offer free returns and exchanges within 14 days of delivery, provided shoes are in original condition.</p>
+              <div class="flex flex-col sm:flex-row gap-4 mt-6">
+                <button class="text-sm font-bold uppercase tracking-widest underline underline-offset-4 hover:text-black transition-colors popup-trigger" data-target="popup-shipping">Full Shipping Policy</button>
+                <button class="text-sm font-bold uppercase tracking-widest underline underline-offset-4 hover:text-black transition-colors popup-trigger" data-target="popup-returns">Full Returns Policy</button>
+              </div>
+            </div>
+          </div>
+        </div>
 
-    <h3>Shipping and delivery</h3>
-    <p><strong>SECTION 5</strong></p>
-    <p>Delivery times are estimates only. Risk passes to you once products are transferred to the carrier.</p>
+      </div>
+    </div>
+  </section>
 
-    <h3>Intellectual property</h3>
-    <p><strong>SECTION 6</strong></p>
-    <p>All content on the Services is owned by Make Good or its licensors and protected by intellectual property laws. Use is permitted for personal, non-commercial purposes only.</p>
+  <!-- Image Banner -->
+  <section id="about" class="w-full h-[60vh] md:h-[80vh] relative">
+    <img src="https://picsum.photos/seed/makegoodbanner/1920/1080" alt="Lifestyle" class="w-full h-full object-cover">
+    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
+      <h2 class="text-white text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter text-center px-4 leading-[0.9]">Walk Lighter.<br>Live Better.</h2>
+    </div>
+  </section>
 
-    <h3>Optional tools</h3>
-    <p><strong>SECTION 7</strong></p>
-    <p>Third-party tools are provided “as is” without warranties. Use is at your own risk.</p>
+  <!-- Footer -->
+  <footer class="bg-text text-background pt-24 pb-12 px-4 md:px-8 mt-auto">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
+      <div class="md:col-span-5 lg:col-span-6">
+        <h3 class="text-4xl font-bold uppercase tracking-tighter mb-6">Make Good®</h3>
+        <p class="text-gray-400 max-w-md mb-10 text-lg leading-relaxed">Sustainable footwear designed by podiatrists. Made from nature, for everyday life.</p>
+        <form class="flex flex-col sm:flex-row gap-4 max-w-md">
+          <input type="email" placeholder="Enter your email" required class="bg-transparent border-b border-gray-600 px-0 py-3 w-full focus:outline-none focus:border-white text-white placeholder-gray-500 transition-colors">
+          <button type="submit" class="font-bold uppercase tracking-widest text-sm hover:text-gray-300 whitespace-nowrap py-3 text-left sm:text-center">Subscribe</button>
+        </form>
+      </div>
+      
+      <div class="md:col-span-3 lg:col-span-3">
+        <h4 class="font-bold uppercase tracking-widest text-sm mb-8 text-gray-500">Shop</h4>
+        <ul class="space-y-5 text-base">
+          <li><a href="#shop" class="hover:text-gray-300 transition-colors">The Derby</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors">Gift Cards</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-size-chart">Size Guide</a></li>
+        </ul>
+      </div>
 
-    <h3>Third-party links</h3>
-    <p><strong>SECTION 8</strong></p>
-    <p>We are not responsible for third-party websites or content. Accessing them is at your own risk.</p>
+      <div class="md:col-span-4 lg:col-span-3">
+        <h4 class="font-bold uppercase tracking-widest text-sm mb-8 text-gray-500">Support</h4>
+        <ul class="space-y-5 text-base">
+          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-shipping">Shipping</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-returns">Returns</a></li>
+          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-terms">Terms & Privacy</a></li>
+          <li><a href="mailto:hello@mk.gd" class="hover:text-gray-300 transition-colors">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <h3>Relationship with Shopify</h3>
-    <p><strong>SECTION 9</strong></p>
-    <p>Make Good is powered by Shopify. Shopify is not responsible for sales or transactions made through the Store, and you release Shopify from related claims.</p>
+    <div class="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
+      <p class="text-sm text-gray-500">© 2024 Make Good Collective. All rights reserved.</p>
+      <div class="flex space-x-8 text-xl text-gray-400">
+        <a href="#" class="hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="hover:text-white transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
+        <a href="#" class="hover:text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+      </div>
+    </div>
+  </footer>
 
-    <h3>Feedback</h3>
-    <p><strong>SECTION 11</strong></p>
-    <p>You grant us a perpetual, royalty-free licence to use any feedback you submit. We are not required to compensate or respond.</p>
+  <!-- POPUPS -->
 
-    <h3>Errors and omissions</h3>
-    <p><strong>SECTION 12</strong></p>
-    <p>We reserve the right to correct errors and cancel orders if information is inaccurate.</p>
+  <!-- TERMS & PRIVACY POPUP -->
+  <div id="popup-terms" class="universal-popup">
+    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-dialog">
+      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
+      <div class="popup-content">
+        <h2>Terms & Privacy</h2>
+        
+        <h2>TERMS OF SERVICE</h2>
+        <h3>Access and account</h3>
+        <p><strong>SECTION 1</strong></p>
+        <p>By agreeing to these Terms of Service, you represent that you are at least the age of majority in your state or province of residence, and you have given us your consent to allow any of your minor dependents to use the Services on devices you own, purchase or manage.</p>
+        <p>To use the Services, you may be asked to provide information such as your email address, billing, payment, and shipping information. You represent and warrant that all information you provide is correct, current, and complete.</p>
+        <p>You are solely responsible for maintaining the security of your account credentials and all activity under your account. You may not transfer or assign your account.</p>
 
-    <h3>Prohibited uses</h3>
-    <p><strong>SECTION 13</strong></p>
-    <p>You may not misuse the Services, violate laws, infringe rights, transmit malware, or interfere with site security.</p>
+        <h3>Our products</h3>
+        <p><strong>SECTION 2</strong></p>
+        <p>We make reasonable efforts to display products accurately. However, colors and appearance may vary depending on your device. We do not guarantee that product appearance or quality will meet expectations.</p>
+        <p>Product descriptions and availability may change without notice.</p>
 
-    <h3>Termination</h3>
-    <p><strong>SECTION 14</strong></p>
-    <p>We may terminate access at any time. Obligations incurred prior to termination remain enforceable.</p>
+        <h3>Orders</h3>
+        <p><strong>SECTION 3</strong></p>
+        <p>Placing an order constitutes an offer to purchase. Orders are not accepted until confirmed by Make Good and payment is processed. Cancellation may not be possible after acceptance.</p>
+        <p>Returns and exchanges are governed by our Refund Policy. Purchases are for personal use only.</p>
 
-    <h3>Disclaimer of warranties</h3>
-    <p><strong>SECTION 15</strong></p>
-    <p>The Services are provided “as is” without warranties to the fullest extent permitted by law.</p>
+        <h3>Prices and billing</h3>
+        <p><strong>SECTION 4</strong></p>
+        <p>Prices are subject to change without notice and exclude taxes and shipping unless stated. Promotions may be governed by separate terms.</p>
+        <p>You agree to provide accurate payment information and authorise charges incurred.</p>
 
-    <h3>Limitation of liability</h3>
-    <p><strong>SECTION 16</strong></p>
-    <p>Make Good and Shopify will not be liable for indirect or consequential damages.</p>
+        <h3>Shipping and delivery</h3>
+        <p><strong>SECTION 5</strong></p>
+        <p>Delivery times are estimates only. Risk passes to you once products are transferred to the carrier.</p>
 
-    <h3>Indemnification</h3>
-    <p><strong>SECTION 17</strong></p>
-    <p>You agree to indemnify Make Good and Shopify against claims arising from your use of the Services.</p>
+        <h3>Intellectual property</h3>
+        <p><strong>SECTION 6</strong></p>
+        <p>All content on the Services is owned by Make Good or its licensors and protected by intellectual property laws. Use is permitted for personal, non-commercial purposes only.</p>
 
-    <h3>Governing law</h3>
-    <p><strong>SECTION 21</strong></p>
-    <p>These Terms are governed by the laws of the jurisdiction where Make Good is headquartered.</p>
+        <h3>Optional tools</h3>
+        <p><strong>SECTION 7</strong></p>
+        <p>Third-party tools are provided “as is” without warranties. Use is at your own risk.</p>
 
-    <h3>Contact information</h3>
-    <p><strong>SECTION 24</strong></p>
-    <p>hello@mk.gd<br>Make Good Collective<br>Cottesloe, Western Australia<br>ABN 46648446379</p>
+        <h3>Third-party links</h3>
+        <p><strong>SECTION 8</strong></p>
+        <p>We are not responsible for third-party websites or content. Accessing them is at your own risk.</p>
 
-    <hr>
+        <h3>Relationship with Shopify</h3>
+        <p><strong>SECTION 9</strong></p>
+        <p>Make Good is powered by Shopify. Shopify is not responsible for sales or transactions made through the Store, and you release Shopify from related claims.</p>
 
-    <h2>PRIVACY POLICY</h2>
+        <h3>Feedback</h3>
+        <p><strong>SECTION 11</strong></p>
+        <p>You grant us a perpetual, royalty-free licence to use any feedback you submit. We are not required to compensate or respond.</p>
 
-    <p>This Privacy Policy applies to personal information collected by Make Good Collective via www.mk.gd.</p>
+        <h3>Errors and omissions</h3>
+        <p><strong>SECTION 12</strong></p>
+        <p>We reserve the right to correct errors and cancel orders if information is inaccurate.</p>
 
-    <h3>What information do we collect?</h3>
-    <p><strong>SECTION 1</strong></p>
-    <p>We may collect login credentials, payment details, email address, name, phone number, and address.</p>
+        <h3>Prohibited uses</h3>
+        <p><strong>SECTION 13</strong></p>
+        <p>You may not misuse the Services, violate laws, infringe rights, transmit malware, or interfere with site security.</p>
 
-    <h3>Types of information</h3>
-    <p><strong>SECTION 2</strong></p>
-    <p>Personal Information identifies an individual. Sensitive Information includes health, political, religious, or criminal data and is used only with consent or where required by law.</p>
+        <h3>Termination</h3>
+        <p><strong>SECTION 14</strong></p>
+        <p>We may terminate access at any time. Obligations incurred prior to termination remain enforceable.</p>
 
-    <h3>How we collect personal information</h3>
-    <p><strong>SECTION 3</strong></p>
-    <p>Information is collected directly, through cookies, or from third parties. Cookies may be essential, analytical, or marketing and retained for up to [DAYS] days.</p>
+        <h3>Disclaimer of warranties</h3>
+        <p><strong>SECTION 15</strong></p>
+        <p>The Services are provided “as is” without warranties to the fullest extent permitted by law.</p>
 
-    <h3>Purpose of collection</h3>
-    <p><strong>SECTION 4</strong></p>
-    <p>Information is used to operate the Website, provide services, and send marketing communications. You may opt out at any time.</p>
+        <h3>Limitation of liability</h3>
+        <p><strong>SECTION 16</strong></p>
+        <p>Make Good and Shopify will not be liable for indirect or consequential damages.</p>
 
-    <h3>Security, access and correction</h3>
-    <p><strong>SECTION 5</strong></p>
-    <p>We use reasonable security measures and retain records for up to 7 years. You may request access or correction under the Australian Privacy Principles.</p>
+        <h3>Indemnification</h3>
+        <p><strong>SECTION 17</strong></p>
+        <p>You agree to indemnify Make Good and Shopify against claims arising from your use of the Services.</p>
 
-    <h3>Complaints</h3>
-    <p><strong>SECTION 6</strong></p>
-    <p>Complaints may be escalated to the Office of the Australian Information Commissioner if unresolved.</p>
+        <h3>Governing law</h3>
+        <p><strong>SECTION 21</strong></p>
+        <p>These Terms are governed by the laws of the jurisdiction where Make Good is headquartered.</p>
 
-    <h3>Overseas transfers</h3>
-    <p><strong>SECTION 8</strong></p>
-    <p>Personal Information may be processed in the USA or Europe.</p>
+        <h3>Contact information</h3>
+        <p><strong>SECTION 24</strong></p>
+        <p>hello@mk.gd<br>Make Good Collective<br>Cottesloe, Western Australia<br>ABN 46648446379</p>
 
-    <h3>GDPR</h3>
-    <p><strong>SECTION 9</strong></p>
-    <p>Our Website does not target or monitor EU residents. GDPR does not apply.</p>
+        <hr>
 
-    <h3>Contact</h3>
-    <p><strong>SECTION 10</strong></p>
-    <p><a href="mailto:hello@mk.gd">hello@mk.gd</a></p>
+        <h2>PRIVACY POLICY</h2>
+        <p>This Privacy Policy applies to personal information collected by Make Good Collective via www.mk.gd.</p>
 
+        <h3>What information do we collect?</h3>
+        <p><strong>SECTION 1</strong></p>
+        <p>We may collect login credentials, payment details, email address, name, phone number, and address.</p>
+
+        <h3>Types of information</h3>
+        <p><strong>SECTION 2</strong></p>
+        <p>Personal Information identifies an individual. Sensitive Information includes health, political, religious, or criminal data and is used only with consent or where required by law.</p>
+
+        <h3>How we collect personal information</h3>
+        <p><strong>SECTION 3</strong></p>
+        <p>Information is collected directly, through cookies, or from third parties. Cookies may be essential, analytical, or marketing and retained for up to 30 days.</p>
+
+        <h3>Purpose of collection</h3>
+        <p><strong>SECTION 4</strong></p>
+        <p>Information is used to operate the Website, provide services, and send marketing communications. You may opt out at any time.</p>
+
+        <h3>Security, access and correction</h3>
+        <p><strong>SECTION 5</strong></p>
+        <p>We use reasonable security measures and retain records for up to 7 years. You may request access or correction under the Australian Privacy Principles.</p>
+
+        <h3>Complaints</h3>
+        <p><strong>SECTION 6</strong></p>
+        <p>Complaints may be escalated to the Office of the Australian Information Commissioner if unresolved.</p>
+
+        <h3>Overseas transfers</h3>
+        <p><strong>SECTION 8</strong></p>
+        <p>Personal Information may be processed in the USA or Europe.</p>
+
+        <h3>GDPR</h3>
+        <p><strong>SECTION 9</strong></p>
+        <p>Our Website does not target or monitor EU residents. GDPR does not apply.</p>
+
+        <h3>Contact</h3>
+        <p><strong>SECTION 10</strong></p>
+        <p><a href="mailto:hello@mk.gd">hello@mk.gd</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SHIPPING POPUP -->
+  <div id="popup-shipping" class="universal-popup">
+    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-dialog">
+      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
+      <div class="popup-content">
+        <h2>Shipping Policy</h2>
+        <p>This policy applies to all online purchases via <a href="https://www.mk.gd" target="_blank" rel="noreferrer">www.mk.gd</a>.</p>
+
+        <h3>Australia and New Zealand</h3>
+        <p>Free shipping applies on all orders within Australia and New Zealand.</p>
+        <p>Orders are fulfilled by Quickmail 3PL in Western Australia with full tracking provided by email or text.</p>
+        <p>Estimated delivery time is 2 to 10 business days.</p>
+        <p>New Zealand customers are responsible for any duties or import costs that may be incurred in New Zealand. The courier has the discretion to pay these costs, where applicable, without prior notification to the customer. The customer will be responsible for reimbursing the courier for any such costs incurred.</p>
+        <p>Postage Express eParcel – Domestic: flat-rate shipping of $20 per order.</p>
+
+        <h3>Important Delivery Information</h3>
+        <p>Orders placed after 3pm Perth time are dispatched the next business day.</p>
+        <p>Quickmail does not operate on Western Australian public holidays. Orders placed on these days are dispatched the next business day.</p>
+        <p>Once an order has been dispatched, we cannot change or redirect the delivery address.</p>
+        <p>A daytime delivery address and contact number are required.</p>
+        <p>Delivery times are estimates and may vary for remote areas or during peak periods.</p>
+        <p>If an item is delayed or out of stock, we will contact you with options. Partial shipments may incur additional freight charges.</p>
+        <p>This policy applies only to purchases made via <a href="https://www.mk.gd" target="_blank" rel="noreferrer">www.mk.gd</a>.</p>
+
+        <h3>International</h3>
+        <h4>United States</h4>
+        <p>Flat-rate shipping of USD $20 per order.</p>
+        <p>US customers are responsible for any duties, taxes or import charges. Where required, the courier may advance these costs to avoid delays. Customers must reimburse the courier directly for any charges paid on their behalf.</p>
+
+        <h4>Europe and United Kingdom</h4>
+        <p>Flat-rate shipping of EUR 15 per order.</p>
+        <p>EU and UK customers are responsible for any duties, VAT or import processing fees. Couriers may advance these charges at their discretion. Customers must reimburse the courier for any such amounts.</p>
+
+        <h4>Asia</h4>
+        <p>Flat-rate shipping of AUD 24 per order.</p>
+        <p>Customers are responsible for any duties or import charges that apply in their region. Couriers may pay these charges to expedite clearance. Customers must reimburse the courier for any amounts paid on their behalf.</p>
+
+        <h4>Other International Destinations</h4>
+        <p>Where possible, we offer flat-rate or subsidised shipping. If a fixed rate is not available for your location, shipping will be calculated at checkout.</p>
+        <p>Customers are responsible for any duties, VAT or import charges applied by their local authorities.</p>
+
+        <h3>If You Are Not Home</h3>
+        <p>Most orders require a signature on delivery unless the courier provides an alternative safe-drop option. If no one is present, a card may be left with details for collection or arranging redelivery.</p>
+        <p>We aim to dispatch orders quickly, usually on the next business day. Occasional delays can happen due to courier congestion, weather, or customs processing. When delays occur, we will do everything we can to keep you updated and get your order to you as soon as possible.</p>
+        <p>For shipping inquiries, contact us at <a href="mailto:hello@mk.gd">hello@mk.gd</a>.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIZE CHART POPUP -->
+  <div id="popup-size-chart" class="universal-popup">
+    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-dialog">
+      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
+      <div class="popup-content">
+        <h2>Size Guide</h2>
+        <p class="mb-8 text-lg">
+          A classic Derby shoe. Unisex. True to size.<br>
+          If you're between sizes, we suggest sizing up.
+        </p>
+        <div class="overflow-x-auto rounded-xl border border-gray-200">
+          <table class="w-full border-collapse text-center text-sm md:text-base">
+            <thead>
+              <tr class="bg-secondary">
+                <th class="border-b border-r border-gray-300 p-4 font-bold">CM</th>
+                <th class="border-b border-r border-gray-300 p-4 font-bold">EU</th>
+                <th class="border-b border-r border-gray-300 p-4 font-bold">UK</th>
+                <th class="border-b border-r border-gray-300 p-4 font-bold">US Mens</th>
+                <th class="border-b border-gray-300 p-4 font-bold">US Womens</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">23.5</td><td class="border-b border-r border-gray-200 p-4">37.5</td><td class="border-b border-r border-gray-200 p-4">4.5</td><td class="border-b border-r border-gray-200 p-4">5</td><td class="border-b border-gray-200 p-4">6.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">24.5</td><td class="border-b border-r border-gray-200 p-4">39</td><td class="border-b border-r border-gray-200 p-4">5.5</td><td class="border-b border-r border-gray-200 p-4">6</td><td class="border-b border-gray-200 p-4">7.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">25.2</td><td class="border-b border-r border-gray-200 p-4">40</td><td class="border-b border-r border-gray-200 p-4">6.5</td><td class="border-b border-r border-gray-200 p-4">7</td><td class="border-b border-gray-200 p-4">8.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">26</td><td class="border-b border-r border-gray-200 p-4">41.5</td><td class="border-b border-r border-gray-200 p-4">7.5</td><td class="border-b border-r border-gray-200 p-4">8</td><td class="border-b border-gray-200 p-4">9.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">27</td><td class="border-b border-r border-gray-200 p-4">42.5</td><td class="border-b border-r border-gray-200 p-4">8.5</td><td class="border-b border-r border-gray-200 p-4">9</td><td class="border-b border-gray-200 p-4">10.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">28</td><td class="border-b border-r border-gray-200 p-4">44</td><td class="border-b border-r border-gray-200 p-4">9.5</td><td class="border-b border-r border-gray-200 p-4">10</td><td class="border-b border-gray-200 p-4">11.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">28.5</td><td class="border-b border-r border-gray-200 p-4">45</td><td class="border-b border-r border-gray-200 p-4">10.5</td><td class="border-b border-r border-gray-200 p-4">11</td><td class="border-b border-gray-200 p-4">12.5</td></tr>
+              <tr class="hover:bg-gray-50"><td class="border-r border-gray-200 p-4">29</td><td class="border-r border-gray-200 p-4">46</td><td class="border-r border-gray-200 p-4">11</td><td class="border-r border-gray-200 p-4">12</td><td class="p-4">13</td></tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </div>
+  </div>
 
-    <!-- SHIPPING POPUP -->
-    <div id="popup-shipping" class="universal-popup">
-      <div class="universal-popup-backdrop" onclick="closePopup('popup-shipping')"></div>
-      <div class="universal-popup-dialog">
-        <button class="universal-popup-close" aria-label="Close" onclick="closePopup('popup-shipping')">&times;</button>
-        <h2 class="universal-popup-title">Shipping Policy</h2>
-        <div class="universal-popup-content">
-          <p>This policy applies to all online purchases via <a href="https://www.mk.gd" target="_blank" rel="noreferrer">www.mk.gd</a>.</p>
+  <!-- RETURNS POPUP -->
+  <div id="popup-returns" class="universal-popup">
+    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-dialog">
+      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
+      <div class="popup-content">
+        <h2>Returns & Exchanges Policy</h2>
+        
+        <h3>Return Policy</h3>
+        <p>This policy applies to all online purchases via <strong>www.mk.gd</strong>.</p>
 
-          <h3>Australia and New Zealand</h3>
-          <p>Free shipping applies on all orders within Australia and New Zealand.</p>
-          <p>Orders are fulfilled by Quickmail 3PL in Western Australia with full tracking provided by email or text.</p>
-          <p>Estimated delivery time is 2 to 10 business days.</p>
-          <p>New Zealand customers are responsible for any duties or import costs that may be incurred in New Zealand.
-          The courier has the discretion to pay these costs, where applicable, without prior notification to the customer.
-          The customer will be responsible for reimbursing the courier for any such costs incurred.</p>
-          <p>Postage Express eParcel – Domestic: flat-rate shipping of $20 per order.</p>
+        <h3>Returns &amp; Exchanges</h3>
+        <p>We offer free returns and exchanges within Australia and New Zealand, so you can try your shoes at home with peace of mind.</p>
+        <p>You have 14 days from delivery to request a return or exchange.</p>
+        <p>To be eligible, shoes must be clean, in original condition, and tried indoors only for fit and comfort. Shoes worn outside can’t be accepted. Please return your pair in the original box.</p>
 
-          <h3>Important Delivery Information</h3>
-    <p>Orders placed after 3pm Perth time are dispatched the next business day.</p>
-    <p>Quickmail does not operate on Western Australian public holidays. Orders placed on these days are dispatched the next business day.</p>
-    <p>Once an order has been dispatched, we cannot change or redirect the delivery address.</p>
-    <p>A daytime delivery address and contact number are required.</p>
-    <p>Delivery times are estimates and may vary for remote areas or during peak periods.</p>
-    <p>If an item is delayed or out of stock, we will contact you with options. Partial shipments may incur additional freight charges.</p>
-    <p>This policy applies only to purchases made via <a href="https://www.mk.gd" target="_blank" rel="noreferrer">www.mk.gd</a>.</p>
+        <h3>How to Start a Return or Exchange</h3>
+        <p>To begin a return or exchange, please email <a href="mailto:returns@mk.gd">returns@mk.gd</a> with your order number and a brief description of the issue.</p>
+        <p>Our team will review your request and, if approved, arrange the next steps through Shopify. Return shipping is paid by the customer, and where applicable, the cost of a prepaid return label will be charged at the time of booking.</p>
 
-          <h3>International</h3>
+        <h3>Exchange Rules</h3>
+        <p>We offer exchanges and store credit on eligible returns.</p>
+        <p>During launch and back-to-school periods, replacement sizes may be sent as soon as return postage has been booked, so purchasers aren’t left without shoes.</p>
+        <p>Returned items must be lodged with the carrier within 7 days of receiving the return label. If a return is not lodged within this timeframe, we may follow up or charge the value of the replacement pair to the original payment method.</p>
 
-          <h4>United States</h4>
-          <p>Flat-rate shipping of USD $20 per order.</p>
-          <p>US customers are responsible for any duties, taxes or import charges. Where required, the courier may
-          advance these costs to avoid delays. Customers must reimburse the courier directly for any charges paid
-          on their behalf.</p>
+        <h3>Faulty Items</h3>
+        <p>If your shoes arrive faulty or develop a fault, please email <a href="mailto:returns@mk.gd">returns@mk.gd</a> with a brief description and a photo. We’ll review it quickly and arrange a replacement or refund.</p>
 
-          <h4>Europe and United Kingdom</h4>
-          <p>Flat-rate shipping of EUR 15 per order.</p>
-          <p>EU and UK customers are responsible for any duties, VAT or import processing fees. Couriers may advance
-          these charges at their discretion. Customers must reimburse the courier for any such amounts.</p>
-
-          <h4>Asia</h4>
-          <p>Flat-rate shipping of AUD 24 per order.</p>
-          <p>Customers are responsible for any duties or import charges that apply in their region. Couriers may pay
-          these charges to expedite clearance. Customers must reimburse the courier for any amounts paid on their behalf.</p>
-
-          <h4>Other International Destinations</h4>
-          <p>Where possible, we offer flat-rate or subsidised shipping. If a fixed rate is not available for your
-          location, shipping will be calculated at checkout.</p>
-          <p>Customers are responsible for any duties, VAT or import charges applied by their local authorities.</p>
-
-
-          <h3>If You Are Not Home</h3>
-          <p>Most orders require a signature on delivery unless the courier provides an alternative safe-drop option.
-          If no one is present, a card may be left with details for collection or arranging redelivery.</p>
-
-          <p>We aim to dispatch orders quickly, usually on the next business day. Occasional delays can happen due to
-          courier congestion, weather, or customs processing. When delays occur, we will do everything we can to keep
-          you updated and get your order to you as soon as possible.</p>
-
-          <p>For shipping inquiries, contact us at <a href="mailto:hello@mk.gd">hello@mk.gd</a>.</p>
-        </div>
+        <h3>International Returns &amp; Exchanges</h3>
+        <p>We accept international returns within 14 days of delivery for shoes that are unused or lightly tried indoors and in original condition. Return shipping is at the customer’s cost, and outbound shipping, duties, and import taxes are non-refundable. Because international freight carries higher cost, exchanges are processed once the original pair has been received and return postage payment has been completed, or you may choose a fast refund and place a new order immediately.</p>
+        <p>Orders are shipped DAP (Delivered at Place), meaning local duties and taxes are the customer’s responsibility and may apply again on replacement shipments. If a delivery is refused or customs fees are not paid, any return costs will be deducted from the refund.</p>
+        <p>For faulty or incorrect items, Make Good® covers all return and replacement shipping and will assist with recovering duties where possible.</p>
       </div>
     </div>
+  </div>
 
-    <!-- SIZE CHART POPUP -->
-    <div id="popup-size-chart" class="universal-popup">
-      <div class="universal-popup-backdrop" onclick="closePopup('popup-size-chart')"></div>
-      <div class="universal-popup-dialog">
-        <button class="universal-popup-close" aria-label="Close" onclick="closePopup('popup-size-chart')">&times;</button>
-        <h2 class="universal-popup-title">Size Guide</h2>
+  <!-- Scripts -->
+  <script>
+    // Mobile Menu Toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenuClose = document.getElementById('mobile-menu-close');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileLinks = document.querySelectorAll('.mobile-link');
 
-        <div class="universal-popup-content">
-    <p class="size-guide-intro">
-        A classic Derby shoe. Unisex. True to size.<br>
-        If you're between sizes, we suggest sizing up.
-      </p>
-    <div class="size-chart-scroll">
-      <table class="size-chart-table">
-        <thead>
-          <tr>
-            <th>CM</th>
-            <th>EU</th>
-            <th>UK</th>
-            <th>US Mens</th>
-            <th>US Womens</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>23.5</td>
-            <td>37.5</td>
-            <td>4.5</td>
-            <td>5</td>
-            <td>6.5</td>
-          </tr>
-          <tr>
-            <td>24.5</td>
-            <td>39</td>
-            <td>5.5</td>
-            <td>6</td>
-            <td>7.5</td>
-          </tr>
-          <tr>
-            <td>25.2</td>
-            <td>40</td>
-            <td>6.5</td>
-            <td>7</td>
-            <td>8.5</td>
-          </tr>
-          <tr>
-            <td>26</td>
-            <td>41.5</td>
-            <td>7.5</td>
-            <td>8</td>
-            <td>9.5</td>
-          </tr>
-          <tr>
-            <td>27</td>
-            <td>42.5</td>
-            <td>8.5</td>
-            <td>9</td>
-            <td>10.5</td>
-          </tr>
-          <tr>
-            <td>28</td>
-            <td>44</td>
-            <td>9.5</td>
-            <td>10</td>
-            <td>11.5</td>
-          </tr>
-          <tr>
-            <td>28.5</td>
-            <td>45</td>
-            <td>10.5</td>
-            <td>11</td>
-            <td>12.5</td>
-          </tr>
-          <tr>
-            <td>29</td>
-            <td>46</td>
-            <td>11</td>
-            <td>12</td>
-            <td>13</td>
-          </tr>
-        </tbody>
-      </table>
-      </div>
-    </div>
-      </div>
-    </div>
+    const openMenu = () => {
+      mobileMenu.classList.remove('hidden');
+      mobileMenu.classList.add('flex');
+      document.body.style.overflow = 'hidden';
+    };
 
-    <!-- RETURNS POPUP -->
-    <div id="popup-returns" class="universal-popup">
-      <div class="universal-popup-backdrop" onclick="closePopup('popup-returns')"></div>
-      <div class="universal-popup-dialog">
-        <button class="universal-popup-close" aria-label="Close" onclick="closePopup('popup-returns')">&times;</button>
-        <h2 class="universal-popup-title">Returns & Exchanges Policy</h2>
-        <div class="universal-popup-content">
+    const closeMenu = () => {
+      mobileMenu.classList.add('hidden');
+      mobileMenu.classList.remove('flex');
+      document.body.style.overflow = '';
+    };
 
-          <h3>Return Policy</h3>
+    mobileMenuBtn.addEventListener('click', openMenu);
+    mobileMenuClose.addEventListener('click', closeMenu);
+    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
 
-    <p>This policy applies to all online purchases via&nbsp;<strong>www.mk.gd</strong>.</p>
+    // Navbar Scroll Effect
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        navbar.classList.add('shadow-sm', 'bg-background');
+        navbar.classList.remove('bg-background/95');
+      } else {
+        navbar.classList.remove('shadow-sm', 'bg-background');
+        navbar.classList.add('bg-background/95');
+      }
+    });
 
-    <h3>Returns &amp; Exchanges</h3>
+    // Product Image Gallery
+    const mainImage = document.getElementById('main-product-image');
+    const thumbs = document.querySelectorAll('.product-thumb');
 
-    <p>We offer free returns and exchanges within Australia and New Zealand, so you can try your shoes at home with peace of mind.</p>
+    thumbs.forEach(thumb => {
+      thumb.addEventListener('click', () => {
+        mainImage.style.opacity = '0.5';
+        setTimeout(() => {
+          mainImage.src = thumb.dataset.src;
+          mainImage.style.opacity = '1';
+        }, 150);
+        
+        thumbs.forEach(t => {
+          t.classList.remove('border-text');
+          t.classList.add('border-transparent');
+        });
+        thumb.classList.remove('border-transparent');
+        thumb.classList.add('border-text');
+      });
+    });
 
-    <p>You have 14 days from delivery to request a return or exchange.</p>
+    // Size Selection
+    const sizeBtns = document.querySelectorAll('.size-btn:not([disabled])');
+    sizeBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        sizeBtns.forEach(b => {
+          b.classList.remove('border-text', 'bg-text', 'text-background');
+          b.classList.add('border-gray-300');
+        });
+        btn.classList.remove('border-gray-300');
+        btn.classList.add('border-text', 'bg-text', 'text-background');
+      });
+    });
 
-    <p>To be eligible, shoes must be clean, in original condition, and tried indoors only for fit and comfort. Shoes worn outside can’t be accepted. Please return your pair in the original box.
-    </p>
-
-    <h3>How to Start a Return or Exchange</h3>
-
-    <p>To begin a return or exchange, please email <a href="mailto:returns@mk.gd">returns@mk.gd</a> with your order number and a brief description of the issue.</p>
-
-    <p>Our team will review your request and, if approved, arrange the next steps through Shopify. Return shipping is paid by the customer, and where applicable, the cost of a prepaid return label will be charged at the time of booking.</p>
-
-    <h3>Exchange Rules</h3>
-
-    <p>We offer exchanges and store credit on eligible returns.</p>
-
-    <p>During launch and back-to-school periods, replacement sizes may be sent as soon as return postage has been booked, so purchasers aren’t left without shoes.</p>
-
-    <p>Returned items must be lodged with the carrier within 7 days of receiving the return label. If a return is not lodged within this timeframe, we may follow up or charge the value of the replacement pair to the original payment method.</p>
-
-    <h3>Faulty Items</h3>
-
-    <p>If your shoes arrive faulty or develop a fault, please email <a href="mailto:returns@mk.gd">returns@mk.gd</a> with a brief description and a photo. We’ll review it quickly and arrange a replacement or refund.</p>
-
-    <h3>International Returns &amp; Exchanges</h3>
-
-    <p>We accept international returns within 14 days of delivery for shoes that are unused or lightly tried indoors and in original condition. Return shipping is at the customer’s cost, and outbound shipping, duties, and import taxes are non-refundable. Because international freight carries higher cost, exchanges are processed once the original pair has been received and return postage payment has been completed, or you may choose a fast refund and place a new order immediately.</p>
-
-    <p>Orders are shipped DAP (Delivered at Place), meaning local duties and taxes are the customer’s responsibility and may apply again on replacement shipments. If a delivery is refused or customs fees are not paid, any return costs will be deducted from the refund.</p>
-
-    <p>For faulty or incorrect items, Make Good® covers all return and replacement shipping and will assist with recovering duties where possible.</p>
-        </div>
-      </div>
-    </div>
-
-    <script>
-        function openPopup(id) {
-            document.getElementById(id).classList.add('open');
-            document.body.style.overflow = 'hidden'; // Prevent scrolling background
+    // Accordions
+    const accordionHeaders = document.querySelectorAll('.accordion-header');
+    accordionHeaders.forEach(header => {
+      header.addEventListener('click', () => {
+        const content = header.nextElementSibling;
+        const icon = header.querySelector('i');
+        
+        content.classList.toggle('hidden');
+        if (content.classList.contains('hidden')) {
+          icon.classList.remove('rotate-45');
+        } else {
+          icon.classList.add('rotate-45');
         }
+      });
+    });
 
-        function closePopup(id) {
-            document.getElementById(id).classList.remove('open');
-            document.body.style.overflow = ''; // Restore scrolling
+    // Popups
+    const popupTriggers = document.querySelectorAll('.popup-trigger');
+    const popups = document.querySelectorAll('.universal-popup');
+    const popupCloseTriggers = document.querySelectorAll('.popup-close-trigger');
+
+    popupTriggers.forEach(trigger => {
+      trigger.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = trigger.getAttribute('data-target');
+        const targetPopup = document.getElementById(targetId);
+        if (targetPopup) {
+          targetPopup.classList.add('active');
+          document.body.style.overflow = 'hidden';
         }
-    </script>
+      });
+    });
+
+    popupCloseTriggers.forEach(trigger => {
+      trigger.addEventListener('click', () => {
+        popups.forEach(popup => {
+          popup.classList.remove('active');
+        });
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
 </body>
 </html>
