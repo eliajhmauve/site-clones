@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luura Hotels</title>
+    <meta name="description" content="Distinctive stays around the Mediterranean. Coming to Paros summer 2026.">
+    <meta name="theme-color" content="#ece8e1">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            DEFAULT: '#ece8e1',
+                            dark: '#000000',
+                            light: '#ffffff'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    transitionDuration: {
+                        '600': '600ms',
+                        '800': '800ms',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom Utilities for smooth animations */
+        .menu-open-clip {
+            clip-path: inset(0 0 0 0);
+        }
+        .menu-closed-clip {
+            clip-path: inset(0 0 100% 0);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-brand text-brand-dark font-sans antialiased overflow-x-hidden selection:bg-black selection:text-white">
+
+    <!-- Cookie Consent -->
+    <div id="cookie-consent" class="fixed bottom-4 right-4 z-[9999] w-[calc(100vw-32px)] max-w-[400px] translate-y-[150%] transform rounded-[2px] bg-black p-4 transition-transform duration-700 ease-in-out lg:bottom-8 lg:right-8 lg:w-[30vw]">
+        <div class="flex flex-col gap-4">
+            <div>
+                <p class="text-[11px] leading-[110%] text-gray-300 3xl:text-[14px]">
+                    We use cookies to enhance your browsing experience, serve personalized content, and analyze our traffic. By clicking "Accept", you consent to our use of cookies. For more information, please read our
+                    <a href="#" class="underline hover:text-white transition-colors">Privacy Policy</a>.
+                </p>
+            </div>
+            <div class="mt-4 flex justify-end gap-4 whitespace-nowrap">
+                <button id="cookie-accept" class="text-[13px] text-white hover:underline">Accept</button>
+                <button id="cookie-decline" class="text-[13px] text-white hover:underline">Decline</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav id="main-nav" class="fixed top-0 left-0 w-full z-[1100] flex justify-between items-center p-4 lg:p-6 text-white transition-colors duration-500">
+        <ul class="flex flex-row gap-6 text-[13px] lg:text-[14px] font-medium tracking-wide">
+            <li>
+                <!-- Desktop Menu Button -->
+                <button id="menu-toggle-desktop" type="button" class="hidden lg:flex flex-row gap-2 items-center hover:opacity-70 transition-opacity">
+                    <span id="menu-label-desktop">Destinations</span>
+                </button>
+                <!-- Mobile Menu Button -->
+                <button id="menu-toggle-mobile" type="button" class="flex lg:hidden flex-row gap-2 items-center hover:opacity-70 transition-opacity">
+                    <span id="menu-label-mobile">Menu</span>
+                </button>
+            </li>
+            <li class="hidden lg:block">
+                <a href="#" class="hover:opacity-70 transition-opacity">About</a>
+            </li>
+        </ul>
+
+        <!-- Logo -->
+        <a href="#" class="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 text-center">
+            <span class="text-xl lg:text-2xl tracking-[0.2em] uppercase font-light">Luura</span>
+        </a>
+
+        <!-- CTA -->
+        <a href="#" class="text-[13px] lg:text-[14px] font-medium tracking-wide hover:opacity-70 transition-opacity">
+            Stay with us
+        </a>
+    </nav>
+
+    <!-- Full Screen Menu -->
+    <div id="full-menu" class="fixed inset-0 z-[1050] bg-brand text-brand-dark menu-closed-clip transition-all duration-800 ease-in-out flex flex-col">
+        <div class="flex-1 flex flex-col pt-24 pb-8 px-4 lg:px-8 overflow-y-auto hide-scrollbar">
+            
+            <!-- Mobile Close & About -->
+            <div class="lg:hidden flex justify-between items-center border-b border-black/10 pb-4 mb-4">
+                <a href="#" class="text-[14px] font-medium">About</a>
+                <button id="menu-close-mobile" class="text-[14px] font-medium">Close</button>
+            </div>
+
+            <!-- Destinations Grid -->
+            <ul class="grid grid-cols-1 lg:grid-cols-3 w-full h-full items-center gap-8 lg:gap-4">
+                
+                <!-- Paros Cliff -->
+                <li class="text-center border-b border-black/10 lg:border-none pb-8 lg:pb-0 group">
+                    <a href="#" class="flex flex-row lg:flex-col items-center lg:block">
+                        <div class="w-[100px] lg:w-[240px] mx-auto lg:mb-6 overflow-hidden">
+                            <img src="https://luurahotels.com/wp-content/uploads/2025/11/paros-cliff.jpg" alt="Paros Cliff" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="flex-1 lg:flex-none flex flex-col items-center justify-center ml-6 lg:ml-0">
+                            <img src="https://luurahotels.com/wp-content/uploads/2025/10/luura-paros-cliff.svg" alt="Paros Cliff Logo" class="w-[94px] lg:w-[120px] block mx-auto">
+                            <p class="text-[11px] lg:text-[13px] mt-3 opacity-40 uppercase tracking-wider">May 2026</p>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Athens -->
+                <li class="text-center border-b border-black/10 lg:border-none pb-8 lg:pb-0 group pointer-events-none opacity-80">
+                    <a href="#" class="flex flex-row lg:flex-col items-center lg:block">
+                        <div class="w-[100px] lg:w-[240px] mx-auto lg:mb-6 overflow-hidden">
+                            <img src="https://luurahotels.com/wp-content/uploads/2025/11/athens.jpg" alt="Athens" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="flex-1 lg:flex-none flex flex-col items-center justify-center ml-6 lg:ml-0">
+                            <img src="https://luurahotels.com/wp-content/uploads/2025/10/luura-athens.svg" alt="Athens Logo" class="w-[94px] lg:w-[120px] block mx-auto">
+                            <p class="text-[11px] lg:text-[13px] mt-3 opacity-40 uppercase tracking-wider">Coming soon</p>
+                        </div>
+                    </a>
+                </li>
+
+                <!-- Paros Sand -->
+                <li class="text-center pb-8 lg:pb-0 group pointer-events-none opacity-80">
+                    <a href="#" class="flex flex-row lg:flex-col items-center lg:block">
+                        <div class="w-[100px] lg:w-[240px] mx-auto lg:mb-6 overflow-hidden">
+                            <img src="https://luurahotels.com/wp-content/uploads/2025/11/paros-sand.jpg" alt="Paros Sand" class="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700">
+                        </div>
+                        <div class="flex-1 lg:flex-none flex flex-col items-center justify-center ml-6 lg:ml-0">
+                            <img src="https://luurahotels.com/wp-content/uploads/2025/10/luura-paros-sand.svg" alt="Paros Sand Logo" class="w-[94px] lg:w-[120px] block mx-auto">
+                            <p class="text-[11px] lg:text-[13px] mt-3 opacity-40 uppercase tracking-wider">Coming soon</p>
+                        </div>
+                    </a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="relative w-full h-[100svh] overflow-hidden bg-black">
+            <!-- Video Background -->
+            <div class="absolute inset-0 w-full h-full z-10">
+                <video id="hero-video" class="w-full h-full object-cover pointer-events-none opacity-90" autoplay muted loop playsinline preload="metadata">
+                    <source src="https://luurahotels.com/wp-content/uploads/2025/10/luura.mp4" type="video/mp4">
+                </video>
+            </div>
+            
+            <!-- Overlay -->
+            <div class="absolute inset-0 bg-black/20 z-20 pointer-events-none"></div>
+
+            <!-- Center Logo -->
+            <div class="absolute bottom-8 lg:bottom-12 left-1/2 -translate-x-1/2 z-30 w-[252px] lg:w-[500px] text-center">
+                <h1 class="text-white text-5xl lg:text-8xl tracking-[0.2em] uppercase font-light">Luura</h1>
+            </div>
+
+            <!-- Left Tagline -->
+            <p class="absolute top-1/2 left-4 lg:left-8 -translate-y-1/2 z-30 text-white text-[14px] lg:text-[16px] leading-relaxed font-light">
+                Distinctive stays<br>
+                around the Mediterranean
+            </p>
+
+            <!-- Right Tagline -->
+            <a href="#footer" class="hidden lg:block absolute top-1/2 right-8 -translate-y-1/2 z-30 text-white text-[16px] leading-relaxed text-right font-light hover:opacity-70 transition-opacity">
+                Stay in touch.<br>
+                Discover what’s unfolding at Luura
+            </a>
+
+            <!-- Sound Toggle -->
+            <button id="sound-toggle" class="absolute bottom-8 right-4 lg:right-8 z-30 text-white text-[13px] lg:text-[14px] font-medium hover:opacity-70 transition-opacity">
+                Sound On
+            </button>
+        </section>
+
+        <!-- Footer Section -->
+        <footer id="footer" class="bg-brand text-brand-dark pt-20 pb-8 px-4 lg:px-8">
+            
+            <!-- Top Footer Grid -->
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-4 border-t border-black/10 pt-8 lg:pt-12">
+                
+                <!-- Socials -->
+                <div class="lg:col-span-6 flex flex-wrap gap-2 items-center">
+                    <p class="text-[14px] text-black/60">Follow us on</p>
+                    <ul class="flex flex-wrap gap-2 items-center">
+                        <li class="leading-none">
+                            <a href="https://www.instagram.com/luura/" target="_blank" class="text-[14px] font-medium hover:opacity-70 transition-opacity">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Stay in touch text -->
+                <div class="lg:col-span-2">
+                    <p class="text-[14px] leading-snug">
+                        Stay <br class="hidden lg:block">
+                        in touch
+                    </p>
+                </div>
+
+                <!-- Newsletter -->
+                <div class="lg:col-span-4">
+                    <form action="#" class="w-full">
+                        <div class="flex flex-row items-end justify-between border-b border-black/10 pb-2">
+                            <label for="email" class="flex-grow">
+                                <input type="email" name="EMAIL" id="email" class="w-full text-[14px] outline-none bg-transparent px-0 placeholder:text-black/40 text-black" placeholder="your@email.com" required>
+                            </label>
+                            <button type="submit" class="text-[13px] font-medium uppercase tracking-wider hover:opacity-70 transition-opacity pl-4">
+                                Subscribe
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Bottom Footer Grid -->
+            <div class="grid grid-cols-2 lg:grid-cols-12 gap-y-8 lg:gap-4 items-end mt-20 lg:mt-32 text-[12px] lg:text-[13px]">
+                
+                <!-- Footer Logo Mark -->
+                <div class="col-span-2 lg:col-span-6">
+                    <span class="text-3xl lg:text-4xl tracking-[0.2em] uppercase font-light block mb-4 lg:mb-0">Luura</span>
+                </div>
+
+                <!-- Copyright -->
+                <div class="col-span-2 lg:col-span-2 text-black/60">
+                    <p>© Luura</p>
+                    <p>All rights reserved</p>
+                </div>
+
+                <!-- Privacy Policy -->
+                <div class="col-span-1 lg:col-span-2">
+                    <a href="#" class="hover:opacity-70 transition-opacity block">
+                        Privacy <br> Policy
+                    </a>
+                </div>
+
+                <!-- Contact -->
+                <div class="col-span-1 lg:col-span-2 border-t border-black/10 lg:border-none pt-4 lg:pt-0">
+                    <p class="text-black/60 mb-1">Contact</p>
+                    <a href="mailto:contact@luurahotels.com" class="hover:opacity-70 transition-opacity">contact@luurahotels.com</a>
+                </div>
+
+            </div>
+        </footer>
+    </main>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            
+            // --- Cookie Consent Logic ---
+            const cookieBanner = document.getElementById('cookie-consent');
+            const acceptBtn = document.getElementById('cookie-accept');
+            const declineBtn = document.getElementById('cookie-decline');
+
+            // Show banner after short delay
+            setTimeout(() => {
+                cookieBanner.classList.remove('translate-y-[150%]');
+                cookieBanner.classList.add('translate-y-0');
+            }, 1500);
+
+            const hideBanner = () => {
+                cookieBanner.classList.remove('translate-y-0');
+                cookieBanner.classList.add('translate-y-[150%]');
+            };
+
+            acceptBtn.addEventListener('click', hideBanner);
+            declineBtn.addEventListener('click', hideBanner);
+
+
+            // --- Menu Toggle Logic ---
+            const menuToggleDesktop = document.getElementById('menu-toggle-desktop');
+            const menuToggleMobile = document.getElementById('menu-toggle-mobile');
+            const menuCloseMobile = document.getElementById('menu-close-mobile');
+            const menuLabelDesktop = document.getElementById('menu-label-desktop');
+            const menuLabelMobile = document.getElementById('menu-label-mobile');
+            const fullMenu = document.getElementById('full-menu');
+            const mainNav = document.getElementById('main-nav');
+            
+            let isMenuOpen = false;
+
+            const toggleMenu = () => {
+                isMenuOpen = !isMenuOpen;
+                
+                if (isMenuOpen) {
+                    // Open Menu
+                    fullMenu.classList.remove('menu-closed-clip');
+                    fullMenu.classList.add('menu-open-clip');
+                    
+                    // Change Nav Colors
+                    mainNav.classList.remove('text-white');
+                    mainNav.classList.add('text-brand-dark');
+                    
+                    // Update Labels
+                    menuLabelDesktop.innerText = 'Close';
+                    menuLabelMobile.innerText = 'Close';
+                    
+                    // Prevent body scroll
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    // Close Menu
+                    fullMenu.classList.remove('menu-open-clip');
+                    fullMenu.classList.add('menu-closed-clip');
+                    
+                    // Revert Nav Colors (if at top, otherwise handle via scroll listener)
+                    if(window.scrollY < window.innerHeight - 100) {
+                        mainNav.classList.remove('text-brand-dark');
+                        mainNav.classList.add('text-white');
+                    }
+                    
+                    // Update Labels
+                    menuLabelDesktop.innerText = 'Destinations';
+                    menuLabelMobile.innerText = 'Menu';
+                    
+                    // Restore body scroll
+                    document.body.style.overflow = '';
+                }
+            };
+
+            menuToggleDesktop.addEventListener('click', toggleMenu);
+            menuToggleMobile.addEventListener('click', toggleMenu);
+            menuCloseMobile.addEventListener('click', toggleMenu);
+
+
+            // --- Sound Toggle Logic ---
+            const soundToggle = document.getElementById('sound-toggle');
+            const heroVideo = document.getElementById('hero-video');
+
+            soundToggle.addEventListener('click', () => {
+                if (heroVideo.muted) {
+                    heroVideo.muted = false;
+                    soundToggle.innerText = 'Sound Off';
+                } else {
+                    heroVideo.muted = true;
+                    soundToggle.innerText = 'Sound On';
+                }
+            });
+
+            // --- Scroll Logic for Nav Color ---
+            window.addEventListener('scroll', () => {
+                if(isMenuOpen) return; // Don't change if menu is open
+                
+                const heroHeight = window.innerHeight;
+                if (window.scrollY > heroHeight - 100) {
+                    mainNav.classList.remove('text-white');
+                    mainNav.classList.add('text-brand-dark');
+                } else {
+                    mainNav.classList.remove('text-brand-dark');
+                    mainNav.classList.add('text-white');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
