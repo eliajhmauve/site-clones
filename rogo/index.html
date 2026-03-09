@@ -6,53 +6,53 @@
     <title>Rogo | Secure AI for Finance Professionals</title>
     <meta name="description" content="Rogo is the secure generative AI platform built for elite financial institutions. Save time, unlock insights and automate workflows in days.">
     
-    <!-- Google Fonts -->
+    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     
-    <!-- FontAwesome -->
+    <!-- Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Tailwind Configuration -->
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
                         brand: {
-                            white: '#ffffff',
-                            dark: '#151515',
-                            gray: '#737373',
-                            beige: '#f5f2eb',
-                            green: '#135b45',
-                            blue: '#0071c1',
-                            lightgray: '#f5f5f5',
-                            darkgreen: '#0f2822',
-                            accent: '#19a26c',
-                            red: '#d94636',
-                            border: '#a8a29e33'
+                            DEFAULT: '#135b45', // Primary Green
+                            dark: '#0f2822',    // Very Dark Green
+                            light: '#19a26c',   // Light Green
+                            accent: '#0071c1',  // Blue Accent
+                            danger: '#d94636'   // Red Accent
+                        },
+                        surface: {
+                            DEFAULT: '#f5f2eb', // Beige Background
+                            alt: '#f5f5f5',     // Light Gray
+                            white: '#ffffff'
+                        },
+                        text: {
+                            main: '#151515',    // Dark Text
+                            muted: '#737373',   // Gray Text
+                            light: '#8b8b8b'
                         }
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
                         serif: ['Playfair Display', 'serif'],
-                        mono: ['Space Mono', 'monospace'],
+                        mono: ['JetBrains Mono', 'monospace']
                     },
                     boxShadow: {
                         'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
-                        'float': '0 20px 40px -10px rgba(0, 0, 0, 0.1)',
+                        'float': '0 10px 30px -5px rgba(19, 91, 69, 0.15)'
                     }
                 }
             }
         }
     </script>
-
     <style>
-        /* Custom Utilities & Animations */
         body {
             background-color: #f5f2eb;
             color: #151515;
@@ -63,24 +63,16 @@
             background: rgba(245, 242, 235, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border-bottom: 1px solid rgba(168, 162, 158, 0.2);
+            border-bottom: 1px solid rgba(21, 21, 21, 0.05);
         }
-        .fade-in-up {
-            animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-        
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
+        .text-gradient {
+            background: linear-gradient(135deg, #0f2822 0%, #135b45 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
-<body class="font-sans antialiased selection:bg-brand-green selection:text-white flex flex-col min-h-screen">
+<body class="font-sans antialiased selection:bg-brand selection:text-white flex flex-col min-h-screen">
 
     <!-- Navigation -->
     <header class="fixed top-0 left-0 right-0 z-50 glass-nav transition-all duration-300" id="navbar">
@@ -88,370 +80,336 @@
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer">
-                    <div class="w-8 h-8 bg-brand-green rounded-sm flex items-center justify-center">
-                        <span class="text-white font-serif font-bold text-xl leading-none">R</span>
+                    <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+                        <i class="fa-solid fa-chart-pie text-white text-sm"></i>
                     </div>
-                    <span class="font-serif font-bold text-2xl tracking-tight text-brand-dark">Rogo</span>
+                    <span class="font-serif text-2xl font-bold text-brand-dark tracking-tight">Rogo</span>
                 </div>
 
                 <!-- Desktop Menu -->
                 <nav class="hidden md:flex items-center gap-8">
-                    <a href="#" class="text-sm font-medium text-brand-dark hover:text-brand-green transition-colors">Platform</a>
-                    <a href="#" class="text-sm font-medium text-brand-dark hover:text-brand-green transition-colors">Solutions</a>
-                    <a href="#" class="text-sm font-medium text-brand-dark hover:text-brand-green transition-colors">Security</a>
-                    <a href="#" class="text-sm font-medium text-brand-dark hover:text-brand-green transition-colors">Company</a>
-                    <a href="#" class="text-sm font-medium text-brand-dark hover:text-brand-green transition-colors">Resources</a>
+                    <a href="#platform" class="text-sm font-medium text-text-main hover:text-brand transition-colors">Platform</a>
+                    <a href="#solutions" class="text-sm font-medium text-text-main hover:text-brand transition-colors">Solutions</a>
+                    <a href="#security" class="text-sm font-medium text-text-main hover:text-brand transition-colors">Security</a>
+                    <a href="#company" class="text-sm font-medium text-text-main hover:text-brand transition-colors">Company</a>
                 </nav>
 
                 <!-- Desktop Actions -->
                 <div class="hidden md:flex items-center gap-4">
-                    <a href="#" class="text-sm font-medium text-brand-dark hover:text-brand-green transition-colors">Log in</a>
-                    <a href="#" class="inline-flex items-center justify-center px-5 py-2.5 text-sm font-medium text-white bg-brand-green rounded-full hover:bg-brand-darkgreen transition-colors shadow-sm">
+                    <a href="#login" class="text-sm font-medium text-text-main hover:text-brand transition-colors">Log In</a>
+                    <a href="#demo" class="bg-brand hover:bg-brand-dark text-white text-sm font-medium px-5 py-2.5 rounded-full transition-all duration-300 shadow-sm hover:shadow-float">
                         Request Demo
                     </a>
                 </div>
 
                 <!-- Mobile Menu Button -->
                 <div class="md:hidden flex items-center">
-                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="text-brand-dark hover:text-brand-green focus:outline-none p-2">
-                        <i class="fa-solid fa-bars text-2xl"></i>
+                    <button id="mobile-menu-btn" aria-label="Toggle Menu" class="text-text-main hover:text-brand focus:outline-none p-2">
+                        <i class="fa-solid fa-bars text-xl"></i>
                     </button>
                 </div>
             </div>
         </div>
 
-        <!-- Mobile Menu Overlay -->
-        <div id="mobile-menu" class="hidden md:hidden bg-brand-beige border-t border-brand-border absolute w-full shadow-xl">
-            <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col">
-                <a href="#" class="block text-lg font-medium text-brand-dark hover:text-brand-green py-2 border-b border-brand-border">Platform</a>
-                <a href="#" class="block text-lg font-medium text-brand-dark hover:text-brand-green py-2 border-b border-brand-border">Solutions</a>
-                <a href="#" class="block text-lg font-medium text-brand-dark hover:text-brand-green py-2 border-b border-brand-border">Security</a>
-                <a href="#" class="block text-lg font-medium text-brand-dark hover:text-brand-green py-2 border-b border-brand-border">Company</a>
-                <a href="#" class="block text-lg font-medium text-brand-dark hover:text-brand-green py-2 border-b border-brand-border">Resources</a>
-                <div class="pt-4 flex flex-col gap-4">
-                    <a href="#" class="text-center text-lg font-medium text-brand-dark py-2">Log in</a>
-                    <a href="#" class="text-center px-5 py-3 text-lg font-medium text-white bg-brand-green rounded-full hover:bg-brand-darkgreen">
-                        Request Demo
-                    </a>
+        <!-- Mobile Menu Panel -->
+        <div id="mobile-menu" class="hidden md:hidden bg-surface border-b border-gray-200 absolute w-full shadow-lg">
+            <div class="px-6 pt-4 pb-6 space-y-4 flex flex-col">
+                <a href="#platform" class="text-base font-medium text-text-main hover:text-brand py-2 border-b border-gray-200/50">Platform</a>
+                <a href="#solutions" class="text-base font-medium text-text-main hover:text-brand py-2 border-b border-gray-200/50">Solutions</a>
+                <a href="#security" class="text-base font-medium text-text-main hover:text-brand py-2 border-b border-gray-200/50">Security</a>
+                <a href="#company" class="text-base font-medium text-text-main hover:text-brand py-2 border-b border-gray-200/50">Company</a>
+                <div class="pt-4 flex flex-col gap-3">
+                    <a href="#login" class="text-center text-base font-medium text-text-main border border-gray-300 rounded-full py-3 hover:bg-gray-50">Log In</a>
+                    <a href="#demo" class="text-center bg-brand text-white text-base font-medium rounded-full py-3 hover:bg-brand-dark">Request Demo</a>
                 </div>
             </div>
         </div>
     </header>
 
+    <!-- Main Content -->
     <main class="flex-grow pt-20">
+        
         <!-- Hero Section -->
-        <section class="relative pt-24 pb-16 md:pt-32 md:pb-24 overflow-hidden">
-            <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-                <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-brand-border shadow-sm mb-8 fade-in-up">
-                    <span class="flex h-2 w-2 rounded-full bg-brand-accent"></span>
-                    <span class="text-xs font-mono font-medium text-brand-dark uppercase tracking-wider">Introducing Rogo 2.0</span>
-                </div>
-                
-                <h1 class="text-5xl md:text-7xl lg:text-8xl font-serif font-medium text-brand-dark leading-[1.1] tracking-tight max-w-5xl mx-auto fade-in-up delay-100">
-                    Secure AI for <br class="hidden md:block">
-                    <span class="italic text-brand-green">Finance Professionals</span>
-                </h1>
-                
-                <p class="mt-8 text-lg md:text-xl text-brand-gray max-w-2xl mx-auto leading-relaxed fade-in-up delay-200">
-                    Rogo is the secure generative AI platform built for elite financial institutions. Save time, unlock insights and automate workflows in days.
-                </p>
-                
-                <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4 fade-in-up delay-300">
-                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-brand-green rounded-full hover:bg-brand-darkgreen transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5">
-                        Request a Demo
-                    </a>
-                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-medium text-brand-dark bg-transparent border border-brand-dark rounded-full hover:bg-brand-dark hover:text-white transition-all">
-                        Explore Platform
-                    </a>
-                </div>
-            </div>
-
-            <!-- Hero Image / UI Mockup -->
-            <div class="max-w-6xl mx-auto px-6 lg:px-8 mt-20 fade-in-up delay-300">
-                <div class="relative rounded-2xl overflow-hidden shadow-float border border-brand-border bg-white p-2">
-                    <div class="absolute top-0 left-0 right-0 h-12 bg-brand-lightgray border-b border-brand-border flex items-center px-4 gap-2 rounded-t-xl z-10">
-                        <div class="w-3 h-3 rounded-full bg-brand-red"></div>
-                        <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
-                        <div class="w-3 h-3 rounded-full bg-brand-accent"></div>
-                        <div class="mx-auto bg-white border border-brand-border rounded-md px-32 py-1 text-xs text-brand-gray font-mono">rogo.ai/workspace</div>
+        <section class="relative pt-20 pb-24 lg:pt-32 lg:pb-32 overflow-hidden">
+            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
+                <div class="text-center max-w-4xl mx-auto">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-semibold tracking-wide uppercase mb-8">
+                        <span class="w-2 h-2 rounded-full bg-brand animate-pulse"></span>
+                        Built for Elite Financial Institutions
                     </div>
-                    <img src="https://picsum.photos/seed/rogodash/1200/700" alt="Rogo Platform Dashboard" class="w-full h-auto rounded-xl mt-10 object-cover aspect-[16/9]">
+                    <h1 class="font-serif text-5xl md:text-6xl lg:text-7xl font-medium text-brand-dark leading-tight mb-6">
+                        Secure AI for <br class="hidden md:block" />
+                        <span class="text-gradient italic">Finance Professionals</span>
+                    </h1>
+                    <p class="text-lg md:text-xl text-text-muted mb-10 max-w-2xl mx-auto leading-relaxed">
+                        Rogo is the secure generative AI platform built for elite financial institutions. Save time, unlock insights and automate workflows in days.
+                    </p>
+                    <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+                        <a href="#demo" class="w-full sm:w-auto bg-brand hover:bg-brand-dark text-white text-base font-medium px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-float flex items-center justify-center gap-2">
+                            Request a Demo <i class="fa-solid fa-arrow-right text-sm"></i>
+                        </a>
+                        <a href="#platform" class="w-full sm:w-auto bg-transparent border border-text-main/20 hover:border-brand hover:text-brand text-text-main text-base font-medium px-8 py-4 rounded-full transition-all duration-300 flex items-center justify-center">
+                            Explore Platform
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image/Dashboard Mockup -->
+                <div class="mt-20 relative mx-auto max-w-5xl">
+                    <div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent z-10 h-full w-full pointer-events-none"></div>
+                    <div class="rounded-2xl border border-gray-200/50 shadow-2xl overflow-hidden bg-white transform transition-transform hover:scale-[1.01] duration-500">
+                        <div class="bg-surface-alt border-b border-gray-200 px-4 py-3 flex items-center gap-2">
+                            <div class="w-3 h-3 rounded-full bg-red-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+                            <div class="w-3 h-3 rounded-full bg-green-400"></div>
+                            <div class="ml-4 flex-grow bg-white rounded-md h-6 border border-gray-200 flex items-center px-3">
+                                <i class="fa-solid fa-lock text-xs text-gray-400 mr-2"></i>
+                                <span class="text-xs text-gray-500 font-mono">app.rogo.ai/dashboard</span>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop" alt="Rogo AI Dashboard Interface" class="w-full h-auto object-cover opacity-90">
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Logo Cloud Section -->
-        <section class="py-12 border-y border-brand-border bg-brand-lightgray/50">
+        <!-- Logo Ticker Section -->
+        <section class="py-12 border-y border-gray-200/50 bg-surface-alt/30">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
-                <p class="text-center text-sm font-mono text-brand-gray uppercase tracking-widest mb-8">Trusted by elite financial institutions globally</p>
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 items-center justify-items-center opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-                    <img src="https://picsum.photos/seed/logo1/200/80" alt="Partner Logo 1" class="h-8 md:h-10 object-contain">
-                    <img src="https://picsum.photos/seed/logo2/200/80" alt="Partner Logo 2" class="h-8 md:h-10 object-contain">
-                    <img src="https://picsum.photos/seed/logo3/200/80" alt="Partner Logo 3" class="h-8 md:h-10 object-contain">
-                    <img src="https://picsum.photos/seed/logo4/200/80" alt="Partner Logo 4" class="h-8 md:h-10 object-contain">
-                    <img src="https://picsum.photos/seed/logo5/200/80" alt="Partner Logo 5" class="h-8 md:h-10 object-contain">
-                    <img src="https://picsum.photos/seed/logo6/200/80" alt="Partner Logo 6" class="h-8 md:h-10 object-contain">
+                <p class="text-center text-sm font-medium text-text-muted mb-8 uppercase tracking-widest">Trusted by leading financial institutions</p>
+                <div class="flex flex-wrap justify-center items-center gap-12 md:gap-20 opacity-60 grayscale">
+                    <div class="flex items-center gap-2 font-serif text-2xl font-bold"><i class="fa-brands fa-stripe text-3xl"></i></div>
+                    <div class="flex items-center gap-2 font-serif text-2xl font-bold"><i class="fa-brands fa-aws text-3xl"></i></div>
+                    <div class="flex items-center gap-2 font-serif text-2xl font-bold"><i class="fa-brands fa-google-pay text-4xl"></i></div>
+                    <div class="flex items-center gap-2 font-serif text-2xl font-bold"><i class="fa-brands fa-apple-pay text-4xl"></i></div>
+                    <div class="flex items-center gap-2 font-serif text-2xl font-bold"><i class="fa-brands fa-cc-visa text-3xl"></i></div>
                 </div>
             </div>
         </section>
 
-        <!-- Value Proposition / Features Grid -->
-        <section class="py-24 bg-brand-beige">
+        <!-- Features Grid Section -->
+        <section id="platform" class="py-24 lg:py-32">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="text-center max-w-3xl mx-auto mb-16">
-                    <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-6">Built for the complexity of modern finance.</h2>
-                    <p class="text-lg text-brand-gray">Rogo combines state-of-the-art LLMs with enterprise-grade security to transform how your team interacts with data, models, and research.</p>
+                    <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-dark mb-6">Intelligence that scales with your firm</h2>
+                    <p class="text-lg text-text-muted">Purpose-built for the rigorous demands of modern finance, Rogo combines cutting-edge LLMs with enterprise-grade security.</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                     <!-- Feature 1 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-border hover:-translate-y-1 transition-transform duration-300">
-                        <div class="w-12 h-12 bg-brand-beige rounded-xl flex items-center justify-center mb-6 text-brand-green text-xl">
-                            <i class="fa-solid fa-magnifying-glass-chart"></i>
+                    <div class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-shield-halved text-brand text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-brand-dark mb-3">Deep Research</h3>
-                        <p class="text-brand-gray leading-relaxed mb-6">Instantly synthesize millions of documents, SEC filings, and proprietary research reports with pinpoint accuracy and citations.</p>
-                        <a href="#" class="text-brand-green font-medium inline-flex items-center gap-2 hover:gap-3 transition-all">
-                            Learn more <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </a>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-3">Bank-Grade Security</h3>
+                        <p class="text-text-muted leading-relaxed">Your data never trains our models. SOC2 Type II certified, end-to-end encryption, and zero data retention policies ensure absolute confidentiality.</p>
                     </div>
 
                     <!-- Feature 2 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-border hover:-translate-y-1 transition-transform duration-300">
-                        <div class="w-12 h-12 bg-brand-beige rounded-xl flex items-center justify-center mb-6 text-brand-green text-xl">
-                            <i class="fa-solid fa-bolt"></i>
+                    <div class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-bolt text-brand text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-brand-dark mb-3">Workflow Automation</h3>
-                        <p class="text-brand-gray leading-relaxed mb-6">Automate repetitive modeling, data extraction, and formatting tasks. Turn hours of manual Excel work into seconds.</p>
-                        <a href="#" class="text-brand-green font-medium inline-flex items-center gap-2 hover:gap-3 transition-all">
-                            Learn more <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </a>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-3">Automate Workflows</h3>
+                        <p class="text-text-muted leading-relaxed">Turn hours of manual data extraction and formatting into seconds. Automate pitchbooks, financial models, and compliance reporting.</p>
                     </div>
 
                     <!-- Feature 3 -->
-                    <div class="bg-white p-8 rounded-2xl shadow-soft border border-brand-border hover:-translate-y-1 transition-transform duration-300">
-                        <div class="w-12 h-12 bg-brand-beige rounded-xl flex items-center justify-center mb-6 text-brand-green text-xl">
-                            <i class="fa-solid fa-shield-halved"></i>
+                    <div class="bg-white rounded-2xl p-8 shadow-soft border border-gray-100 hover:-translate-y-1 transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-xl bg-brand/10 flex items-center justify-center mb-6">
+                            <i class="fa-solid fa-magnifying-glass-chart text-brand text-xl"></i>
                         </div>
-                        <h3 class="text-xl font-semibold text-brand-dark mb-3">Enterprise Security</h3>
-                        <p class="text-brand-gray leading-relaxed mb-6">Bank-grade encryption, SOC2 Type II compliance, and zero data retention policies ensure your proprietary data remains yours.</p>
-                        <a href="#" class="text-brand-green font-medium inline-flex items-center gap-2 hover:gap-3 transition-all">
-                            Learn more <i class="fa-solid fa-arrow-right text-sm"></i>
-                        </a>
+                        <h3 class="text-xl font-semibold text-brand-dark mb-3">Unlock Deep Insights</h3>
+                        <p class="text-text-muted leading-relaxed">Query millions of documents, SEC filings, and proprietary research instantly. Synthesize complex financial data with unparalleled accuracy.</p>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Alternating Content Section 1 -->
-        <section class="py-24 bg-white overflow-hidden">
+        <!-- Deep Dive Section 1 (Security) -->
+        <section id="security" class="py-24 bg-brand-dark text-white overflow-hidden">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="order-2 lg:order-1">
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand-beige border border-brand-border mb-6">
-                            <i class="fa-solid fa-database text-brand-green text-xs"></i>
-                            <span class="text-xs font-mono font-medium text-brand-dark uppercase tracking-wider">Proprietary Data</span>
+                    <div class="order-2 lg:order-1 relative">
+                        <div class="absolute -inset-4 bg-brand/20 rounded-3xl blur-2xl"></div>
+                        <img src="https://images.unsplash.com/photo-1563986768609-322da13575f3?q=80&w=1470&auto=format&fit=crop" alt="Security and Encryption" class="relative rounded-2xl shadow-2xl border border-white/10 object-cover h-[400px] w-full">
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-semibold tracking-wide uppercase mb-6">
+                            <i class="fa-solid fa-lock text-brand-light"></i> Enterprise Security
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-6 leading-tight">Chat with your internal knowledge base.</h2>
-                        <p class="text-lg text-brand-gray mb-8 leading-relaxed">
-                            Connect Rogo to your firm's internal drives, CRM, and historical models. Ask complex questions and get answers backed by your own institutional knowledge, fully cited and verifiable.
+                        <h2 class="font-serif text-4xl md:text-5xl font-medium mb-6">Your data is your competitive edge. We protect it.</h2>
+                        <p class="text-gray-300 text-lg mb-8 leading-relaxed">
+                            We understand that in finance, trust is everything. Rogo is architected from the ground up to meet the stringent compliance requirements of global banks, hedge funds, and private equity firms.
                         </p>
-                        <ul class="space-y-4 mb-8">
+                        <ul class="space-y-4 mb-10">
                             <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-check text-brand-green mt-1"></i>
-                                <span class="text-brand-dark font-medium">Seamless integration with SharePoint, Google Drive, and more.</span>
+                                <i class="fa-solid fa-check-circle text-brand-light mt-1"></i>
+                                <span class="text-gray-200"><strong>Zero Data Retention:</strong> Prompts and outputs are never stored or used for training.</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-check text-brand-green mt-1"></i>
-                                <span class="text-brand-dark font-medium">Strict access controls mirroring your existing permissions.</span>
+                                <i class="fa-solid fa-check-circle text-brand-light mt-1"></i>
+                                <span class="text-gray-200"><strong>VPC Deployment:</strong> Available as a single-tenant deployment within your own secure cloud.</span>
                             </li>
                             <li class="flex items-start gap-3">
-                                <i class="fa-solid fa-check text-brand-green mt-1"></i>
-                                <span class="text-brand-dark font-medium">Real-time syncing ensures answers are always up-to-date.</span>
+                                <i class="fa-solid fa-check-circle text-brand-light mt-1"></i>
+                                <span class="text-gray-200"><strong>Compliance Ready:</strong> SOC2 Type II, GDPR, and CCPA compliant infrastructure.</span>
                             </li>
                         </ul>
-                        <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-brand-dark bg-brand-beige rounded-full hover:bg-brand-border transition-colors">
-                            Explore Integrations
+                        <a href="#security-whitepaper" class="inline-flex items-center gap-2 text-brand-light font-medium hover:text-white transition-colors">
+                            Read our Security Whitepaper <i class="fa-solid fa-arrow-right text-sm"></i>
                         </a>
-                    </div>
-                    <div class="order-1 lg:order-2 relative">
-                        <div class="absolute inset-0 bg-brand-green/5 rounded-3xl transform translate-x-4 translate-y-4"></div>
-                        <img src="https://picsum.photos/seed/rogodata/800/600" alt="Data Integration Interface" class="relative rounded-3xl shadow-float border border-brand-border object-cover aspect-[4/3] w-full">
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Alternating Content Section 2 -->
-        <section class="py-24 bg-brand-beige overflow-hidden">
+        <!-- Deep Dive Section 2 (Workflows) -->
+        <section id="solutions" class="py-24 lg:py-32">
             <div class="max-w-7xl mx-auto px-6 lg:px-8">
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                    <div class="relative">
-                        <div class="absolute inset-0 bg-brand-dark/5 rounded-3xl transform -translate-x-4 translate-y-4"></div>
-                        <img src="https://picsum.photos/seed/rogosecurity/800/600" alt="Security Dashboard" class="relative rounded-3xl shadow-float border border-brand-border object-cover aspect-[4/3] w-full">
-                    </div>
                     <div>
-                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white border border-brand-border mb-6">
-                            <i class="fa-solid fa-lock text-brand-green text-xs"></i>
-                            <span class="text-xs font-mono font-medium text-brand-dark uppercase tracking-wider">Bank-Grade Security</span>
+                        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-brand/10 border border-brand/20 text-brand text-xs font-semibold tracking-wide uppercase mb-6">
+                            <i class="fa-solid fa-layer-group"></i> Seamless Integration
                         </div>
-                        <h2 class="text-4xl md:text-5xl font-serif text-brand-dark mb-6 leading-tight">Your data is never used to train our models.</h2>
-                        <p class="text-lg text-brand-gray mb-8 leading-relaxed">
-                            We built Rogo from the ground up for the most heavily regulated industries. We deploy in single-tenant environments, ensuring complete isolation of your data and queries.
+                        <h2 class="font-serif text-4xl md:text-5xl font-medium text-brand-dark mb-6">Connect your entire financial stack</h2>
+                        <p class="text-text-muted text-lg mb-8 leading-relaxed">
+                            Rogo doesn't just sit alongside your tools; it supercharges them. Connect your internal databases, CRM, and market data providers to create a single source of AI-powered truth.
                         </p>
-                        <div class="grid grid-cols-2 gap-6 mb-8">
-                            <div class="bg-white p-4 rounded-xl border border-brand-border">
-                                <h4 class="font-bold text-brand-dark text-2xl mb-1">SOC 2</h4>
-                                <p class="text-sm text-brand-gray">Type II Certified</p>
+                        <div class="grid grid-cols-2 gap-6 mb-10">
+                            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-blue-50 flex items-center justify-center text-blue-600"><i class="fa-solid fa-file-excel"></i></div>
+                                <span class="font-medium text-sm">Excel Add-in</span>
                             </div>
-                            <div class="bg-white p-4 rounded-xl border border-brand-border">
-                                <h4 class="font-bold text-brand-dark text-2xl mb-1">Zero</h4>
-                                <p class="text-sm text-brand-gray">Data Retention</p>
+                            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-red-50 flex items-center justify-center text-red-600"><i class="fa-solid fa-file-pdf"></i></div>
+                                <span class="font-medium text-sm">PDF Parsing</span>
                             </div>
-                            <div class="bg-white p-4 rounded-xl border border-brand-border">
-                                <h4 class="font-bold text-brand-dark text-2xl mb-1">SSO</h4>
-                                <p class="text-sm text-brand-gray">SAML & OIDC</p>
+                            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-green-50 flex items-center justify-center text-green-600"><i class="fa-solid fa-database"></i></div>
+                                <span class="font-medium text-sm">Internal APIs</span>
                             </div>
-                            <div class="bg-white p-4 rounded-xl border border-brand-border">
-                                <h4 class="font-bold text-brand-dark text-2xl mb-1">VPC</h4>
-                                <p class="text-sm text-brand-gray">Private Deployment</p>
+                            <div class="bg-white p-4 rounded-xl border border-gray-200 shadow-sm flex items-center gap-3">
+                                <div class="w-8 h-8 rounded bg-purple-50 flex items-center justify-center text-purple-600"><i class="fa-solid fa-chart-line"></i></div>
+                                <span class="font-medium text-sm">Market Data</span>
                             </div>
                         </div>
-                        <a href="#" class="inline-flex items-center justify-center px-6 py-3 text-sm font-medium text-brand-dark bg-white border border-brand-border rounded-full hover:bg-brand-lightgray transition-colors">
-                            Read Security Whitepaper
+                        <a href="#integrations" class="inline-flex items-center gap-2 text-brand font-medium hover:text-brand-dark transition-colors">
+                            View all integrations <i class="fa-solid fa-arrow-right text-sm"></i>
                         </a>
                     </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonial / Stats Section -->
-        <section class="py-24 bg-brand-dark text-white relative overflow-hidden">
-            <!-- Background Pattern -->
-            <div class="absolute inset-0 opacity-10" style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 32px 32px;"></div>
-            
-            <div class="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
-                <div class="text-center max-w-4xl mx-auto">
-                    <i class="fa-solid fa-quote-left text-4xl text-brand-green mb-8 opacity-50"></i>
-                    <h2 class="text-3xl md:text-5xl font-serif leading-tight mb-10">
-                        "Rogo has fundamentally changed how our analysts operate. Tasks that used to take 4 hours now take 4 minutes. It's not just a tool; it's a competitive advantage."
-                    </h2>
-                    <div class="flex items-center justify-center gap-4">
-                        <img src="https://i.pravatar.cc/150?img=11" alt="Managing Director" class="w-14 h-14 rounded-full border-2 border-brand-green object-cover">
-                        <div class="text-left">
-                            <p class="font-bold text-lg">Sarah Jenkins</p>
-                            <p class="text-brand-gray text-sm font-mono">Managing Director, Top Tier Investment Bank</p>
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-surface-alt rounded-3xl -z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop" alt="Financial Data Integration" class="relative rounded-2xl shadow-lg border border-gray-200 object-cover h-[500px] w-full">
+                        
+                        <!-- Floating UI Element -->
+                        <div class="absolute -bottom-6 -left-6 bg-white p-5 rounded-xl shadow-xl border border-gray-100 max-w-xs animate-bounce" style="animation-duration: 3s;">
+                            <div class="flex items-center gap-3 mb-2">
+                                <div class="w-2 h-2 rounded-full bg-brand"></div>
+                                <span class="text-xs font-mono text-gray-500">Query Complete</span>
+                            </div>
+                            <p class="text-sm font-medium text-brand-dark">"Summarize Q3 earnings call for AAPL and highlight margin impacts."</p>
                         </div>
-                    </div>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-20 border-t border-white/10 pt-16">
-                    <div class="text-center">
-                        <p class="text-5xl font-serif text-brand-green mb-2">15+</p>
-                        <p class="text-brand-gray font-mono text-sm uppercase tracking-wider">Hours saved per week</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-5xl font-serif text-brand-green mb-2">10x</p>
-                        <p class="text-brand-gray font-mono text-sm uppercase tracking-wider">Faster document analysis</p>
-                    </div>
-                    <div class="text-center">
-                        <p class="text-5xl font-serif text-brand-green mb-2">100%</p>
-                        <p class="text-brand-gray font-mono text-sm uppercase tracking-wider">Data privacy guaranteed</p>
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- CTA Section -->
-        <section class="py-24 bg-brand-green relative overflow-hidden">
-            <div class="absolute top-0 right-0 -mt-20 -mr-20 w-96 h-96 bg-white opacity-5 rounded-full blur-3xl"></div>
-            <div class="absolute bottom-0 left-0 -mb-20 -ml-20 w-80 h-80 bg-black opacity-10 rounded-full blur-3xl"></div>
-            
-            <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center relative z-10">
-                <h2 class="text-4xl md:text-6xl font-serif text-white mb-6">Ready to empower your firm with secure AI?</h2>
-                <p class="text-xl text-white/80 mb-10 max-w-2xl mx-auto">Join the world's leading financial institutions that trust Rogo to drive efficiency and uncover alpha.</p>
+        <section class="py-24 relative overflow-hidden">
+            <div class="absolute inset-0 bg-brand"></div>
+            <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-10"></div>
+            <div class="max-w-4xl mx-auto px-6 lg:px-8 relative z-10 text-center">
+                <h2 class="font-serif text-4xl md:text-5xl font-medium text-white mb-6">Ready to transform your firm?</h2>
+                <p class="text-brand-light text-lg mb-10 max-w-2xl mx-auto">
+                    Join the elite financial institutions already using Rogo to automate workflows, uncover insights, and secure their data.
+                </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-bold text-brand-green bg-white rounded-full hover:bg-brand-beige transition-all shadow-lg">
+                    <a href="#demo" class="w-full sm:w-auto bg-white text-brand-dark text-base font-semibold px-8 py-4 rounded-full transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-0.5">
                         Request a Demo
                     </a>
-                    <a href="#" class="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 text-base font-medium text-white bg-transparent border border-white/30 rounded-full hover:bg-white/10 transition-all">
+                    <a href="#contact" class="w-full sm:w-auto bg-transparent border border-white/30 text-white hover:bg-white/10 text-base font-medium px-8 py-4 rounded-full transition-all duration-300">
                         Contact Sales
                     </a>
                 </div>
             </div>
         </section>
+
     </main>
 
     <!-- Footer -->
-    <footer class="bg-brand-dark text-white pt-20 pb-10 border-t border-white/10">
+    <footer class="bg-brand-dark pt-20 pb-10 border-t border-white/10">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 mb-16">
+                
                 <!-- Brand Column -->
                 <div class="lg:col-span-2">
                     <div class="flex items-center gap-2 mb-6">
-                        <div class="w-8 h-8 bg-brand-green rounded-sm flex items-center justify-center">
-                            <span class="text-white font-serif font-bold text-xl leading-none">R</span>
+                        <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center">
+                            <i class="fa-solid fa-chart-pie text-white text-sm"></i>
                         </div>
-                        <span class="font-serif font-bold text-2xl tracking-tight text-white">Rogo</span>
+                        <span class="font-serif text-2xl font-bold text-white tracking-tight">Rogo</span>
                     </div>
-                    <p class="text-brand-gray text-sm leading-relaxed max-w-sm mb-8">
-                        The secure generative AI platform built specifically for elite financial institutions. Automate workflows, unlock insights, and maintain absolute data privacy.
+                    <p class="text-gray-400 text-sm leading-relaxed max-w-sm mb-8">
+                        The secure generative AI platform built specifically for elite financial institutions. Automate workflows, unlock insights, and maintain absolute data sovereignty.
                     </p>
                     <div class="flex items-center gap-4">
-                        <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-green transition-colors">
+                        <a href="#" aria-label="LinkedIn" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand hover:text-white transition-colors">
                             <i class="fa-brands fa-linkedin-in"></i>
                         </a>
-                        <a href="#" aria-label="Twitter" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-green transition-colors">
+                        <a href="#" aria-label="Twitter" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-gray-400 hover:bg-brand hover:text-white transition-colors">
                             <i class="fa-brands fa-x-twitter"></i>
-                        </a>
-                        <a href="#" aria-label="YouTube" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-white hover:bg-brand-green transition-colors">
-                            <i class="fa-brands fa-youtube"></i>
                         </a>
                     </div>
                 </div>
 
                 <!-- Links Column 1 -->
                 <div>
-                    <h4 class="font-mono text-xs uppercase tracking-widest text-brand-gray mb-6">Platform</h4>
+                    <h4 class="text-white font-semibold mb-6">Platform</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Deep Research</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Workflow Automation</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Data Integrations</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Enterprise Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Overview</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Security</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Integrations</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Enterprise</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Pricing</a></li>
                     </ul>
                 </div>
 
                 <!-- Links Column 2 -->
                 <div>
-                    <h4 class="font-mono text-xs uppercase tracking-widest text-brand-gray mb-6">Company</h4>
+                    <h4 class="text-white font-semibold mb-6">Solutions</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">About Us</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Careers</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Blog</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Investment Banking</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Private Equity</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Hedge Funds</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Asset Management</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Research</a></li>
                     </ul>
                 </div>
 
                 <!-- Links Column 3 -->
                 <div>
-                    <h4 class="font-mono text-xs uppercase tracking-widest text-brand-gray mb-6">Legal</h4>
+                    <h4 class="text-white font-semibold mb-6">Company</h4>
                     <ul class="space-y-4">
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Privacy Policy</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Terms of Service</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Security Overview</a></li>
-                        <li><a href="#" class="text-sm text-white/80 hover:text-brand-green transition-colors">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">About Us</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Careers</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Contact</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white text-sm transition-colors">Press</a></li>
                     </ul>
                 </div>
+
             </div>
 
+            <!-- Bottom Bar -->
             <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4">
-                <p class="text-xs text-brand-gray font-mono">
+                <p class="text-gray-500 text-sm">
                     &copy; 2026 Rogo AI, Inc. All rights reserved.
                 </p>
-                <div class="flex items-center gap-2 text-xs text-brand-gray font-mono">
-                    <span>Designed for Finance</span>
-                    <span class="w-1 h-1 rounded-full bg-brand-green"></span>
-                    <span>Built for Security</span>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Privacy Policy</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Terms of Service</a>
+                    <a href="#" class="text-gray-500 hover:text-white text-sm transition-colors">Cookie Policy</a>
                 </div>
             </div>
         </div>
@@ -481,8 +439,10 @@
             window.addEventListener('scroll', () => {
                 if (window.scrollY > 10) {
                     navbar.classList.add('shadow-sm');
+                    navbar.style.background = 'rgba(245, 242, 235, 0.95)';
                 } else {
                     navbar.classList.remove('shadow-sm');
+                    navbar.style.background = 'rgba(245, 242, 235, 0.85)';
                 }
             });
         });
