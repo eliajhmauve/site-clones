@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>Linear – The system for product development</title>
+    <meta name="description" content="Purpose-built for planning and building products with AI agents.">
+    <link rel="icon" href="https://linear.app/favicon.ico" sizes="any">
+    <link rel="apple-touch-icon" href="https://linear.app/static/apple-touch-icon.png?v=2" sizes="180x180">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome 6.4+ CDN -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        @font-face {
+            font-family: 'InterVariable';
+            src: url('https://static.linear.app/fonts/InterVariable.woff2?v=4.1') format('woff2');
+            font-display: swap;
+            font-weight: 100 900;
+        }
+        body {
+            font-family: 'InterVariable', sans-serif;
+        }
+        @keyframes fade-in-up {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in-up { animation: fade-in-up 0.7s ease-out forwards; }
+        @keyframes rotate-gradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        .animate-rotate-gradient { animation: rotate-gradient 10s ease infinite; }
+        @keyframes scroll-logos {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+        .animate-scroll-logos { animation: scroll-logos 30s linear infinite; }
+        ::-webkit-scrollbar { width: 8px; height: 8px; }
+        ::-webkit-scrollbar-track { background: #18181b; }
+        ::-webkit-scrollbar-thumb { background: #4b5563; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #6b7280; }
+    </style>
+</head>
+<body class="bg-[#08090A] text-[#E4E4E7] antialiased">
+    <!-- Header -->
+    <header class="sticky top-0 z-50 bg-[#08090A] bg-opacity-80 backdrop-blur-md border-b border-[#27272A]">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                    <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="currentColor"/>
+                </svg>
+                <span class="text-white text-lg font-semibold">Linear</span>
+            </a>
+
+            <div class="hidden lg:flex items-center space-x-6 text-[#A1A1AA] text-sm">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#method" class="hover:text-white transition-colors">Method</a>
+                <a href="#customers" class="hover:text-white transition-colors">Customers</a>
+                <a href="#changelog" class="hover:text-white transition-colors">Changelog</a>
+                <a href="#integrations" class="hover:text-white transition-colors">Integrations</a>
+                <a href="#company" class="hover:text-white transition-colors">Company</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+            </div>
+
+            <div class="hidden lg:flex items-center space-x-4">
+                <a href="#" class="text-[#A1A1AA] text-sm hover:text-white transition-colors">Sign in</a>
+                <a href="#" class="bg-[#6366F1] text-white px-4 py-2 rounded-md text-sm font-medium hover:bg-[#5053D6] transition-colors">Get started</a>
+            </div>
+
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="lg:hidden text-white focus:outline-none">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </nav>
+
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-[#08090A] px-4 py-4 border-t border-[#27272A]">
+            <div class="flex flex-col space-y-4 text-[#A1A1AA] text-base">
+                <a href="#features" class="hover:text-white transition-colors">Features</a>
+                <a href="#method" class="hover:text-white transition-colors">Method</a>
+                <a href="#customers" class="hover:text-white transition-colors">Customers</a>
+                <a href="#changelog" class="hover:text-white transition-colors">Changelog</a>
+                <a href="#integrations" class="hover:text-white transition-colors">Integrations</a>
+                <a href="#company" class="hover:text-white transition-colors">Company</a>
+                <a href="#pricing" class="hover:text-white transition-colors">Pricing</a>
+                <div class="border-t border-[#27272A] pt-4">
+                    <a href="#" class="block mb-2 hover:text-white transition-colors">Sign in</a>
+                    <a href="#" class="block bg-[#6366F1] text-white px-4 py-2 rounded-md text-sm font-medium text-center hover:bg-[#5053D6] transition-colors">Get started</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center text-center overflow-hidden bg-[#08090A] py-20 md:py-32 lg:py-48">
+        <!-- Background gradient animation -->
+        <div class="absolute inset-0 z-0 opacity-30">
+            <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-[#6366F1]/20 via-transparent to-transparent animate-rotate-gradient bg-[length:200%_200%]"></div>
+        </div>
+
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+            <h1 class="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6 animate-fade-in-up" style="animation-delay: 0.1s;">
+                The system for <br class="hidden md:block"> product development
+            </h1>
+            <p class="text-lg sm:text-xl md:text-2xl text-[#A1A1AA] mb-10 max-w-2xl mx-auto animate-fade-in-up" style="animation-delay: 0.2s;">
+                Linear is a better way to build products.
+                Meet your new standard for issue tracking, sprints, and product roadmaps.
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center items-center space-y-4 sm:space-y-0 sm:space-x-4 animate-fade-in-up" style="animation-delay: 0.3s;">
+                <a href="#" class="bg-[#6366F1] text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-[#5053D6] transition-colors w-full sm:w-auto">Get started</a>
+                <a href="#" class="bg-[#18181B] text-white px-8 py-3 rounded-md text-lg font-medium hover:bg-[#27272A] transition-colors border border-[#27272A] w-full sm:w-auto">Request a demo</a>
+            </div>
+
+            <!-- Hero image/mockup -->
+            <div class="mt-16 animate-fade-in-up" style="animation-delay: 0.4s;">
+                <img src="https://placehold.co/1200x700/18181B/A1A1AA?text=Linear+Dashboard+Mockup" alt="Linear Dashboard Mockup" class="rounded-xl shadow-2xl border border-[#27272A] mx-auto">
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section 1: Built for speed -->
+    <section id="features" class="py-20 md:py-32 bg-[#08090A]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-[#6366F1] text-sm font-semibold uppercase tracking-wider">Features</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4">Built for speed</h2>
+                <p class="text-lg text-[#A1A1AA] mt-4 max-w-2xl mx-auto">
+                    Everything in Linear is designed to be fast and efficient.
+                    From keyboard shortcuts to instant search, you'll fly through your work.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] hover:border-[#6366F1] transition-all duration-300">
+                    <div class="text-[#6366F1] text-3xl mb-4">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Blazing fast</h3>
+                    <p class="text-[#A1A1AA]">
+                        Native-like performance, even with thousands of issues.
+                        No more waiting for pages to load.
+                    </p>
+                </div>
+                <!-- Feature Card 2 -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] hover:border-[#6366F1] transition-all duration-300">
+                    <div class="text-[#6366F1] text-3xl mb-4">
+                        <i class="fas fa-keyboard"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Keyboard first</h3>
+                    <p class="text-[#A1A1AA]">
+                        Access every action with a few keystrokes.
+                        Work without touching your mouse.
+                    </p>
+                </div>
+                <!-- Feature Card 3 -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] hover:border-[#6366F1] transition-all duration-300">
+                    <div class="text-[#6366F1] text-3xl mb-4">
+                        <i class="fas fa-search"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Instant search</h3>
+                    <p class="text-[#A1A1AA]">
+                        Find any issue, project, or team member in milliseconds.
+                        No more endless scrolling.
+                    </p>
+                </div>
+                <!-- Feature Card 4 -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] hover:border-[#6366F1] transition-all duration-300">
+                    <div class="text-[#6366F1] text-3xl mb-4">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Optimized workflows</h3>
+                    <p class="text-[#A1A1AA]">
+                        Streamlined processes for every stage of product development.
+                        From planning to launch.
+                    </p>
+                </div>
+                <!-- Feature Card 5 -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] hover:border-[#6366F1] transition-all duration-300">
+                    <div class="text-[#6366F1] text-3xl mb-4">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">Collaborative by design</h3>
+                    <p class="text-[#A1A1AA]">
+                        Built for teams to work together seamlessly.
+                        Real-time updates and shared context.
+                    </p>
+                </div>
+                <!-- Feature Card 6 -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] hover:border-[#6366F1] transition-all duration-300">
+                    <div class="text-[#6366F1] text-3xl mb-4">
+                        <i class="fas fa-magic"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold text-white mb-2">AI-powered insights</h3>
+                    <p class="text-[#A1A1AA]">
+                        Leverage AI to automate tasks, summarize discussions, and predict issues.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Method Section (Tabs) -->
+    <section id="method" class="py-20 md:py-32 bg-[#08090A]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-[#6366F1] text-sm font-semibold uppercase tracking-wider">Method</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4">A new way to work</h2>
+                <p class="text-lg text-[#A1A1AA] mt-4 max-w-2xl mx-auto">
+                    Linear's unique approach helps teams focus, ship faster, and build better products.
+                </p>
+            </div>
+
+            <div class="flex justify-center mb-8">
+                <div class="inline-flex rounded-lg bg-[#18181B] p-1 border border-[#27272A]">
+                    <button class="tab-button px-6 py-2 text-sm font-medium rounded-md text-[#A1A1AA] hover:text-white transition-colors data-[active=true]:bg-[#6366F1] data-[active=true]:text-white data-[active=true]:shadow-sm" data-tab="workflow">Workflow</button>
+                    <button class="tab-button px-6 py-2 text-sm font-medium rounded-md text-[#A1A1AA] hover:text-white transition-colors data-[active=true]:bg-[#6366F1] data-[active=true]:text-white data-[active=true]:shadow-sm" data-tab="cycles">Cycles</button>
+                    <button class="tab-button px-6 py-2 text-sm font-medium rounded-md text-[#A1A1AA] hover:text-white transition-colors data-[active=true]:bg-[#6366F1] data-[active=true]:text-white data-[active=true]:shadow-sm" data-tab="roadmaps">Roadmaps</button>
+                </div>
+            </div>
+
+            <!-- Tab Content -->
+            <div id="tab-content-workflow" class="tab-content grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Streamlined Workflow</h3>
+                    <p class="text-lg text-[#A1A1AA] mb-6">
+                        Linear provides a clear and intuitive workflow that keeps your team aligned and productive.
+                        From issue creation to resolution, every step is optimized for efficiency.
+                    </p>
+                    <ul class="space-y-3 text-[#E4E4E7]">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Automated status updates</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Customizable issue types</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Powerful filtering and views</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x400/18181B/A1A1AA?text=Workflow+Illustration" alt="Workflow Illustration" class="rounded-xl border border-[#27272A]">
+                </div>
+            </div>
+
+            <div id="tab-content-cycles" class="tab-content hidden grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Predictable Cycles</h3>
+                    <p class="text-lg text-[#A1A1AA] mb-6">
+                        Run predictable cycles and hit your deadlines with confidence.
+                        Linear helps you plan, track, and deliver on time, every time.
+                    </p>
+                    <ul class="space-y-3 text-[#E4E4E7]">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Automatic cycle creation</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Clear progress tracking</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Historical performance data</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x400/18181B/A1A1AA?text=Cycles+Illustration" alt="Cycles Illustration" class="rounded-xl border border-[#27272A]">
+                </div>
+            </div>
+
+            <div id="tab-content-roadmaps" class="tab-content hidden grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <h3 class="text-3xl font-bold text-white mb-4">Strategic Roadmaps</h3>
+                    <p class="text-lg text-[#A1A1AA] mb-6">
+                        Visualize your product strategy and communicate it effectively.
+                        Roadmaps in Linear help you align stakeholders and prioritize features.
+                    </p>
+                    <ul class="space-y-3 text-[#E4E4E7]">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Interactive roadmap views</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Easy drag-and-drop planning</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Shareable public roadmaps</span>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <img src="https://placehold.co/600x400/18181B/A1A1AA?text=Roadmaps+Illustration" alt="Roadmaps Illustration" class="rounded-xl border border-[#27272A]">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customers Section (Logo Slider) -->
+    <section id="customers" class="py-20 md:py-32 bg-[#08090A] overflow-hidden">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-[#6366F1] text-sm font-semibold uppercase tracking-wider">Customers</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4">Trusted by the best teams</h2>
+                <p class="text-lg text-[#A1A1AA] mt-4 max-w-2xl mx-auto">
+                    Leading product teams worldwide rely on Linear to build amazing products.
+                </p>
+            </div>
+
+            <!-- Logo Slider -->
+            <div class="relative overflow-hidden py-8">
+                <div class="flex whitespace-nowrap animate-scroll-logos" id="logo-slider">
+                    <!-- Duplicate logos to create an infinite scroll effect -->
+                    <div class="flex items-center justify-around flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company1" alt="Company Logo 1" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company2" alt="Company Logo 2" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company3" alt="Company Logo 3" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company4" alt="Company Logo 4" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    <div class="flex items-center justify-around flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company5" alt="Company Logo 5" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company6" alt="Company Logo 6" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company7" alt="Company Logo 7" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company8" alt="Company Logo 8" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                    <!-- Repeat for infinite scroll -->
+                    <div class="flex items-center justify-around flex-shrink-0 w-full md:w-1/2 lg:w-1/3 xl:w-1/4">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company1" alt="Company Logo 1" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company2" alt="Company Logo 2" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company3" alt="Company Logo 3" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/100x40/18181B/A1A1AA?text=Company4" alt="Company Logo 4" class="h-10 mx-8 opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="pricing" class="py-20 md:py-32 bg-[#08090A]">
+        <div class="container mx-auto px-4 max-w-6xl">
+            <div class="text-center mb-16">
+                <span class="text-[#6366F1] text-sm font-semibold uppercase tracking-wider">Pricing</span>
+                <h2 class="text-3xl sm:text-4xl md:text-5xl font-bold text-white mt-4">Simple, transparent pricing</h2>
+                <p class="text-lg text-[#A1A1AA] mt-4 max-w-2xl mx-auto">
+                    Choose the plan that's right for your team. No hidden fees, no surprises.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-20">
+                <!-- Free Plan -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] flex flex-col">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Free</h3>
+                    <p class="text-[#A1A1AA] mb-4">For small teams getting started.</p>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-5xl font-bold text-white">$0</span>
+                        <span class="text-xl text-[#A1A1AA]">/month</span>
+                    </div>
+                    <ul class="space-y-3 text-[#E4E4E7] flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Up to 10 users</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Unlimited issues</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Basic integrations</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Community support</span>
+                        </li>
+                    </ul>
+                    <button class="mt-8 bg-[#6366F1] text-white px-6 py-3 rounded-md font-medium hover:bg-[#5053D6] transition-colors w-full">Get Started Free</button>
+                </div>
+
+                <!-- Standard Plan -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#6366F1] flex flex-col relative overflow-hidden">
+                    <div class="absolute top-0 right-0 bg-[#6366F1] text-white text-xs font-bold px-3 py-1 rounded-bl-lg">Popular</div>
+                    <h3 class="text-2xl font-semibold text-white mb-2">Standard</h3>
+                    <p class="text-[#A1A1AA] mb-4">For growing teams and advanced features.</p>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-5xl font-bold text-white">$10</span>
+                        <span class="text-xl text-[#A1A1AA]">/user/month</span>
+                    </div>
+                    <ul class="space-y-3 text-[#E4E4E7] flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Everything in Free</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Unlimited users</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Advanced integrations</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Priority support</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Custom workflows</span>
+                        </li>
+                    </ul>
+                    <button class="mt-8 bg-[#6366F1] text-white px-6 py-3 rounded-md font-medium hover:bg-[#5053D6] transition-colors w-full">Choose Standard</button>
+                </div>
+
+                <!-- Enterprise Plan -->
+                <div class="bg-[#18181B] p-8 rounded-xl border border-[#27272A] flex flex-col">
+                    <h3 class="text-2xl font-semibold text-white mb-2">Enterprise</h3>
+                    <p class="text-[#A1A1AA] mb-4">For large organizations with specific needs.</p>
+                    <div class="flex items-baseline mb-6">
+                        <span class="text-5xl font-bold text-white">Custom</span>
+                    </div>
+                    <ul class="space-y-3 text-[#E4E4E7] flex-grow">
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Everything in Standard</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>SAML SSO</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Dedicated account manager</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>On-premise deployment</span>
+                        </li>
+                        <li class="flex items-center space-x-2">
+                            <i class="fas fa-check-circle text-[#6366F1]"></i>
+                            <span>Custom security & compliance</span>
+                        </li>
+                    </ul>
+                    <button class="mt-8 bg-[#18181B] text-white px-6 py-3 rounded-md font-medium hover:bg-[#27272A] transition-colors border border-[#27272A] w-full">Contact Sales</button>
+                </div>
+            </div>
+
+            <!-- FAQ Section (Accordion) -->
+            <div class="text-center mb-12">
+                <h2 class="text-3xl sm:text-4xl font-bold text-white">Frequently Asked Questions</h2>
+            </div>
+
+            <div class="max-w-3xl mx-auto space-y-4">
+                <!-- Accordion Item 1 -->
+                <div class="accordion-item bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
+                    <button class="accordion-header flex justify-between items-center w-full p-6 text-left text-white font-semibold hover:bg-[#27272A] transition-colors">
+                        <span>What is Linear?</span>
+                        <i class="fas fa-chevron-down accordion-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden p-6 pt-0 text-[#A1A1AA] border-t border-[#27272A]">
+                        <p>Linear is a modern issue tracking and project management tool designed for high-performing teams. It combines issue tracking, project management, and product roadmaps into a single, fast, and intuitive platform.</p>
+                    </div>
+                </div>
+                <!-- Accordion Item 2 -->
+                <div class="accordion-item bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
+                    <button class="accordion-header flex justify-between items-center w-full p-6 text-left text-white font-semibold hover:bg-[#27272A] transition-colors">
+                        <span>How is Linear different from Jira?</span>
+                        <i class="fas fa-chevron-down accordion-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden p-6 pt-0 text-[#A1A1AA] border-t border-[#27272A]">
+                        <p>Linear focuses on speed, simplicity, and a delightful user experience. It's built for modern software teams, offering a more opinionated workflow, powerful keyboard shortcuts, and a clean interface, unlike the often complex and slow experience of Jira.</p>
+                    </div>
+                </div>
+                <!-- Accordion Item 3 -->
+                <div class="accordion-item bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
+                    <button class="accordion-header flex justify-between items-center w-full p-6 text-left text-white font-semibold hover:bg-[#27272A] transition-colors">
+                        <span>Can I import my existing data?</span>
+                        <i class="fas fa-chevron-down accordion-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden p-6 pt-0 text-[#A1A1AA] border-t border-[#27272A]">
+                        <p>Yes, Linear supports importing data from various sources, including Jira, Asana, GitHub Issues, and CSV files. Our import tools make it easy to migrate your existing projects and issues.</p>
+                    </div>
+                </div>
+                <!-- Accordion Item 4 -->
+                <div class="accordion-item bg-[#18181B] rounded-xl border border-[#27272A] overflow-hidden">
+                    <button class="accordion-header flex justify-between items-center w-full p-6 text-left text-white font-semibold hover:bg-[#27272A] transition-colors">
+                        <span>Do you offer discounts for startups or non-profits?</span>
+                        <i class="fas fa-chevron-down accordion-icon transition-transform duration-300"></i>
+                    </button>
+                    <div class="accordion-content hidden p-6 pt-0 text-[#A1A1AA] border-t border-[#27272A]">
+                        <p>We offer special programs for qualifying startups and non-profit organizations. Please contact our sales team for more information on eligibility and available discounts.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#08090A] py-16 border-t border-[#27272A]">
+        <div class="container mx-auto px-4 max-w-6xl grid grid-cols-1 md:grid-cols-4 lg:grid-cols-5 gap-8 text-[#A1A1AA] text-sm">
+            <div class="col-span-full lg:col-span-1 mb-8 lg:mb-0">
+                <a href="#" class="flex items-center space-x-2 mb-4">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" class="text-white">
+                        <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="currentColor"/>
+                    </svg>
+                    <span class="text-white text-lg font-semibold">Linear</span>
+                </a>
+                <p class="text-[#A1A1AA] text-sm leading-relaxed">
+                    Linear is a better way to build products.
+                    Meet your new standard for issue tracking, sprints, and product roadmaps.
+                </p>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-white mb-4">Product</h4>
+                <ul class="space-y-2">
+                    <li><a href="#features" class="hover:text-white transition-colors">Features</a></li>
+                    <li><a href="#method" class="hover:text-white transition-colors">Method</a></li>
+                    <li><a href="#integrations" class="hover:text-white transition-colors">Integrations</a></li>
+                    <li><a href="#pricing" class="hover:text-white transition-colors">Pricing</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Status</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Security</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-white mb-4">Company</h4>
+                <ul class="space-y-2">
+                    <li><a href="#company" class="hover:text-white transition-colors">About Us</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Blog</a></li>
+                    <li><a href="#changelog" class="hover:text-white transition-colors">Changelog</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Careers</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Contact</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-white mb-4">Resources</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition-colors">Documentation</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Support</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Community</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">API</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Download</a></li>
+                </ul>
+            </div>
+
+            <div>
+                <h4 class="font-semibold text-white mb-4">Legal</h4>
+                <ul class="space-y-2">
+                    <li><a href="#" class="hover:text-white transition-colors">Terms of Service</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">Cookie Policy</a></li>
+                    <li><a href="#" class="hover:text-white transition-colors">GDPR</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-4 max-w-6xl mt-12 flex flex-col md:flex-row justify-between items-center text-[#71717A] text-sm">
+            <p>&copy; 2024 Linear. All rights reserved.</p>
+            <div class="flex space-x-4 mt-4 md:mt-0">
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-github"></i></a>
+                <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger menu
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        if (mobileMenuButton && mobileMenu) {
+            mobileMenuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+                mobileMenuButton.querySelector('i').classList.toggle('fa-bars');
+                mobileMenuButton.querySelector('i').classList.toggle('fa-times');
+            });
+
+            // Close mobile menu when a link is clicked
+            mobileMenu.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenuButton.querySelector('i').classList.remove('fa-times');
+                    mobileMenuButton.querySelector('i').classList.add('fa-bars');
+                });
+            });
+        }
+
+        // Tabs
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        if (tabButtons.length > 0 && tabContents.length > 0) {
+            // Set initial active tab
+            tabButtons[0].setAttribute('data-active', 'true');
+            tabContents[0].classList.remove('hidden');
+
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => {
+                    // Deactivate all buttons and hide all content
+                    tabButtons.forEach(btn => btn.removeAttribute('data-active'));
+                    tabContents.forEach(content => content.classList.add('hidden'));
+
+                    // Activate clicked button and show corresponding content
+                    button.setAttribute('data-active', 'true');
+                    const targetTab = button.getAttribute('data-tab');
+                    document.getElementById(`tab-content-${targetTab}`).classList.remove('hidden');
+                });
+            });
+        }
+
+        // Accordion
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const accordionItem = header.parentElement;
+                const accordionContent = accordionItem.querySelector('.accordion-content');
+                const accordionIcon = header.querySelector('.accordion-icon');
+
+                // Toggle active state for the clicked item
+                accordionItem.classList.toggle('is-active');
+                accordionContent.classList.toggle('hidden');
+                accordionIcon.classList.toggle('rotate-180');
+
+                // Optional: Close other open accordions
+                accordionHeaders.forEach(otherHeader => {
+                    if (otherHeader !== header) {
+                        const otherAccordionItem = otherHeader.parentElement;
+                        const otherAccordionContent = otherAccordionItem.querySelector('.accordion-content');
+                        const otherAccordionIcon = otherHeader.querySelector('.accordion-icon');
+
+                        if (otherAccordionItem.classList.contains('is-active')) {
+                            otherAccordionItem.classList.remove('is-active');
+                            otherAccordionContent.classList.add('hidden');
+                            otherAccordionIcon.classList.remove('rotate-180');
+                        }
+                    }
+                });
+            });
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
