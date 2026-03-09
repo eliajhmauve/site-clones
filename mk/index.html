@@ -6,21 +6,25 @@
   <title>Sustainable Shoes Made From Nature • Make Good®</title>
   <meta name="description" content="Step into the future of footwear. Podiatrist-designed everyday classic shoes, made from bio-friendly materials. Meet The Derby.">
   
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
+  <!-- Font Awesome -->
   <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
   
+  <!-- Tailwind Config -->
   <script>
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            background: '#fffef7',
+            bg: '#fffef7',
             text: '#030303',
-            secondary: '#ededed',
             accent: '#030303',
+            secondary: '#ededed'
           },
           fontFamily: {
-            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'sans-serif'],
+            sans: ['system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
           }
         }
       }
@@ -28,309 +32,413 @@
   </script>
 
   <style>
-    @keyframes marquee { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }
-    .animate-marquee { animation: marquee 20s linear infinite; display: flex; width: max-content; }
-    .universal-popup { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; opacity: 0; transition: opacity 0.3s ease; }
-    .universal-popup.active { display: flex; opacity: 1; }
+    body {
+      background-color: #fffef7;
+      color: #030303;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    /* Marquee Animation */
+    @keyframes marquee {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .animate-marquee {
+      animation: marquee 25s linear infinite;
+    }
+
+    /* Hide Scrollbar for Sliders */
+    .hide-scrollbar::-webkit-scrollbar { display: none; }
+    .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+    /* Universal Popups */
+    .universal-popup { display: none; position: fixed; inset: 0; z-index: 100; align-items: center; justify-content: center; }
+    .universal-popup.active { display: flex; }
     .universal-popup-backdrop { position: absolute; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); }
-    .universal-popup-dialog { position: relative; background: #fffef7; width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto; padding: 2.5rem; border-radius: 1rem; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: translateY(20px); transition: transform 0.3s ease; }
-    .universal-popup.active .universal-popup-dialog { transform: translateY(0); }
-    .universal-popup-close { position: absolute; top: 1.5rem; right: 1.5rem; font-size: 2rem; line-height: 1; cursor: pointer; color: #030303; transition: color 0.2s; background: none; border: none; }
-    .universal-popup-close:hover { color: #666; }
-    .popup-content h2 { font-size: 1.5rem; font-weight: 700; margin-top: 2rem; margin-bottom: 1rem; text-transform: uppercase; }
-    .popup-content h3 { font-size: 1.125rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; }
-    .popup-content h4 { font-size: 1rem; font-weight: 600; margin-top: 1rem; margin-bottom: 0.5rem; }
-    .popup-content p { margin-bottom: 1rem; line-height: 1.6; color: #333; }
-    .popup-content hr { margin: 2rem 0; border-color: #ededed; }
-    .popup-content a { text-decoration: underline; text-underline-offset: 4px; }
-    .popup-content a:hover { color: #666; }
+    .universal-popup-dialog { position: relative; background: #fffef7; width: 90%; max-width: 650px; max-height: 85vh; overflow-y: auto; padding: 2.5rem; border: 1px solid #030303; border-radius: 0; }
+    .universal-popup-close { position: absolute; top: 1rem; right: 1.5rem; font-size: 2.5rem; line-height: 1; cursor: pointer; background: none; border: none; color: #030303; transition: transform 0.3s; }
+    .universal-popup-close:hover { transform: scale(1.1); }
+    .universal-popup-title { font-size: 2rem; font-weight: 800; margin-bottom: 1.5rem; text-transform: uppercase; border-bottom: 2px solid #030303; padding-bottom: 0.5rem; letter-spacing: -0.025em; }
+    
+    .universal-popup-content h2 { font-size: 1.5rem; font-weight: 800; margin-top: 2.5rem; margin-bottom: 1rem; text-transform: uppercase; letter-spacing: -0.025em; }
+    .universal-popup-content h3 { font-size: 1.25rem; font-weight: 700; margin-top: 1.5rem; margin-bottom: 0.5rem; }
+    .universal-popup-content p { margin-bottom: 1.25rem; line-height: 1.6; color: #333; }
+    .universal-popup-content a { text-decoration: underline; font-weight: 600; }
+    .universal-popup-content a:hover { color: #666; }
+    .universal-popup-content hr { border-color: #030303; margin: 2.5rem 0; }
+    
+    /* Size Chart Specific */
+    .size-guide-intro { margin-bottom: 2rem; font-weight: 600; text-align: center; font-size: 1.1rem; }
+    .size-chart-scroll { overflow-x: auto; border: 1px solid #030303; }
+    .size-chart-table { width: 100%; min-width: 500px; border-collapse: collapse; }
+    .size-chart-table th, .size-chart-table td { border: 1px solid #030303; padding: 1rem; text-align: center; }
+    .size-chart-table th { background: #030303; color: #fffef7; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+    .size-chart-table tr:nth-child(even) { background-color: #f9f9f9; }
   </style>
 </head>
-<body class="bg-background text-text font-sans antialiased selection:bg-accent selection:text-white flex flex-col min-h-screen">
+<body class="flex flex-col min-h-screen">
 
-  <!-- Navigation -->
-  <nav class="fixed w-full z-40 top-0 transition-all duration-300" id="navbar">
-    <div class="px-4 md:px-8 py-5 flex justify-between items-center bg-background/95 backdrop-blur-md border-b border-secondary">
-      <button class="md:hidden text-2xl" id="mobile-menu-btn" aria-label="Open Menu">
-        <i class="fa-solid fa-bars"></i>
+  <!-- Top Banner -->
+  <div class="bg-text text-bg text-center py-2 text-xs md:text-sm font-bold uppercase tracking-widest z-50 relative">
+    Free shipping in AUS & NZ • 14-Day Returns
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 w-full bg-bg z-40 border-b border-text transition-all duration-300" id="header">
+    <div class="flex items-center justify-between px-4 py-4 md:px-8 max-w-screen-2xl mx-auto">
+      <button id="menu-btn" class="text-text focus:outline-none hover:opacity-70 transition">
+        <i class="fa-solid fa-bars text-2xl"></i>
       </button>
-      
-      <a href="#" class="text-2xl font-bold tracking-tighter uppercase">Make Good®</a>
-      
-      <div class="hidden md:flex space-x-10 text-sm font-bold uppercase tracking-widest">
-        <a href="#shop" class="hover:text-gray-500 transition-colors">Shop</a>
-        <a href="#features" class="hover:text-gray-500 transition-colors">Features</a>
-        <a href="#about" class="hover:text-gray-500 transition-colors">About</a>
-      </div>
-      
-      <button class="text-lg flex items-center gap-3 group">
-        <span class="hidden md:inline text-sm font-bold uppercase tracking-widest group-hover:text-gray-500 transition-colors">Cart</span>
-        <div class="relative">
-          <i class="fa-solid fa-cart-shopping group-hover:text-gray-500 transition-colors"></i>
-          <span class="absolute -top-2 -right-3 bg-text text-background text-[10px] font-bold rounded-full w-4 h-4 flex items-center justify-center">0</span>
-        </div>
+      <a href="#" class="text-2xl md:text-3xl font-black tracking-tighter uppercase">Make Good®</a>
+      <button class="text-text focus:outline-none hover:opacity-70 transition relative">
+        <i class="fa-solid fa-cart-shopping text-xl"></i>
+        <span class="absolute -top-2 -right-2 bg-text text-bg text-[10px] font-bold w-4 h-4 rounded-full flex items-center justify-center">0</span>
       </button>
     </div>
-  </nav>
+  </header>
 
   <!-- Mobile Menu Overlay -->
-  <div id="mobile-menu" class="fixed inset-0 bg-background z-50 hidden flex-col pt-24 px-8">
-    <button id="mobile-menu-close" class="absolute top-6 left-4 text-3xl" aria-label="Close Menu">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-    <div class="flex flex-col space-y-8 text-4xl font-bold uppercase tracking-tighter mt-10">
-      <a href="#shop" class="mobile-link hover:text-gray-500 transition-colors">Shop</a>
-      <a href="#features" class="mobile-link hover:text-gray-500 transition-colors">Features</a>
-      <a href="#about" class="mobile-link hover:text-gray-500 transition-colors">About</a>
+  <div id="mobile-menu" class="fixed inset-0 bg-bg z-50 transform -translate-x-full transition-transform duration-500 ease-in-out flex flex-col">
+    <div class="flex items-center justify-between px-4 py-4 md:px-8 border-b border-text">
+      <button id="close-menu-btn" class="text-text focus:outline-none hover:rotate-90 transition duration-300">
+        <i class="fa-solid fa-xmark text-3xl"></i>
+      </button>
+      <a href="#" class="text-2xl font-black tracking-tighter uppercase">Make Good®</a>
+      <div class="w-8"></div>
     </div>
-    <div class="mt-auto mb-12 flex space-x-6 text-2xl">
-      <a href="#" class="hover:text-gray-500 transition-colors"><i class="fa-brands fa-instagram"></i></a>
-      <a href="#" class="hover:text-gray-500 transition-colors"><i class="fa-brands fa-tiktok"></i></a>
+    <nav class="flex flex-col p-8 space-y-8 text-3xl md:text-5xl uppercase font-black tracking-tighter flex-1 justify-center">
+      <a href="#shop" class="hover:text-gray-500 transition flex items-center justify-between group">
+        Shop <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+      </a>
+      <a href="#about" class="hover:text-gray-500 transition flex items-center justify-between group">
+        About <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+      </a>
+      <a href="#materials" class="hover:text-gray-500 transition flex items-center justify-between group">
+        Materials <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+      </a>
+      <a href="#faq" class="hover:text-gray-500 transition flex items-center justify-between group">
+        FAQ <i class="fa-solid fa-arrow-right opacity-0 group-hover:opacity-100 transition-opacity"></i>
+      </a>
+    </nav>
+    <div class="p-8 border-t border-text flex justify-between items-center">
+      <div class="flex space-x-6">
+        <a href="#" class="text-2xl hover:text-gray-500"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="text-2xl hover:text-gray-500"><i class="fa-brands fa-tiktok"></i></a>
+      </div>
+      <a href="mailto:hello@mk.gd" class="font-bold uppercase underline">hello@mk.gd</a>
     </div>
   </div>
 
   <!-- Hero Section -->
-  <section class="pt-32 pb-16 md:pt-40 md:pb-24 px-4 md:px-8 min-h-[90vh] flex flex-col justify-center">
-    <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-      <div class="order-2 lg:order-1 flex flex-col items-start">
-        <h1 class="text-5xl md:text-7xl lg:text-[5.5rem] font-bold tracking-tighter leading-[0.9] mb-8 uppercase">
-          Sustainable<br>Shoes Made<br>From Nature
-        </h1>
-        <p class="text-lg md:text-xl mb-10 max-w-md text-gray-700 leading-relaxed">
-          Step into the future of footwear. Podiatrist-designed everyday classic shoes, made from bio-friendly materials. Meet The Derby.
-        </p>
-        <a href="#shop" class="bg-text text-background px-10 py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#333] transition-colors flex items-center gap-4">
-          Shop The Derby <i class="fa-solid fa-arrow-right"></i>
-        </a>
+  <section class="min-h-[90vh] flex flex-col relative border-b border-text">
+    <div class="flex-1 relative flex items-center justify-center overflow-hidden">
+      <img src="https://picsum.photos/1920/1080?random=1" alt="The Derby Shoe" class="absolute inset-0 w-full h-full object-cover">
+      <div class="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div class="relative z-10 text-center text-white px-4 max-w-5xl mx-auto mt-10">
+        <h1 class="text-6xl md:text-8xl lg:text-9xl font-black uppercase tracking-tighter mb-6 leading-none">Meet The Derby</h1>
+        <p class="text-xl md:text-3xl mb-10 font-medium max-w-3xl mx-auto leading-snug">Step into the future of footwear. Podiatrist-designed everyday classic shoes, made from bio-friendly materials.</p>
+        <a href="#shop" class="inline-block bg-white text-black px-12 py-5 rounded-full uppercase font-bold tracking-widest hover:bg-gray-200 transition duration-300 border-2 border-transparent hover:border-black text-lg">Shop Now</a>
       </div>
-      <div class="order-1 lg:order-2 w-full aspect-square md:aspect-[4/3] lg:aspect-square relative overflow-hidden rounded-2xl bg-secondary">
-        <img src="https://picsum.photos/seed/makegoodhero/1200/1200" alt="The Derby Shoe" class="object-cover w-full h-full hover:scale-105 transition-transform duration-1000">
+    </div>
+    <!-- Marquee -->
+    <div class="bg-bg text-text py-4 overflow-hidden whitespace-nowrap border-t border-text flex">
+      <div class="animate-marquee flex space-x-8 text-lg uppercase tracking-widest font-bold">
+        <span>Sustainable Shoes</span><span>•</span>
+        <span>Made From Nature</span><span>•</span>
+        <span>Podiatrist Designed</span><span>•</span>
+        <span>Everyday Classic</span><span>•</span>
+        <span>Sustainable Shoes</span><span>•</span>
+        <span>Made From Nature</span><span>•</span>
+        <span>Podiatrist Designed</span><span>•</span>
+        <span>Everyday Classic</span><span>•</span>
+        <span>Sustainable Shoes</span><span>•</span>
+        <span>Made From Nature</span><span>•</span>
+        <span>Podiatrist Designed</span><span>•</span>
+        <span>Everyday Classic</span><span>•</span>
+        <span>Sustainable Shoes</span><span>•</span>
+        <span>Made From Nature</span><span>•</span>
+        <span>Podiatrist Designed</span><span>•</span>
+        <span>Everyday Classic</span>
       </div>
     </div>
   </section>
-
-  <!-- Marquee -->
-  <div class="w-full overflow-hidden bg-text text-background py-5 border-y border-text flex whitespace-nowrap">
-    <div class="animate-marquee flex space-x-8 text-sm md:text-base font-bold uppercase tracking-widest px-4">
-      <span>Podiatrist-Designed</span><span>•</span>
-      <span>Bio-Friendly Materials</span><span>•</span>
-      <span>Everyday Classic</span><span>•</span>
-      <span>Carbon Neutral</span><span>•</span>
-      <span>Podiatrist-Designed</span><span>•</span>
-      <span>Bio-Friendly Materials</span><span>•</span>
-      <span>Everyday Classic</span><span>•</span>
-      <span>Carbon Neutral</span><span>•</span>
-      <span>Podiatrist-Designed</span><span>•</span>
-      <span>Bio-Friendly Materials</span><span>•</span>
-      <span>Everyday Classic</span><span>•</span>
-      <span>Carbon Neutral</span><span>•</span>
-      <span>Podiatrist-Designed</span><span>•</span>
-      <span>Bio-Friendly Materials</span><span>•</span>
-      <span>Everyday Classic</span><span>•</span>
-      <span>Carbon Neutral</span><span>•</span>
-    </div>
-  </div>
 
   <!-- Features Section -->
-  <section id="features" class="py-24 md:py-32 px-4 md:px-8 bg-[#f5f4ef]">
-    <div class="max-w-7xl mx-auto">
-      <div class="text-center mb-16 md:mb-24">
-        <h2 class="text-4xl md:text-6xl font-bold tracking-tighter uppercase mb-6">Made For Good</h2>
-        <p class="text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">We believe in creating footwear that respects the planet without compromising on style, durability, or all-day comfort.</p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16">
-        <div class="group cursor-pointer">
-          <div class="overflow-hidden rounded-2xl mb-8 aspect-[4/3] bg-secondary">
-            <img src="https://picsum.photos/seed/biofriendly/1000/750" alt="Bio-friendly materials" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
-          </div>
-          <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">Bio-Friendly Materials</h3>
-          <p class="text-gray-700 leading-relaxed text-lg">Crafted from innovative plant-based materials and recycled components, reducing our carbon footprint step by step while maintaining premium quality.</p>
+  <section id="about" class="py-24 px-4 md:px-8 border-b border-text bg-secondary">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
+      <div class="flex flex-col items-center">
+        <div class="w-20 h-20 rounded-full border-2 border-text flex items-center justify-center mb-6 bg-bg">
+          <i class="fa-solid fa-leaf text-3xl"></i>
         </div>
-        <div class="group cursor-pointer mt-0 md:mt-24">
-          <div class="overflow-hidden rounded-2xl mb-8 aspect-[4/3] bg-secondary">
-            <img src="https://picsum.photos/seed/podiatrist/1000/750" alt="Podiatrist Designed" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000">
-          </div>
-          <h3 class="text-2xl md:text-3xl font-bold uppercase tracking-tight mb-4">Podiatrist Designed</h3>
-          <p class="text-gray-700 leading-relaxed text-lg">Engineered for all-day comfort with anatomical arch support, a wider toe box for natural splay, and shock-absorbing natural rubber soles.</p>
+        <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">Bio-Friendly</h3>
+        <p class="text-gray-800 font-medium leading-relaxed">Crafted from nature's finest materials, leaving a lighter footprint on the planet.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="w-20 h-20 rounded-full border-2 border-text flex items-center justify-center mb-6 bg-bg">
+          <i class="fa-solid fa-shoe-prints text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">Podiatrist Designed</h3>
+        <p class="text-gray-800 font-medium leading-relaxed">Engineered for all-day comfort and optimal foot health from the ground up.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="w-20 h-20 rounded-full border-2 border-text flex items-center justify-center mb-6 bg-bg">
+          <i class="fa-solid fa-recycle text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">Sustainable</h3>
+        <p class="text-gray-800 font-medium leading-relaxed">Ethically produced with a strict commitment to circular design principles.</p>
+      </div>
+      <div class="flex flex-col items-center">
+        <div class="w-20 h-20 rounded-full border-2 border-text flex items-center justify-center mb-6 bg-bg">
+          <i class="fa-solid fa-venus-mars text-3xl"></i>
+        </div>
+        <h3 class="text-2xl font-black uppercase mb-3 tracking-tight">Unisex Design</h3>
+        <p class="text-gray-800 font-medium leading-relaxed">A timeless classic silhouette that looks incredible on absolutely everyone.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Materials Section -->
+  <section id="materials" class="py-24 px-4 md:px-8 border-b border-text">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row items-center gap-16">
+      <div class="lg:w-1/2">
+        <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-8">Made From Nature</h2>
+        <p class="text-xl mb-10 leading-relaxed font-medium">We believe that footwear shouldn't cost the earth. That's why we've spent years developing materials that are bio-based, renewable, and leave a minimal footprint without compromising on durability or style.</p>
+        <ul class="space-y-8">
+          <li class="flex items-start">
+            <div class="w-8 h-8 rounded-full bg-text text-bg flex items-center justify-center mt-1 mr-4 shrink-0">
+              <i class="fa-solid fa-check text-sm"></i>
+            </div>
+            <div>
+              <strong class="text-xl uppercase font-black tracking-tight block mb-1">Apple & Corn Leather</strong>
+              <p class="text-gray-700 text-lg">Repurposed agricultural waste turned into a highly durable, water-resistant upper material.</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="w-8 h-8 rounded-full bg-text text-bg flex items-center justify-center mt-1 mr-4 shrink-0">
+              <i class="fa-solid fa-check text-sm"></i>
+            </div>
+            <div>
+              <strong class="text-xl uppercase font-black tracking-tight block mb-1">Natural Rubber Outsoles</strong>
+              <p class="text-gray-700 text-lg">Sustainably tapped from rubber trees, providing excellent grip, flexibility, and longevity.</p>
+            </div>
+          </li>
+          <li class="flex items-start">
+            <div class="w-8 h-8 rounded-full bg-text text-bg flex items-center justify-center mt-1 mr-4 shrink-0">
+              <i class="fa-solid fa-check text-sm"></i>
+            </div>
+            <div>
+              <strong class="text-xl uppercase font-black tracking-tight block mb-1">Organic Cotton Lining</strong>
+              <p class="text-gray-700 text-lg">Highly breathable, incredibly soft, and grown entirely without harmful pesticides.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="lg:w-1/2 w-full">
+        <div class="relative w-full aspect-square rounded-full border-2 border-text overflow-hidden p-4">
+          <img src="https://picsum.photos/1000/1000?random=2" alt="Materials" class="w-full h-full object-cover rounded-full">
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Product Section -->
-  <section id="shop" class="py-24 md:py-32 px-4 md:px-8">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24">
-      
-      <!-- Product Images Gallery -->
-      <div class="relative">
-        <div class="lg:sticky lg:top-32 grid grid-cols-1 gap-4">
-          <div class="aspect-square rounded-2xl overflow-hidden bg-secondary">
-            <img src="https://picsum.photos/seed/derby1/1200/1200" alt="The Derby - Main" class="w-full h-full object-cover transition-opacity duration-300" id="main-product-image">
-          </div>
-          <div class="grid grid-cols-4 gap-4">
-            <button class="aspect-square rounded-xl overflow-hidden border-2 border-text product-thumb" data-src="https://picsum.photos/seed/derby1/1200/1200">
-              <img src="https://picsum.photos/seed/derby1/300/300" alt="Thumb 1" class="w-full h-full object-cover">
-            </button>
-            <button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-text/50 product-thumb" data-src="https://picsum.photos/seed/derby2/1200/1200">
-              <img src="https://picsum.photos/seed/derby2/300/300" alt="Thumb 2" class="w-full h-full object-cover">
-            </button>
-            <button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-text/50 product-thumb" data-src="https://picsum.photos/seed/derby3/1200/1200">
-              <img src="https://picsum.photos/seed/derby3/300/300" alt="Thumb 3" class="w-full h-full object-cover">
-            </button>
-            <button class="aspect-square rounded-xl overflow-hidden border-2 border-transparent hover:border-text/50 product-thumb" data-src="https://picsum.photos/seed/derby4/1200/1200">
-              <img src="https://picsum.photos/seed/derby4/300/300" alt="Thumb 4" class="w-full h-full object-cover">
-            </button>
-          </div>
+  <!-- Image Slider Section -->
+  <section class="py-24 border-b border-text bg-text text-bg">
+    <div class="max-w-screen-2xl mx-auto px-4 md:px-8 mb-12 flex justify-between items-end">
+      <h2 class="text-4xl md:text-6xl font-black uppercase tracking-tighter">Every Angle</h2>
+      <div class="hidden md:flex space-x-4">
+        <button class="w-12 h-12 rounded-full border border-bg flex items-center justify-center hover:bg-bg hover:text-text transition"><i class="fa-solid fa-arrow-left"></i></button>
+        <button class="w-12 h-12 rounded-full border border-bg flex items-center justify-center hover:bg-bg hover:text-text transition"><i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
+    <div class="flex overflow-x-auto snap-x snap-mandatory hide-scrollbar space-x-6 px-4 md:px-8 pb-8">
+      <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw]">
+        <img src="https://picsum.photos/800/1000?random=3" class="w-full h-[60vh] object-cover border border-bg rounded-xl">
+      </div>
+      <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw]">
+        <img src="https://picsum.photos/800/1000?random=4" class="w-full h-[60vh] object-cover border border-bg rounded-xl">
+      </div>
+      <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw]">
+        <img src="https://picsum.photos/800/1000?random=5" class="w-full h-[60vh] object-cover border border-bg rounded-xl">
+      </div>
+      <div class="snap-center shrink-0 w-[85vw] md:w-[45vw] lg:w-[30vw]">
+        <img src="https://picsum.photos/800/1000?random=6" class="w-full h-[60vh] object-cover border border-bg rounded-xl">
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonial -->
+  <section class="py-32 px-4 md:px-8 border-b border-text bg-secondary">
+    <div class="max-w-5xl mx-auto text-center">
+      <i class="fa-solid fa-quote-left text-6xl mb-8 opacity-20"></i>
+      <h2 class="text-3xl md:text-5xl lg:text-6xl font-black uppercase tracking-tighter mb-10 leading-tight">"Finally, a shoe that looks incredible and actually supports foot health. The Derby is a game-changer for everyday wear."</h2>
+      <p class="text-xl uppercase tracking-widest font-bold">— Dr. Sarah Jenkins, Podiatrist</p>
+    </div>
+  </section>
+
+  <!-- Shop Section -->
+  <section id="shop" class="py-24 px-4 md:px-8 border-b border-text">
+    <div class="max-w-7xl mx-auto flex flex-col lg:flex-row gap-16">
+      <!-- Product Images -->
+      <div class="lg:w-3/5 grid grid-cols-2 gap-4">
+        <div class="col-span-2 overflow-hidden rounded-xl border border-text bg-secondary">
+          <img src="https://picsum.photos/1000/1200?random=7" alt="The Derby Main" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="overflow-hidden rounded-xl border border-text bg-secondary">
+          <img src="https://picsum.photos/800/800?random=8" alt="The Derby Detail 1" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
+        </div>
+        <div class="overflow-hidden rounded-xl border border-text bg-secondary">
+          <img src="https://picsum.photos/800/800?random=9" alt="The Derby Detail 2" class="w-full h-full object-cover hover:scale-105 transition-transform duration-700">
         </div>
       </div>
-
-      <!-- Product Info -->
-      <div class="flex flex-col pt-4 lg:pt-10">
-        <div class="mb-4 flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-gray-500">
-          <span>Make Good®</span>
-        </div>
-        <h1 class="text-4xl md:text-6xl font-bold uppercase tracking-tighter mb-4">The Derby</h1>
-        <div class="text-2xl md:text-3xl mb-8">$189.00 AUD</div>
+      
+      <!-- Product Details -->
+      <div class="lg:w-2/5 sticky top-32 h-fit">
+        <h2 class="text-5xl md:text-6xl font-black uppercase tracking-tighter mb-2">The Derby</h2>
+        <p class="text-3xl mb-8 font-medium">$180.00 AUD</p>
         
-        <p class="text-gray-700 mb-10 leading-relaxed text-lg">
-          The everyday classic, reimagined. A unisex derby shoe designed by podiatrists for ultimate comfort, made entirely from bio-friendly and recycled materials. Step lightly on the earth.
-        </p>
-
-        <!-- Color Selection -->
+        <!-- Color Selector -->
         <div class="mb-10">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-sm font-bold uppercase tracking-widest">Color: <span id="color-name" class="text-gray-500">Onyx Black</span></span>
-          </div>
-          <div class="flex gap-4">
-            <button class="w-12 h-12 rounded-full bg-[#1a1a1a] border border-gray-300 ring-2 ring-offset-4 ring-text transition-all" aria-label="Onyx Black"></button>
-            <button class="w-12 h-12 rounded-full bg-[#e8e5df] border border-gray-300 ring-2 ring-offset-4 ring-transparent hover:ring-gray-300 transition-all" aria-label="Oatmeal"></button>
-            <button class="w-12 h-12 rounded-full bg-[#4a5d4e] border border-gray-300 ring-2 ring-offset-4 ring-transparent hover:ring-gray-300 transition-all" aria-label="Olive Green"></button>
+          <p class="font-bold uppercase mb-4 text-sm tracking-widest">Color: <span id="color-name" class="text-gray-600">Onyx Black</span></p>
+          <div class="flex space-x-4">
+            <button class="color-btn w-14 h-14 rounded-full bg-[#030303] border border-text focus:outline-none ring-2 ring-offset-4 ring-text transition" data-name="Onyx Black"></button>
+            <button class="color-btn w-14 h-14 rounded-full bg-[#eaddcf] border border-text focus:outline-none transition hover:scale-110" data-name="Oat Milk"></button>
+            <button class="color-btn w-14 h-14 rounded-full bg-[#5c4033] border border-text focus:outline-none transition hover:scale-110" data-name="Earthy Brown"></button>
           </div>
         </div>
 
-        <!-- Size Selection -->
+        <!-- Size Selector -->
         <div class="mb-10">
-          <div class="flex justify-between items-center mb-4">
-            <span class="text-sm font-bold uppercase tracking-widest">Select Size (EU)</span>
-            <button class="text-sm font-bold uppercase tracking-widest underline underline-offset-4 hover:text-gray-500 transition-colors popup-trigger" data-target="popup-size-chart">Size Guide</button>
+          <div class="flex justify-between items-end mb-4">
+            <p class="font-bold uppercase text-sm tracking-widest">Select Size</p>
+            <button onclick="openPopup('popup-size-chart')" class="underline text-sm uppercase font-bold hover:text-gray-500 transition">Size Guide</button>
           </div>
-          <div class="grid grid-cols-4 md:grid-cols-5 gap-3">
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">37</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">38</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">39</button>
-            <button class="py-4 border border-text bg-text text-background rounded-xl text-sm font-bold transition-colors size-btn active">40</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">41</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">42</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">43</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">44</button>
-            <button class="py-4 border border-gray-300 rounded-xl text-sm font-bold hover:border-text hover:bg-secondary transition-colors size-btn">45</button>
-            <button class="py-4 border border-gray-200 rounded-xl text-sm font-bold text-gray-400 cursor-not-allowed bg-gray-50" disabled>46</button>
+          <div class="grid grid-cols-4 gap-3">
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">37.5</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">39</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">40</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">41.5</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">42.5</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">44</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">45</button>
+            <button class="size-btn py-4 border border-text rounded-lg text-sm font-bold hover:bg-text hover:text-bg transition">46</button>
           </div>
         </div>
 
-        <!-- Add to Cart -->
-        <button class="w-full bg-text text-background py-5 rounded-full text-sm font-bold uppercase tracking-widest hover:bg-[#333] transition-colors mb-12 flex justify-center items-center gap-3">
-          Add to Cart <i class="fa-solid fa-cart-plus"></i>
-        </button>
-
-        <!-- Accordions -->
-        <div class="border-t border-gray-300">
-          <div class="accordion-item border-b border-gray-300">
-            <button class="accordion-header w-full py-6 flex justify-between items-center text-left font-bold uppercase tracking-widest text-sm hover:text-gray-600 transition-colors">
-              Materials & Care
-              <i class="fa-solid fa-plus transition-transform duration-300 text-lg"></i>
+        <button class="w-full bg-text text-bg py-5 rounded-full uppercase font-black tracking-widest hover:bg-gray-800 transition mb-6 text-xl shadow-lg hover:shadow-xl transform hover:-translate-y-1">Add to Cart</button>
+        
+        <div class="flex items-center justify-center space-x-6 text-sm font-bold uppercase mb-10 text-gray-600">
+          <span class="flex items-center"><i class="fa-solid fa-truck-fast mr-2 text-lg text-text"></i> Free Shipping</span>
+          <span class="flex items-center"><i class="fa-solid fa-rotate-left mr-2 text-lg text-text"></i> 14-Day Returns</span>
+        </div>
+        
+        <!-- Accordion -->
+        <div class="border-t border-text">
+          <div class="accordion-item border-b border-text">
+            <button class="accordion-header w-full py-6 flex justify-between items-center font-black uppercase focus:outline-none text-left text-lg tracking-tight">
+              <span>Description</span>
+              <i class="fa-solid fa-plus transition-transform duration-300 text-xl"></i>
             </button>
-            <div class="accordion-content hidden pb-6 text-gray-700 text-base leading-relaxed">
-              <ul class="list-disc pl-5 space-y-3">
-                <li><strong>Upper:</strong> 100% Bio-based vegan leather (corn & apple waste)</li>
-                <li><strong>Lining:</strong> Organic cotton & bamboo blend for breathability</li>
-                <li><strong>Outsole:</strong> Natural rubber & recycled cork for shock absorption</li>
-                <li><strong>Laces:</strong> 100% Recycled PET</li>
-                <li><strong>Care:</strong> Wipe clean with a damp cloth. Do not machine wash or tumble dry.</li>
+            <div class="accordion-content hidden pb-6 text-gray-800 leading-relaxed font-medium">
+              <p>The Derby is our take on the classic everyday shoe. Redesigned from the ground up by podiatrists to support your natural foot shape, while utilizing innovative plant-based materials. Perfect for work, weekends, and everything in between.</p>
+            </div>
+          </div>
+          <div class="accordion-item border-b border-text">
+            <button class="accordion-header w-full py-6 flex justify-between items-center font-black uppercase focus:outline-none text-left text-lg tracking-tight">
+              <span>Materials & Care</span>
+              <i class="fa-solid fa-plus transition-transform duration-300 text-xl"></i>
+            </button>
+            <div class="accordion-content hidden pb-6 text-gray-800 leading-relaxed font-medium">
+              <ul class="list-disc pl-5 space-y-2">
+                <li><strong>Upper:</strong> Bio-based vegan leather (corn & apple waste)</li>
+                <li><strong>Lining:</strong> Organic cotton & bamboo blend</li>
+                <li><strong>Outsole:</strong> Natural rubber & recycled cork</li>
+                <li><strong>Care:</strong> Wipe clean with a damp cloth. Do not machine wash.</li>
               </ul>
             </div>
           </div>
-          <div class="accordion-item border-b border-gray-300">
-            <button class="accordion-header w-full py-6 flex justify-between items-center text-left font-bold uppercase tracking-widest text-sm hover:text-gray-600 transition-colors">
-              Shipping & Returns
-              <i class="fa-solid fa-plus transition-transform duration-300 text-lg"></i>
+          <div class="accordion-item border-b border-text">
+            <button class="accordion-header w-full py-6 flex justify-between items-center font-black uppercase focus:outline-none text-left text-lg tracking-tight">
+              <span>Shipping & Returns</span>
+              <i class="fa-solid fa-plus transition-transform duration-300 text-xl"></i>
             </button>
-            <div class="accordion-content hidden pb-6 text-gray-700 text-base leading-relaxed">
-              <p class="mb-3">Free shipping on all orders within Australia and New Zealand.</p>
-              <p class="mb-4">We offer free returns and exchanges within 14 days of delivery, provided shoes are in original condition.</p>
-              <div class="flex flex-col sm:flex-row gap-4 mt-6">
-                <button class="text-sm font-bold uppercase tracking-widest underline underline-offset-4 hover:text-black transition-colors popup-trigger" data-target="popup-shipping">Full Shipping Policy</button>
-                <button class="text-sm font-bold uppercase tracking-widest underline underline-offset-4 hover:text-black transition-colors popup-trigger" data-target="popup-returns">Full Returns Policy</button>
-              </div>
+            <div class="accordion-content hidden pb-6 text-gray-800 leading-relaxed font-medium">
+              <p class="mb-3">Free shipping applies on all orders within Australia and New Zealand.</p>
+              <p class="mb-4">We offer free returns and exchanges within Australia and New Zealand within 14 days of delivery.</p>
+              <button onclick="openPopup('popup-shipping')" class="underline font-bold uppercase text-sm tracking-widest hover:text-black">Read full policy</button>
             </div>
           </div>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- Image Banner -->
-  <section id="about" class="w-full h-[60vh] md:h-[80vh] relative">
-    <img src="https://picsum.photos/seed/makegoodbanner/1920/1080" alt="Lifestyle" class="w-full h-full object-cover">
-    <div class="absolute inset-0 bg-black/30 flex items-center justify-center">
-      <h2 class="text-white text-5xl md:text-7xl lg:text-8xl font-bold uppercase tracking-tighter text-center px-4 leading-[0.9]">Walk Lighter.<br>Live Better.</h2>
+  <!-- Featured In -->
+  <section class="py-16 border-b border-text bg-secondary">
+    <div class="max-w-7xl mx-auto px-4 text-center">
+      <p class="text-sm font-bold uppercase tracking-widest mb-8 text-gray-500">As Featured In</p>
+      <div class="flex flex-wrap justify-center items-center gap-10 md:gap-20 opacity-40 grayscale font-serif text-3xl md:text-4xl font-bold">
+        <span>VOGUE</span>
+        <span>GQ</span>
+        <span>Esquire</span>
+        <span class="font-sans tracking-tighter">HYPEBEAST</span>
+        <span>Forbes</span>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-text text-background pt-24 pb-12 px-4 md:px-8 mt-auto">
-    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-12 gap-12 lg:gap-8 mb-20">
-      <div class="md:col-span-5 lg:col-span-6">
-        <h3 class="text-4xl font-bold uppercase tracking-tighter mb-6">Make Good®</h3>
-        <p class="text-gray-400 max-w-md mb-10 text-lg leading-relaxed">Sustainable footwear designed by podiatrists. Made from nature, for everyday life.</p>
-        <form class="flex flex-col sm:flex-row gap-4 max-w-md">
-          <input type="email" placeholder="Enter your email" required class="bg-transparent border-b border-gray-600 px-0 py-3 w-full focus:outline-none focus:border-white text-white placeholder-gray-500 transition-colors">
-          <button type="submit" class="font-bold uppercase tracking-widest text-sm hover:text-gray-300 whitespace-nowrap py-3 text-left sm:text-center">Subscribe</button>
+  <footer class="bg-text text-bg py-20 px-4 md:px-8">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+      <div class="lg:col-span-2">
+        <h2 class="text-4xl font-black uppercase tracking-tighter mb-6">Make Good®</h2>
+        <p class="mb-8 max-w-md text-lg text-gray-300 leading-relaxed">Sustainable shoes made from nature. Designed by podiatrists for everyday wear. Step into the future.</p>
+        <form class="flex border-b-2 border-bg pb-3 max-w-md group">
+          <input type="email" placeholder="ENTER YOUR EMAIL" class="bg-transparent w-full focus:outline-none placeholder-gray-500 text-lg uppercase font-bold tracking-widest">
+          <button type="submit" class="uppercase font-black text-lg hover:text-gray-400 transition group-hover:translate-x-2"><i class="fa-solid fa-arrow-right"></i></button>
         </form>
       </div>
       
-      <div class="md:col-span-3 lg:col-span-3">
-        <h4 class="font-bold uppercase tracking-widest text-sm mb-8 text-gray-500">Shop</h4>
-        <ul class="space-y-5 text-base">
-          <li><a href="#shop" class="hover:text-gray-300 transition-colors">The Derby</a></li>
-          <li><a href="#" class="hover:text-gray-300 transition-colors">Gift Cards</a></li>
-          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-size-chart">Size Guide</a></li>
+      <div>
+        <h4 class="font-black uppercase mb-6 text-xl tracking-tight">Shop</h4>
+        <ul class="space-y-4 text-lg font-medium text-gray-300">
+          <li><a href="#shop" class="hover:text-white hover:underline transition">The Derby</a></li>
+          <li><a href="#about" class="hover:text-white hover:underline transition">Our Story</a></li>
+          <li><a href="#materials" class="hover:text-white hover:underline transition">Materials</a></li>
+          <li><a href="mailto:hello@mk.gd" class="hover:text-white hover:underline transition">Contact</a></li>
         </ul>
       </div>
 
-      <div class="md:col-span-4 lg:col-span-3">
-        <h4 class="font-bold uppercase tracking-widest text-sm mb-8 text-gray-500">Support</h4>
-        <ul class="space-y-5 text-base">
-          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-shipping">Shipping</a></li>
-          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-returns">Returns</a></li>
-          <li><a href="#" class="hover:text-gray-300 transition-colors popup-trigger" data-target="popup-terms">Terms & Privacy</a></li>
-          <li><a href="mailto:hello@mk.gd" class="hover:text-gray-300 transition-colors">Contact Us</a></li>
+      <div>
+        <h4 class="font-black uppercase mb-6 text-xl tracking-tight">Support</h4>
+        <ul class="space-y-4 text-lg font-medium text-gray-300">
+          <li><button onclick="openPopup('popup-shipping')" class="hover:text-white hover:underline transition text-left">Shipping</button></li>
+          <li><button onclick="openPopup('popup-returns')" class="hover:text-white hover:underline transition text-left">Returns & Exchanges</button></li>
+          <li><button onclick="openPopup('popup-size-chart')" class="hover:text-white hover:underline transition text-left">Size Guide</button></li>
+          <li><button onclick="openPopup('popup-terms')" class="hover:text-white hover:underline transition text-left">Terms & Privacy</button></li>
         </ul>
       </div>
     </div>
-
-    <div class="max-w-7xl mx-auto border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-6">
-      <p class="text-sm text-gray-500">© 2024 Make Good Collective. All rights reserved.</p>
-      <div class="flex space-x-8 text-xl text-gray-400">
-        <a href="#" class="hover:text-white transition-colors" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-        <a href="#" class="hover:text-white transition-colors" aria-label="TikTok"><i class="fa-brands fa-tiktok"></i></a>
-        <a href="#" class="hover:text-white transition-colors" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+    
+    <div class="max-w-7xl mx-auto pt-8 border-t border-gray-800 flex flex-col md:flex-row justify-between items-center text-sm font-bold uppercase tracking-widest text-gray-500">
+      <p>&copy; 2023 Make Good Collective. All rights reserved.</p>
+      <div class="flex space-x-6 mt-6 md:mt-0">
+        <a href="#" class="hover:text-white transition"><i class="fa-brands fa-instagram text-2xl"></i></a>
+        <a href="#" class="hover:text-white transition"><i class="fa-brands fa-tiktok text-2xl"></i></a>
+        <a href="#" class="hover:text-white transition"><i class="fa-brands fa-facebook text-2xl"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- POPUPS -->
+  <!-- ================= POPUPS ================= -->
 
   <!-- TERMS & PRIVACY POPUP -->
   <div id="popup-terms" class="universal-popup">
-    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-backdrop"></div>
     <div class="universal-popup-dialog">
-      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
-      <div class="popup-content">
-        <h2>Terms & Privacy</h2>
-        
+      <button class="universal-popup-close" aria-label="Close">&times;</button>
+      <h2 class="universal-popup-title">Terms & Privacy</h2>
+      <div class="universal-popup-content">
         <h2>TERMS OF SERVICE</h2>
         <h3>Access and account</h3>
         <p><strong>SECTION 1</strong></p>
@@ -424,7 +532,7 @@
 
         <h3>How we collect personal information</h3>
         <p><strong>SECTION 3</strong></p>
-        <p>Information is collected directly, through cookies, or from third parties. Cookies may be essential, analytical, or marketing and retained for up to 30 days.</p>
+        <p>Information is collected directly, through cookies, or from third parties. Cookies may be essential, analytical, or marketing and retained for up to [DAYS] days.</p>
 
         <h3>Purpose of collection</h3>
         <p><strong>SECTION 4</strong></p>
@@ -455,18 +563,20 @@
 
   <!-- SHIPPING POPUP -->
   <div id="popup-shipping" class="universal-popup">
-    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-backdrop"></div>
     <div class="universal-popup-dialog">
-      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
-      <div class="popup-content">
-        <h2>Shipping Policy</h2>
+      <button class="universal-popup-close" aria-label="Close">&times;</button>
+      <h2 class="universal-popup-title">Shipping Policy</h2>
+      <div class="universal-popup-content">
         <p>This policy applies to all online purchases via <a href="https://www.mk.gd" target="_blank" rel="noreferrer">www.mk.gd</a>.</p>
 
         <h3>Australia and New Zealand</h3>
         <p>Free shipping applies on all orders within Australia and New Zealand.</p>
         <p>Orders are fulfilled by Quickmail 3PL in Western Australia with full tracking provided by email or text.</p>
         <p>Estimated delivery time is 2 to 10 business days.</p>
-        <p>New Zealand customers are responsible for any duties or import costs that may be incurred in New Zealand. The courier has the discretion to pay these costs, where applicable, without prior notification to the customer. The customer will be responsible for reimbursing the courier for any such costs incurred.</p>
+        <p>New Zealand customers are responsible for any duties or import costs that may be incurred in New Zealand.
+        The courier has the discretion to pay these costs, where applicable, without prior notification to the customer.
+        The customer will be responsible for reimbursing the courier for any such costs incurred.</p>
         <p>Postage Express eParcel – Domestic: flat-rate shipping of $20 per order.</p>
 
         <h3>Important Delivery Information</h3>
@@ -479,25 +589,36 @@
         <p>This policy applies only to purchases made via <a href="https://www.mk.gd" target="_blank" rel="noreferrer">www.mk.gd</a>.</p>
 
         <h3>International</h3>
+
         <h4>United States</h4>
         <p>Flat-rate shipping of USD $20 per order.</p>
-        <p>US customers are responsible for any duties, taxes or import charges. Where required, the courier may advance these costs to avoid delays. Customers must reimburse the courier directly for any charges paid on their behalf.</p>
+        <p>US customers are responsible for any duties, taxes or import charges. Where required, the courier may
+        advance these costs to avoid delays. Customers must reimburse the courier directly for any charges paid
+        on their behalf.</p>
 
         <h4>Europe and United Kingdom</h4>
         <p>Flat-rate shipping of EUR 15 per order.</p>
-        <p>EU and UK customers are responsible for any duties, VAT or import processing fees. Couriers may advance these charges at their discretion. Customers must reimburse the courier for any such amounts.</p>
+        <p>EU and UK customers are responsible for any duties, VAT or import processing fees. Couriers may advance
+        these charges at their discretion. Customers must reimburse the courier for any such amounts.</p>
 
         <h4>Asia</h4>
         <p>Flat-rate shipping of AUD 24 per order.</p>
-        <p>Customers are responsible for any duties or import charges that apply in their region. Couriers may pay these charges to expedite clearance. Customers must reimburse the courier for any amounts paid on their behalf.</p>
+        <p>Customers are responsible for any duties or import charges that apply in their region. Couriers may pay
+        these charges to expedite clearance. Customers must reimburse the courier for any amounts paid on their behalf.</p>
 
         <h4>Other International Destinations</h4>
-        <p>Where possible, we offer flat-rate or subsidised shipping. If a fixed rate is not available for your location, shipping will be calculated at checkout.</p>
+        <p>Where possible, we offer flat-rate or subsidised shipping. If a fixed rate is not available for your
+        location, shipping will be calculated at checkout.</p>
         <p>Customers are responsible for any duties, VAT or import charges applied by their local authorities.</p>
 
         <h3>If You Are Not Home</h3>
-        <p>Most orders require a signature on delivery unless the courier provides an alternative safe-drop option. If no one is present, a card may be left with details for collection or arranging redelivery.</p>
-        <p>We aim to dispatch orders quickly, usually on the next business day. Occasional delays can happen due to courier congestion, weather, or customs processing. When delays occur, we will do everything we can to keep you updated and get your order to you as soon as possible.</p>
+        <p>Most orders require a signature on delivery unless the courier provides an alternative safe-drop option.
+        If no one is present, a card may be left with details for collection or arranging redelivery.</p>
+
+        <p>We aim to dispatch orders quickly, usually on the next business day. Occasional delays can happen due to
+        courier congestion, weather, or customs processing. When delays occur, we will do everything we can to keep
+        you updated and get your order to you as soon as possible.</p>
+
         <p>For shipping inquiries, contact us at <a href="mailto:hello@mk.gd">hello@mk.gd</a>.</p>
       </div>
     </div>
@@ -505,35 +626,35 @@
 
   <!-- SIZE CHART POPUP -->
   <div id="popup-size-chart" class="universal-popup">
-    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-backdrop"></div>
     <div class="universal-popup-dialog">
-      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
-      <div class="popup-content">
-        <h2>Size Guide</h2>
-        <p class="mb-8 text-lg">
+      <button class="universal-popup-close" aria-label="Close">&times;</button>
+      <h2 class="universal-popup-title">Size Guide</h2>
+      <div class="universal-popup-content">
+        <p class="size-guide-intro">
           A classic Derby shoe. Unisex. True to size.<br>
           If you're between sizes, we suggest sizing up.
         </p>
-        <div class="overflow-x-auto rounded-xl border border-gray-200">
-          <table class="w-full border-collapse text-center text-sm md:text-base">
+        <div class="size-chart-scroll">
+          <table class="size-chart-table">
             <thead>
-              <tr class="bg-secondary">
-                <th class="border-b border-r border-gray-300 p-4 font-bold">CM</th>
-                <th class="border-b border-r border-gray-300 p-4 font-bold">EU</th>
-                <th class="border-b border-r border-gray-300 p-4 font-bold">UK</th>
-                <th class="border-b border-r border-gray-300 p-4 font-bold">US Mens</th>
-                <th class="border-b border-gray-300 p-4 font-bold">US Womens</th>
+              <tr>
+                <th>CM</th>
+                <th>EU</th>
+                <th>UK</th>
+                <th>US Mens</th>
+                <th>US Womens</th>
               </tr>
             </thead>
             <tbody>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">23.5</td><td class="border-b border-r border-gray-200 p-4">37.5</td><td class="border-b border-r border-gray-200 p-4">4.5</td><td class="border-b border-r border-gray-200 p-4">5</td><td class="border-b border-gray-200 p-4">6.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">24.5</td><td class="border-b border-r border-gray-200 p-4">39</td><td class="border-b border-r border-gray-200 p-4">5.5</td><td class="border-b border-r border-gray-200 p-4">6</td><td class="border-b border-gray-200 p-4">7.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">25.2</td><td class="border-b border-r border-gray-200 p-4">40</td><td class="border-b border-r border-gray-200 p-4">6.5</td><td class="border-b border-r border-gray-200 p-4">7</td><td class="border-b border-gray-200 p-4">8.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">26</td><td class="border-b border-r border-gray-200 p-4">41.5</td><td class="border-b border-r border-gray-200 p-4">7.5</td><td class="border-b border-r border-gray-200 p-4">8</td><td class="border-b border-gray-200 p-4">9.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">27</td><td class="border-b border-r border-gray-200 p-4">42.5</td><td class="border-b border-r border-gray-200 p-4">8.5</td><td class="border-b border-r border-gray-200 p-4">9</td><td class="border-b border-gray-200 p-4">10.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">28</td><td class="border-b border-r border-gray-200 p-4">44</td><td class="border-b border-r border-gray-200 p-4">9.5</td><td class="border-b border-r border-gray-200 p-4">10</td><td class="border-b border-gray-200 p-4">11.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-b border-r border-gray-200 p-4">28.5</td><td class="border-b border-r border-gray-200 p-4">45</td><td class="border-b border-r border-gray-200 p-4">10.5</td><td class="border-b border-r border-gray-200 p-4">11</td><td class="border-b border-gray-200 p-4">12.5</td></tr>
-              <tr class="hover:bg-gray-50"><td class="border-r border-gray-200 p-4">29</td><td class="border-r border-gray-200 p-4">46</td><td class="border-r border-gray-200 p-4">11</td><td class="border-r border-gray-200 p-4">12</td><td class="p-4">13</td></tr>
+              <tr><td>23.5</td><td>37.5</td><td>4.5</td><td>5</td><td>6.5</td></tr>
+              <tr><td>24.5</td><td>39</td><td>5.5</td><td>6</td><td>7.5</td></tr>
+              <tr><td>25.2</td><td>40</td><td>6.5</td><td>7</td><td>8.5</td></tr>
+              <tr><td>26</td><td>41.5</td><td>7.5</td><td>8</td><td>9.5</td></tr>
+              <tr><td>27</td><td>42.5</td><td>8.5</td><td>9</td><td>10.5</td></tr>
+              <tr><td>28</td><td>44</td><td>9.5</td><td>10</td><td>11.5</td></tr>
+              <tr><td>28.5</td><td>45</td><td>10.5</td><td>11</td><td>12.5</td></tr>
+              <tr><td>29</td><td>46</td><td>11</td><td>12</td><td>13</td></tr>
             </tbody>
           </table>
         </div>
@@ -543,14 +664,13 @@
 
   <!-- RETURNS POPUP -->
   <div id="popup-returns" class="universal-popup">
-    <div class="universal-popup-backdrop popup-close-trigger"></div>
+    <div class="universal-popup-backdrop"></div>
     <div class="universal-popup-dialog">
-      <button class="universal-popup-close popup-close-trigger" aria-label="Close">&times;</button>
-      <div class="popup-content">
-        <h2>Returns & Exchanges Policy</h2>
-        
+      <button class="universal-popup-close" aria-label="Close">&times;</button>
+      <h2 class="universal-popup-title">Returns & Exchanges Policy</h2>
+      <div class="universal-popup-content">
         <h3>Return Policy</h3>
-        <p>This policy applies to all online purchases via <strong>www.mk.gd</strong>.</p>
+        <p>This policy applies to all online purchases via&nbsp;<strong>www.mk.gd</strong>.</p>
 
         <h3>Returns &amp; Exchanges</h3>
         <p>We offer free returns and exchanges within Australia and New Zealand, so you can try your shoes at home with peace of mind.</p>
@@ -579,113 +699,79 @@
 
   <!-- Scripts -->
   <script>
-    // Mobile Menu Toggle
-    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-    const mobileMenuClose = document.getElementById('mobile-menu-close');
-    const mobileMenu = document.getElementById('mobile-menu');
-    const mobileLinks = document.querySelectorAll('.mobile-link');
-
-    const openMenu = () => {
-      mobileMenu.classList.remove('hidden');
-      mobileMenu.classList.add('flex');
+    // Popups Logic
+    function openPopup(id) {
+      document.getElementById(id).classList.add('active');
       document.body.style.overflow = 'hidden';
-    };
+    }
 
-    const closeMenu = () => {
-      mobileMenu.classList.add('hidden');
-      mobileMenu.classList.remove('flex');
-      document.body.style.overflow = '';
-    };
+    function closePopups() {
+      document.querySelectorAll('.universal-popup').forEach(popup => {
+        popup.classList.remove('active');
+      });
+      document.body.style.overflow = 'auto';
+    }
 
-    mobileMenuBtn.addEventListener('click', openMenu);
-    mobileMenuClose.addEventListener('click', closeMenu);
-    mobileLinks.forEach(link => link.addEventListener('click', closeMenu));
-
-    // Navbar Scroll Effect
-    const navbar = document.getElementById('navbar');
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 50) {
-        navbar.classList.add('shadow-sm', 'bg-background');
-        navbar.classList.remove('bg-background/95');
-      } else {
-        navbar.classList.remove('shadow-sm', 'bg-background');
-        navbar.classList.add('bg-background/95');
-      }
+    document.querySelectorAll('.universal-popup-close, .universal-popup-backdrop').forEach(el => {
+      el.addEventListener('click', closePopups);
     });
 
-    // Product Image Gallery
-    const mainImage = document.getElementById('main-product-image');
-    const thumbs = document.querySelectorAll('.product-thumb');
+    // Mobile Menu Logic
+    const menuBtn = document.getElementById('menu-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
 
-    thumbs.forEach(thumb => {
-      thumb.addEventListener('click', () => {
-        mainImage.style.opacity = '0.5';
-        setTimeout(() => {
-          mainImage.src = thumb.dataset.src;
-          mainImage.style.opacity = '1';
-        }, 150);
-        
-        thumbs.forEach(t => {
-          t.classList.remove('border-text');
-          t.classList.add('border-transparent');
-        });
-        thumb.classList.remove('border-transparent');
-        thumb.classList.add('border-text');
+    menuBtn.addEventListener('click', () => {
+      mobileMenu.classList.remove('-translate-x-full');
+      document.body.style.overflow = 'hidden';
+    });
+
+    closeMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.add('-translate-x-full');
+      document.body.style.overflow = 'auto';
+    });
+
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('-translate-x-full');
+        document.body.style.overflow = 'auto';
       });
     });
 
-    // Size Selection
-    const sizeBtns = document.querySelectorAll('.size-btn:not([disabled])');
-    sizeBtns.forEach(btn => {
-      btn.addEventListener('click', () => {
-        sizeBtns.forEach(b => {
-          b.classList.remove('border-text', 'bg-text', 'text-background');
-          b.classList.add('border-gray-300');
-        });
-        btn.classList.remove('border-gray-300');
-        btn.classList.add('border-text', 'bg-text', 'text-background');
-      });
-    });
-
-    // Accordions
-    const accordionHeaders = document.querySelectorAll('.accordion-header');
-    accordionHeaders.forEach(header => {
-      header.addEventListener('click', () => {
-        const content = header.nextElementSibling;
-        const icon = header.querySelector('i');
+    // Accordion Logic
+    document.querySelectorAll('.accordion-header').forEach(button => {
+      button.addEventListener('click', () => {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector('i');
         
-        content.classList.toggle('hidden');
         if (content.classList.contains('hidden')) {
-          icon.classList.remove('rotate-45');
+          content.classList.remove('hidden');
+          icon.style.transform = 'rotate(45deg)';
         } else {
-          icon.classList.add('rotate-45');
+          content.classList.add('hidden');
+          icon.style.transform = 'rotate(0deg)';
         }
       });
     });
 
-    // Popups
-    const popupTriggers = document.querySelectorAll('.popup-trigger');
-    const popups = document.querySelectorAll('.universal-popup');
-    const popupCloseTriggers = document.querySelectorAll('.popup-close-trigger');
-
-    popupTriggers.forEach(trigger => {
-      trigger.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetId = trigger.getAttribute('data-target');
-        const targetPopup = document.getElementById(targetId);
-        if (targetPopup) {
-          targetPopup.classList.add('active');
-          document.body.style.overflow = 'hidden';
-        }
-      });
-    });
-
-    popupCloseTriggers.forEach(trigger => {
-      trigger.addEventListener('click', () => {
-        popups.forEach(popup => {
-          popup.classList.remove('active');
+    // Size Selector Logic
+    document.querySelectorAll('.size-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.size-btn').forEach(b => {
+          b.classList.remove('bg-text', 'text-bg');
         });
-        document.body.style.overflow = '';
+        e.target.classList.add('bg-text', 'text-bg');
+      });
+    });
+
+    // Color Selector Logic
+    document.querySelectorAll('.color-btn').forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        document.querySelectorAll('.color-btn').forEach(b => {
+          b.classList.remove('ring-2', 'ring-offset-4', 'ring-text', 'scale-110');
+        });
+        e.target.classList.add('ring-2', 'ring-offset-4', 'ring-text', 'scale-110');
+        document.getElementById('color-name').innerText = e.target.getAttribute('data-name');
       });
     });
   </script>
