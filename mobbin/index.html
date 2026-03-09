@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
+    <meta name="apple-mobile-web-app-title" content="Mobbin"/>
+    <meta name="next-size-adjust" content=""/>
+    <title>Mobbin — UI &amp; UX design inspiration for mobile &amp; web apps</title>
+    <meta name="description" content="Save hours of UI &amp; UX research with our library of 400,000+ fully searchable mobile &amp; web app screenshots."/>
+    <link rel="manifest" href="/manifest.json"/>
+    <link rel="canonical" href="https://mobbin.com"/>
+    <meta property="og:title" content="Mobbin — UI &amp; UX design inspiration for mobile &amp; web apps"/>
+    <meta property="og:description" content="Save hours of UI &amp; UX research with our library of 400,000+ fully searchable mobile &amp; web app screenshots."/>
+    <meta property="og:url" content="https://mobbin.com"/>
+    <meta property="og:site_name" content="Mobbin"/>
+    <meta property="og:image" content="https://mobbin.com/og_image.png?v=4.0"/>
+    <meta property="og:type" content="website"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:site" content="@mobbin"/>
+    <meta name="twitter:title" content="Mobbin — UI &amp; UX design inspiration for mobile &amp; web apps"/>
+    <meta name="twitter:description" content="Save hours of UI &amp; UX research with our library of 400,000+ fully searchable mobile &amp; web app screenshots."/>
+    <meta name="twitter:image" content="https://mobbin.com/og_image.png?v=4.0"/>
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" sizes="48x48"/>
+    <link rel="icon" href="/icon0.svg?21b0e065ec4a32de" type="image/svg+xml" sizes="any"/>
+    <link rel="icon" href="/icon1.png?8c3f50865fffc9c1" type="image/png" sizes="96x96"/>
+    <link rel="apple-touch-icon" href="/apple-icon.png?c21868dc79c132d6" type="image/png" sizes="180x180"/>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --background-primary: hsl(0 0% 100%);
+            --background-secondary: hsl(0 0% 98%);
+            --background-tertiary: hsl(0 0% 96%);
+            --background-inverse: hsl(0 0% 0%);
+            --background-inverse-hover: hsl(0 0% 10%);
+            --text-primary: hsl(0 0% 0%);
+            --text-secondary: hsl(0 0% 30%);
+            --text-tertiary: hsl(0 0% 50%);
+            --blue-60: hsl(214 93% 50%);
+            --glass-background-unique-marketing-menu: hsl(0 0% 100% / 0.7);
+            --border-tertiary: hsl(0 0% 90%);
+            --border-tertiary-hover: hsl(0 0% 80%);
+            --neutral-30: hsl(0 0% 70%);
+            --neutral-5: hsl(0 0% 95%);
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-120%) skewX(-45deg);
+            }
+            100% {
+                transform: translateX(220%) skewX(-45deg);
+            }
+        }
+
+        .HeroSection_animation_button_shine__azuMQ {
+            animation: shine 1.5s infinite linear;
+        }
+
+        .text-title-1 {
+            font-size: 36px;
+            line-height: 44px;
+            font-weight: 800; /* ExtraBold */
+        }
+        .text-spotlight {
+            font-size: 48px;
+            line-height: 56px;
+            font-weight: 800; /* ExtraBold */
+        }
+        .text-showcase {
+            font-size: 64px;
+            line-height: 72px;
+            font-weight: 800; /* ExtraBold */
+        }
+        .text-feature {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 400; /* Regular */
+        }
+        .text-feature-bold {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 700; /* Bold */
+        }
+        .text-body-bold {
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 700; /* Bold */
+        }
+        .text-compact {
+            font-size: 12px;
+            line-height: 16px;
+            font-weight: 400; /* Regular */
+        }
+
+        .bg-background-primary { background-color: var(--background-primary); }
+        .bg-background-secondary { background-color: var(--background-secondary); }
+        .bg-background-tertiary { background-color: var(--background-tertiary); }
+        .bg-background-inverse { background-color: var(--background-inverse); }
+        .hover\:bg-background-inverse-hover:hover { background-color: var(--background-inverse-hover); }
+        .active\:bg-background-inverse-hover:active { background-color: var(--background-inverse-hover); }
+        .text-text-primary { color: var(--text-primary); }
+        .text-text-secondary { color: var(--text-secondary); }
+        .text-text-tertiary { color: var(--text-tertiary); }
+        .bg-glass-background-unique-marketing-menu { background-color: var(--glass-background-unique-marketing-menu); }
+        .dark\:bg-glass-background-primary { /* Assuming dark mode primary glass is similar */ }
+        .shadow-border-tertiary { box-shadow: inset 0 0 0 1px var(--border-tertiary); }
+        .hover\:shadow-border-tertiary-hover:hover { box-shadow: inset 0 0 0 1px var(--border-tertiary-hover); }
+        .active\:shadow-border-tertiary-hover:active { box-shadow: inset 0 0 0 1px var(--border-tertiary-hover); }
+        .focus-visible\:ring-4:focus-visible { outline: none; ring: 4px; }
+        .focus-visible\:ring-\[hsl\(var\(--blue-60\)\/50\%\)\]:focus-visible { ring-color: hsl(var(--blue-60) / 50%); }
+        .bg-\[hsl\(var\(--neutral-30\)\)\] { background-color: var(--neutral-30); }
+        .bg-\[hsl\(var\(--neutral-5\)\)\] { background-color: var(--neutral-5); }
+        .bg-\[hsl\(var\(--neutral-30\)\/30\%\)\] { background-color: hsl(var(--neutral-30) / 30%); }
+
+        /* Custom breakpoints */
+        @media (min-width: 720px) {
+            .min-720\:flex { display: flex; }
+            .min-720\:hidden { display: none; }
+            .min-720\:size-80 { width: 80px; height: 80px; }
+            .min-720\:rounded-24 { border-radius: 24px; }
+            .min-720\:text-spotlight { font-size: 48px; line-height: 56px; }
+            .min-720\:max-w-\[500px\] { max-width: 500px; }
+            .min-720\:max-w-\[340px\] { max-width: 340px; }
+            .min-720\:pt-64 { padding-top: 64px; }
+            .min-720\:pt-32 { padding-top: 32px; }
+            .min-720\:h-\[22px\] { height: 22px; }
+            .min-720\:gap-x-48 { column-gap: 48px; }
+            .min-720\:px-24 { padding-left: 24px; padding-right: 24px; }
+            .min-720\:pb-\[80px\] { padding-bottom: 80px; }
+            .min-720\:pt-\[156px\] { padding-top: 156px; }
+            .min-720\:ps-80 { padding-left: 80px; }
+            .min-720\:pt-80 { padding-top: 80px; }
+            .min-720\:aspect-\[1\.02\] { aspect-ratio: 1.02; }
+            .min-720\:inset-y-80 { top: 80px; bottom: 80px; }
+            .min-720\:inset-x-24 { left: 24px; right: 24px; }
+        }
+        @media (min-width: 1024px) { /* Using lg: for min-1280: for simplicity, adjust if needed */
+            .lg\:px-0 { padding-left: 0; padding-right: 0; }
+            .lg\:pb-\[96px\] { padding-bottom: 96px; }
+            .lg\:pt-\[180px\] { padding-top: 180px; }
+            .lg\:max-w-\[700px\] { max-width: 700px; }
+            .lg\:text-showcase { font-size: 64px; line-height: 72px; }
+            .lg\:max-w-\[640px\] { max-width: 640px; }
+            .lg\:pt-24 { padding-top: 24px; }
+            .lg\:pt-80 { padding-top: 80px; }
+            .lg\:rounded-24 { border-radius: 24px; }
+            .lg\:px-\[104px\] { padding-left: 104px; padding-right: 104px; }
+            .lg\:rounded-t-16 { border-top-left-radius: 16px; border-top-right-radius: 16px; }
+            .lg\:aspect-\[1\.9\] { aspect-ratio: 1.9; }
+            .lg\:w-\[min\(80vw\,1536px\)\] { width: min(80vw, 1536px); }
+            .lg\:px-80 { padding-left: 80px; padding-right: 80px; }
+            .lg\:aspect-\[1\.82\] { aspect-ratio: 1.82; }
+            .lg\:inset-y-\[calc\(min\(120px\,10\%\)\)\] { top: min(120px, 10%); bottom: min(120px, 10%); }
+            .lg\:inset-x-80 { left: 80px; right: 80px; }
+        }
+
+        /* Custom shadow for app logos */
+        .shadow-logo-inset {
+            box-shadow: inset 0 0 0 1px hsl(0 0% 0% / 0.05);
+        }
+    </style>
+</head>
+<body class="isolate flex flex-col bg-background-primary text-text-primary font-['Inter']">
+    <div class="isolate flex flex-col [--max-content-width:1280px]">
+        <div class="sticky top-0 z-10">
+            <!-- Desktop Nav -->
+            <nav class="hidden min-720:flex h-60 w-[584px] rounded-full bg-glass-background-unique-marketing-menu backdrop-blur-xl dark:bg-glass-background-primary absolute left-1/2 top-24 z-10 -translate-x-1/2 items-center gap-x-24 px-24 py-8">
+                <div class="flex grow items-center">
+                    <a class="focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)]" href="/">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="black"/>
+                        </svg>
+                    </a>
+                </div>
+                <span><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-body-bold text-text-primary" href="#pricing">Pricing</a></span>
+                <span><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-body-bold text-text-primary" href="#awards">Awards</a></span>
+                <span><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-body-bold text-text-primary" href="#login">Log in</a></span>
+            </nav>
+
+            <!-- Mobile Nav -->
+            <nav id="mobile-nav" class="min-720:hidden absolute left-24 top-8 z-10 w-[calc(100vw-48px)] rounded-28 bg-glass-background-unique-marketing-menu backdrop-blur-xl dark:bg-glass-background-primary" style="height:52px">
+                <div class="flex items-center justify-between py-8 pe-12 ps-20">
+                    <a class="focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)]" href="/">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="black"/>
+                        </svg>
+                    </a>
+                    <button id="hamburger-button" class="h-36 rounded-12 px-[10px] focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)]">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M3 12H21M3 6H21M3 18H21" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div id="mobile-menu-content" class="flex w-full flex-col gap-y-24 px-20 pb-20 pt-12 pointer-events-none opacity-0 transition-opacity duration-300 ease-out" style="height: 0; overflow: hidden;">
+                    <ul class="flex flex-col gap-y-12">
+                        <li style="opacity:0;transform:translateY(-10px)"><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" href="#changelog">Changelog</a></li>
+                        <li style="opacity:0;transform:translateY(-10px)"><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" href="#pricing">Pricing</a></li>
+                        <li style="opacity:0;transform:translateY(-10px)"><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" href="#awards">Awards</a></li>
+                        <li style="opacity:0;transform:translateY(-10px)"><a href="https://careers.mobbin.com" class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" target="_blank" rel="noreferrer">Careers</a></li>
+                        <li style="opacity:0;transform:translateY(-10px)"><a href="https://merch.mobbin.com" class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" target="_blank" rel="noreferrer">Merch</a></li>
+                        <li style="opacity:0;transform:translateY(-10px)"><a href="mailto:support@mobbin.com" class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" target="_blank" rel="noreferrer">Support</a></li>
+                        <li style="opacity:0;transform:translateY(-10px)"><a class="w-fit transition-opacity ease-out hover:opacity-80 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] text-feature-bold text-text-primary" href="#login">Log in</a></li>
+                    </ul>
+                    <div style="opacity:0;transform:translateY(-10px)">
+                        <a class="relative rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-background-inverse text-text-inverse hover:bg-background-inverse-hover active:bg-background-inverse-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out" href="#signup">
+                            <span class="flex items-center justify-center gap-x-8"><span class="truncate">Join for free</span></span>
+                        </a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+
+        <main class="overflow-clip rounded-b-32 bg-background-primary">
+            <!-- Hero Section -->
+            <section id="hero" class="grid place-items-center px-20 pb-64 pt-[108px] min-720:px-24 min-720:pb-[80px] min-720:pt-[156px] lg:px-0 lg:pb-[96px] lg:pt-[180px]">
+                <div class="opacity-0 translate-y-[20px] animate-fade-in-up">
+                    <ul class="relative isolate size-80 min-720:size-[88px]">
+                        <li class="absolute inset-0 overflow-hidden rounded-24" style="transform-origin:top center;z-index:0;transform:none">
+                            <div class="relative shrink-0 overflow-hidden size-full">
+                                <img alt="Loom logo" width="492" height="492" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/492/492?random=1" style="color:transparent;"/>
+                            </div>
+                        </li>
+                        <li class="absolute inset-0 overflow-hidden rounded-24" style="transform-origin:top center;z-index:-1;transform:translateY(-8px) scale(0.8200000000000001)">
+                            <div class="size-full bg-[hsl(var(--neutral-30))]"></div>
+                        </li>
+                        <li class="absolute inset-0 overflow-hidden rounded-24" style="transform-origin:top center;z-index:-2;transform:translateY(-16px) scale(0.64)">
+                            <div class="size-full bg-[hsl(var(--neutral-5))]"></div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid place-items-center opacity-0 translate-y-[20px] animate-fade-in-up animation-delay-100">
+                    <h1 class="max-w-[300px] pt-32 text-center text-title-1 min-720:max-w-[500px] min-720:text-spotlight lg:max-w-[700px] lg:text-showcase">Discover real-world design inspiration.</h1>
+                    <p class="max-w-[240px] pt-16 text-center text-feature text-text-secondary min-720:max-w-[340px] lg:max-w-[640px] lg:pt-24">Featuring over 1,000 iOS &amp; Web apps, and 200 sites<span class="hidden min-720:inline"> — <br class="hidden lg:block"/>New content weekly</span>.</p>
+                    <div class="pt-32">
+                        <div id="hero-section-ctas" class="flex gap-x-12">
+                            <div class="relative overflow-hidden rounded-full">
+                                <a class="relative rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-background-inverse text-text-inverse hover:bg-background-inverse-hover active:bg-background-inverse-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out" href="#signup">
+                                    <span class="flex items-center justify-center gap-x-8"><span class="truncate">Join for free</span></span>
+                                </a>
+                                <div class="absolute inset-y-0 -left-[120%] hidden w-1/2 -skew-x-[45deg] bg-[hsl(var(--neutral-30)/30%)] mix-blend-hard-light min-720:block HeroSection_animation_button_shine__azuMQ"></div>
+                            </div>
+                            <a class="relative rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-transparent text-text-primary shadow-inset-1 shadow-border-tertiary hover:bg-background-primary-hover active:bg-background-primary-hover hover:shadow-border-tertiary-hover active:shadow-border-tertiary-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out" href="#pricing">
+                                <span class="flex items-center justify-center gap-x-8"><span class="truncate">See our plans</span><div class="-me-[6px] rounded-full bg-background-tertiary p-4"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 3L7.5 6L4.5 9" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid place-items-center opacity-0 translate-y-[20px] animate-fade-in-up animation-delay-200">
+                    <p class="pt-40 text-compact text-text-secondary min-720:pt-64 lg:pt-80">Trusted by design teams at</p>
+                    <div class="pt-24 min-720:pt-32">
+                        <div class="flex h-28 items-center gap-x-24 text-text-tertiary min-720:h-[22px] min-720:gap-x-48">
+                            <i class="fab fa-google fa-lg"></i>
+                            <i class="fab fa-apple fa-lg"></i>
+                            <i class="fab fa-microsoft fa-lg"></i>
+                            <i class="fab fa-amazon fa-lg"></i>
+                            <i class="fab fa-spotify fa-lg"></i>
+                            <i class="fab fa-slack fa-lg"></i>
+                            <i class="fab fa-figma fa-lg"></i>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Product Cover Section -->
+            <section class="grid place-items-center lg:px-32">
+                <div class="aspect-[0.85] w-full overflow-hidden ps-48 pt-48 min-720:aspect-[1.14] min-720:ps-80 min-720:pt-80 lg:aspect-[1.9] lg:rounded-24 lg:px-[104px] lg:pt-[80px] lg:w-[min(80vw,1536px)] bg-background-secondary">
+                    <div class="relative size-full min-h-[445px] min-w-[668px] overflow-hidden opacity-0 saturate-0 scale-[1.1] animate-fade-in-scale-saturate">
+                        <div class="absolute inset-0">
+                            <div id="product-cover-web" class="product-cover-image transition-opacity duration-500 opacity-100">
+                                <img alt="Preview image of the product interface (Web)" width="5760" height="3840" decoding="async" data-nimg="1" class="size-full select-none rounded-tl-16 object-cover object-left-top lg:rounded-t-16" src="https://placehold.co/1200x800/E0E0E0/333333?text=Web+App+Preview" style="color:transparent;"/>
+                            </div>
+                            <div id="product-cover-ios" class="product-cover-image transition-opacity duration-500 opacity-0 absolute inset-0">
+                                <img alt="Preview image of the product interface (iOS)" width="5760" height="3840" decoding="async" data-nimg="1" class="size-full select-none rounded-tl-16 object-cover object-left-top lg:rounded-t-16" src="https://placehold.co/1200x800/D0D0D0/333333?text=iOS+App+Preview" style="color:transparent;"/>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 right-4 flex gap-2">
+                            <button id="tab-web" class="px-4 py-2 rounded-full text-sm font-bold bg-white text-black shadow-md active-tab">Web</button>
+                            <button id="tab-ios" class="px-4 py-2 rounded-full text-sm font-bold bg-gray-200 text-gray-700 shadow-md">iOS</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Library Section (Simulated Scroll/Tabs) -->
+            <div class="h-[300vh]"> <!-- Reduced height for simulation -->
+                <section id="library" class="sticky top-0 grid h-screen place-items-center overflow-hidden min-720:px-24 lg:px-80">
+                    <div class="pointer-events-none absolute grid place-items-center inset-y-64 min-720:inset-y-80 lg:inset-y-[calc(min(120px,10%))] inset-x-20 min-720:inset-x-24 lg:inset-x-80">
+                        <div class="relative aspect-[0.57] w-full max-w-screen-min-1536 min-720:aspect-[1.02] lg:aspect-[1.82]">
+                            <!-- Animated Logos - simplified to a static grid -->
+                            <div class="absolute inset-0 grid grid-cols-3 md:grid-cols-5 lg:grid-cols-7 gap-4 opacity-20">
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="ChatGPT logo" loading="lazy" width="460" height="460" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/460/460?random=2" style="color:transparent;"/>
+                                </div>
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="Headspace logo" loading="lazy" width="460" height="460" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/460/460?random=3" style="color:transparent;"/>
+                                </div>
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="Nike logo" loading="lazy" width="434" height="434" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/434/434?random=4" style="color:transparent;"/>
+                                </div>
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="Dropbox logo" loading="lazy" width="492" height="492" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/492/492?random=5" style="color:transparent;"/>
+                                </div>
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="Creme logo" loading="lazy" width="460" height="460" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/460/460?random=6" style="color:transparent;"/>
+                                </div>
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="Uber logo" loading="lazy" width="492" height="492" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/492/492?random=7" style="color:transparent;"/>
+                                </div>
+                                <div class="relative shrink-0 overflow-hidden after:absolute after:inset-0 after:rounded-[inherit] after:shadow-logo-inset size-16 rounded-md min-720:size-20 min-720:rounded-24 lg:size-24">
+                                    <img alt="Airbnb logo" loading="lazy" width="492" height="492" decoding="async" data-nimg="1" class="size-full object-cover" src="https://picsum.photos/492/492?random=8" style="color:transparent;"/>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 text-center px-4">
+                        <h2 class="text-title-1 min-720:text-spotlight lg:text-showcase max-w-[600px] mx-auto">Explore a vast library of UI & UX patterns.</h2>
+                        <p class="mt-4 text-feature text-text-secondary max-w-[400px] mx-auto">Browse over 400,000 screenshots from 1,000+ apps and websites.</p>
+                        <a href="#signup" class="mt-8 inline-flex items-center justify-center h-44 text-body-bold px-16 rounded-full bg-background-inverse text-text-inverse hover:bg-background-inverse-hover active:bg-background-inverse-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out">
+                            Start browsing
+                        </a>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Features Section -->
+            <section id="features" class="py-20 px-4 md:py-32 lg:py-48 bg-background-secondary">
+                <div class="max-w-screen-xl mx-auto">
+                    <h2 class="text-title-1 min-720:text-spotlight lg:text-showcase text-center mb-12 md:mb-20">Powerful features for every designer.</h2>
+
+                    <div class="flex justify-center mb-8 md:mb-12">
+                        <div class="inline-flex rounded-full bg-background-primary p-1 shadow-inner-sm">
+                            <button id="feature-tab-discover" class="px-6 py-2 rounded-full text-body-bold active-feature-tab">Discover</button>
+                            <button id="feature-tab-organize" class="px-6 py-2 rounded-full text-body-bold text-text-secondary">Organize</button>
+                            <button id="feature-tab-share" class="px-6 py-2 rounded-full text-body-bold text-text-secondary">Share</button>
+                        </div>
+                    </div>
+
+                    <div id="feature-content-discover" class="feature-content grid md:grid-cols-2 gap-8 items-center">
+                        <div>
+                            <h3 class="text-title-1 md:text-spotlight mb-4">Discover new UI patterns.</h3>
+                            <p class="text-feature text-text-secondary mb-6">Find inspiration quickly with our advanced search, filters, and categories. Explore flows, screens, and elements.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> 400,000+ screenshots</li>
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> 1,000+ apps & websites</li>
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Advanced filters & categories</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/600x400/C0C0C0/333333?text=Discover+Feature" alt="Discover Feature" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div id="feature-content-organize" class="feature-content grid md:grid-cols-2 gap-8 items-center hidden">
+                        <div>
+                            <h3 class="text-title-1 md:text-spotlight mb-4">Organize your inspiration.</h3>
+                            <p class="text-feature text-text-secondary mb-6">Save and categorize screenshots into custom collections. Keep your research tidy and accessible.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Create unlimited collections</li>
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Add notes and tags</li>
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Collaborate with your team</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/600x400/B0B0B0/333333?text=Organize+Feature" alt="Organize Feature" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+
+                    <div id="feature-content-share" class="feature-content grid md:grid-cols-2 gap-8 items-center hidden">
+                        <div>
+                            <h3 class="text-title-1 md:text-spotlight mb-4">Share with your team.</h3>
+                            <p class="text-feature text-text-secondary mb-6">Easily share your collections and findings with your team members. Streamline your design workflow.</p>
+                            <ul class="space-y-2">
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Team workspaces</li>
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Shareable links</li>
+                                <li class="flex items-center gap-2 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Export options</li>
+                            </ul>
+                        </div>
+                        <div class="rounded-2xl overflow-hidden shadow-lg">
+                            <img src="https://placehold.co/600x400/A0A0A0/333333?text=Share+Feature" alt="Share Feature" class="w-full h-auto object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Testimonials & Awards Section -->
+            <section id="awards" class="py-20 px-4 md:py-32 lg:py-48 bg-background-primary">
+                <div class="max-w-screen-xl mx-auto">
+                    <h2 class="text-title-1 min-720:text-spotlight lg:text-showcase text-center mb-12 md:mb-20">What designers are saying.</h2>
+
+                    <!-- Testimonial Slider -->
+                    <div class="relative w-full overflow-hidden mb-12 md:mb-20">
+                        <div id="testimonial-slider" class="flex transition-transform duration-500 ease-in-out">
+                            <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                                <div class="bg-background-secondary rounded-2xl p-8 shadow-md h-full flex flex-col justify-between">
+                                    <p class="text-feature text-text-primary mb-4">"Mobbin has become an indispensable tool in my design workflow. The sheer volume and quality of real-world examples are unmatched."</p>
+                                    <div class="flex items-center">
+                                        <img src="https://picsum.photos/40/40?random=9" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <p class="text-body-bold text-text-primary">Jane Doe</p>
+                                            <p class="text-compact text-text-secondary">Lead Designer at Company A</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                                <div class="bg-background-secondary rounded-2xl p-8 shadow-md h-full flex flex-col justify-between">
+                                    <p class="text-feature text-text-primary mb-4">"The best UI/UX inspiration library out there. It saves me hours of research every week."</p>
+                                    <div class="flex items-center">
+                                        <img src="https://picsum.photos/40/40?random=10" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <p class="text-body-bold text-text-primary">John Smith</p>
+                                            <p class="text-compact text-text-secondary">Product Designer at Company B</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                                <div class="bg-background-secondary rounded-2xl p-8 shadow-md h-full flex flex-col justify-between">
+                                    <p class="text-feature text-text-primary mb-4">"A must-have for any serious designer. The detailed breakdowns are incredibly helpful."</p>
+                                    <div class="flex items-center">
+                                        <img src="https://picsum.photos/40/40?random=11" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <p class="text-body-bold text-text-primary">Emily White</p>
+                                            <p class="text-compact text-text-secondary">UX Researcher at Company C</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="flex-none w-full md:w-1/2 lg:w-1/3 p-4">
+                                <div class="bg-background-secondary rounded-2xl p-8 shadow-md h-full flex flex-col justify-between">
+                                    <p class="text-feature text-text-primary mb-4">"The filters are so powerful, I can find exactly what I need in seconds. Highly recommend!"</p>
+                                    <div class="flex items-center">
+                                        <img src="https://picsum.photos/40/40?random=12" alt="User Avatar" class="w-10 h-10 rounded-full mr-3">
+                                        <div>
+                                            <p class="text-body-bold text-text-primary">David Green</p>
+                                            <p class="text-compact text-text-secondary">Senior UI Designer at Company D</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button id="slider-prev" class="absolute top-1/2 left-0 -translate-y-1/2 bg-white rounded-full p-3 shadow-md"><i class="fas fa-chevron-left"></i></button>
+                        <button id="slider-next" class="absolute top-1/2 right-0 -translate-y-1/2 bg-white rounded-full p-3 shadow-md"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+
+                    <!-- Awards Logos -->
+                    <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12 lg:gap-16">
+                        <img src="https://placehold.co/120x40/E0E0E0/333333?text=Award+1" alt="Award Logo 1" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/120x40/E0E0E0/333333?text=Award+2" alt="Award Logo 2" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/120x40/E0E0E0/333333?text=Award+3" alt="Award Logo 3" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/120x40/E0E0E0/333333?text=Award+4" alt="Award Logo 4" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                        <img src="https://placehold.co/120x40/E0E0E0/333333?text=Award+5" alt="Award Logo 5" class="h-10 opacity-70 hover:opacity-100 transition-opacity">
+                    </div>
+                </div>
+            </section>
+
+            <!-- Pricing Section -->
+            <section id="pricing" class="py-20 px-4 md:py-32 lg:py-48 bg-background-secondary">
+                <div class="max-w-screen-xl mx-auto">
+                    <h2 class="text-title-1 min-720:text-spotlight lg:text-showcase text-center mb-12 md:mb-20">Simple, transparent pricing.</h2>
+
+                    <div class="flex justify-center mb-8 md:mb-12">
+                        <div class="inline-flex rounded-full bg-background-primary p-1 shadow-inner-sm">
+                            <button id="pricing-toggle-monthly" class="px-6 py-2 rounded-full text-body-bold active-pricing-toggle">Monthly</button>
+                            <button id="pricing-toggle-annually" class="px-6 py-2 rounded-full text-body-bold text-text-secondary">Annually <span class="text-blue-60 ml-2">Save 20%</span></button>
+                        </div>
+                    </div>
+
+                    <div class="grid md:grid-cols-2 gap-8 lg:gap-12 mb-16 md:mb-24">
+                        <!-- Pro Plan -->
+                        <div class="bg-background-primary rounded-2xl p-8 shadow-lg flex flex-col">
+                            <h3 class="text-title-1 mb-2">Pro</h3>
+                            <p class="text-feature text-text-secondary mb-6">For individual designers and freelancers.</p>
+                            <div class="flex items-baseline mb-6">
+                                <span class="text-showcase font-extrabold" id="pro-price">$29</span>
+                                <span class="text-feature text-text-secondary ml-2" id="pro-billing-cycle">/month</span>
+                            </div>
+                            <a href="#signup" class="block text-center rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-background-inverse text-text-inverse hover:bg-background-inverse-hover active:bg-background-inverse-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out mb-8">
+                                Get Started
+                            </a>
+                            <ul class="space-y-3 flex-grow">
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Unlimited screenshots</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Unlimited collections</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Advanced search & filters</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Export to Figma & Sketch</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Priority support</li>
+                            </ul>
+                        </div>
+
+                        <!-- Team Plan -->
+                        <div class="bg-background-primary rounded-2xl p-8 shadow-lg flex flex-col">
+                            <h3 class="text-title-1 mb-2">Team</h3>
+                            <p class="text-feature text-text-secondary mb-6">For design teams and agencies.</p>
+                            <div class="flex items-baseline mb-6">
+                                <span class="text-showcase font-extrabold" id="team-price">$99</span>
+                                <span class="text-feature text-text-secondary ml-2" id="team-billing-cycle">/month</span>
+                            </div>
+                            <a href="#signup" class="block text-center rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-blue-60 text-white hover:bg-blue-700 active:bg-blue-700 focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out mb-8">
+                                Get Started
+                            </a>
+                            <ul class="space-y-3 flex-grow">
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Everything in Pro</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> 5 team members included</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Centralized billing</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Admin controls</li>
+                                <li class="flex items-center gap-3 text-feature"><i class="fas fa-check-circle text-blue-60"></i> Dedicated account manager</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Section -->
+                    <h3 class="text-title-1 text-center mb-8 md:mb-12">Frequently Asked Questions</h3>
+                    <div class="space-y-4 max-w-3xl mx-auto">
+                        <div class="accordion-item bg-background-primary rounded-xl shadow-md">
+                            <button class="accordion-header flex justify-between items-center w-full p-6 text-body-bold text-text-primary">
+                                What is Mobbin?
+                                <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content p-6 pt-0 text-feature text-text-secondary hidden">
+                                Mobbin is a comprehensive library of real-world UI & UX design inspiration for mobile and web apps. It helps designers save hours of research by providing access to over 400,000 fully searchable screenshots.
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-background-primary rounded-xl shadow-md">
+                            <button class="accordion-header flex justify-between items-center w-full p-6 text-body-bold text-text-primary">
+                                How often is new content added?
+                                <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content p-6 pt-0 text-feature text-text-secondary hidden">
+                                New content, including apps, websites, and screenshots, is added weekly to keep our library fresh and up-to-date with the latest design trends.
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-background-primary rounded-xl shadow-md">
+                            <button class="accordion-header flex justify-between items-center w-full p-6 text-body-bold text-text-primary">
+                                Can I export screenshots?
+                                <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content p-6 pt-0 text-feature text-text-secondary hidden">
+                                Yes, Pro and Team plan subscribers can export screenshots in various formats, including direct integration with design tools like Figma and Sketch.
+                            </div>
+                        </div>
+                        <div class="accordion-item bg-background-primary rounded-xl shadow-md">
+                            <button class="accordion-header flex justify-between items-center w-full p-6 text-body-bold text-text-primary">
+                                Do you offer a free trial?
+                                <i class="fas fa-chevron-down transform transition-transform duration-300"></i>
+                            </button>
+                            <div class="accordion-content p-6 pt-0 text-feature text-text-secondary hidden">
+                                While we don't offer a traditional free trial, you can join for free to explore a limited selection of our library and experience the platform's core features.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CTA Section -->
+            <section class="py-20 px-4 md:py-32 lg:py-48 bg-background-primary">
+                <div class="max-w-screen-xl mx-auto text-center">
+                    <h2 class="text-title-1 min-720:text-spotlight lg:text-showcase mb-6">Ready to elevate your design?</h2>
+                    <p class="text-feature text-text-secondary max-w-2xl mx-auto mb-10">Join thousands of designers who use Mobbin to find inspiration, streamline their workflow, and create exceptional user experiences.</p>
+                    <div class="flex justify-center gap-x-4">
+                        <a href="#signup" class="relative rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-background-inverse text-text-inverse hover:bg-background-inverse-hover active:bg-background-inverse-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out">
+                            <span class="flex items-center justify-center gap-x-8"><span class="truncate">Join for free</span></span>
+                            <div class="absolute inset-y-0 -left-[120%] hidden w-1/2 -skew-x-[45deg] bg-[hsl(var(--neutral-30)/30%)] mix-blend-hard-light min-720:block HeroSection_animation_button_shine__azuMQ"></div>
+                        </a>
+                        <a href="#pricing" class="relative rounded-full flex items-center justify-center h-44 text-body-bold px-16 bg-transparent text-text-primary shadow-inset-1 shadow-border-tertiary hover:bg-background-primary-hover active:bg-background-primary-hover hover:shadow-border-tertiary-hover active:shadow-border-tertiary-hover focus-visible:ring-4 focus-visible:ring-[hsl(var(--blue-60)/50%)] cursor-pointer transition-colors ease-out">
+                            <span class="flex items-center justify-center gap-x-8"><span class="truncate">See our plans</span><div class="-me-[6px] rounded-full bg-background-tertiary p-4"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.5 3L7.5 6L4.5 9" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></div></span>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="bg-background-inverse text-white py-16 px-4 md:py-20">
+            <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="col-span-1">
+                    <a href="/" class="inline-block mb-4">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="white" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2ZM12 4C16.4183 4 20 7.58172 20 12C20 16.4183 16.4183 20 12 20C7.58172 20 4 16.4183 4 12C4 7.58172 7.58172 4 12 4ZM12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6ZM12 8C13.1046 8 14 8.89543 14 10C14 11.1046 13.1046 12 12 12C10.8954 12 10 11.1046 10 10C10 8.89543 10.8954 8 12 8Z" fill="white"/>
+                        </svg>
+                    </a>
+                    <p class="text-compact text-gray-400">&copy; 2023 Mobbin. All rights reserved.</p>
+                    <div class="flex gap-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-instagram"></i></a>
+                    </div>
+                </div>
+                <div class="col-span-1">
+                    <h4 class="text-body-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-feature text-gray-400">
+                        <li><a href="#about" class="hover:text-white">About Us</a></li>
+                        <li><a href="#careers" class="hover:text-white">Careers</a></li>
+                        <li><a href="#blog" class="hover:text-white">Blog</a></li>
+                        <li><a href="#contact" class="hover:text-white">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1">
+                    <h4 class="text-body-bold mb-4">Product</h4>
+                    <ul class="space-y-2 text-feature text-gray-400">
+                        <li><a href="#features" class="hover:text-white">Features</a></li>
+                        <li><a href="#pricing" class="hover:text-white">Pricing</a></li>
+                        <li><a href="#changelog" class="hover:text-white">Changelog</a></li>
+                        <li><a href="#apps" class="hover:text-white">Apps</a></li>
+                    </ul>
+                </div>
+                <div class="col-span-1">
+                    <h4 class="text-body-bold mb-4">Resources</h4>
+                    <ul class="space-y-2 text-feature text-gray-400">
+                        <li><a href="#support" class="hover:text-white">Support</a></li>
+                        <li><a href="#faq" class="hover:text-white">FAQ</a></li>
+                        <li><a href="#terms" class="hover:text-white">Terms of Service</a></li>
+                        <li><a href="#privacy" class="hover:text-white">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburgerButton = document.getElementById('hamburger-button');
+        const mobileMenuContent = document.getElementById('mobile-menu-content');
+        const mobileNav = document.getElementById('mobile-nav');
+
+        hamburgerButton.addEventListener('click', () => {
+            const isExpanded = mobileMenuContent.classList.toggle('hidden');
+            if (isExpanded) {
+                mobileMenuContent.style.height = 'auto';
+                mobileMenuContent.classList.remove('pointer-events-none', 'opacity-0');
+                mobileMenuContent.classList.add('pointer-events-auto', 'opacity-100');
+                mobileNav.style.height = 'auto'; // Expand nav height
+            } else {
+                mobileMenuContent.style.height = '0';
+                mobileMenuContent.classList.remove('pointer-events-auto', 'opacity-100');
+                mobileMenuContent.classList.add('pointer-events-none', 'opacity-0');
+                mobileNav.style.height = '52px'; // Collapse nav height
+            }
+            // Animate list items
+            const listItems = mobileMenuContent.querySelectorAll('li');
+            listItems.forEach((item, index) => {
+                if (isExpanded) {
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                        item.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                    }, index * 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'translateY(-10px)';
+                    item.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                }
+            });
+            const joinButton = mobileMenuContent.querySelector('a[href="#signup"]').closest('div');
+            if (isExpanded) {
+                setTimeout(() => {
+                    joinButton.style.opacity = '1';
+                    joinButton.style.transform = 'translateY(0)';
+                    joinButton.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+                }, listItems.length * 50);
+            } else {
+                joinButton.style.opacity = '0';
+                joinButton.style.transform = 'translateY(-10px)';
+                joinButton.style.transition = 'opacity 0.3s ease-out, transform 0.3s ease-out';
+            }
+        });
+
+        // Product Cover Tabs
+        const tabWeb = document.getElementById('tab-web');
+        const tabIos = document.getElementById('tab-ios');
+        const productCoverWeb = document.getElementById('product-cover-web');
+        const productCoverIos = document.getElementById('product-cover-ios');
+
+        function activateProductTab(activeTab, inactiveTab, activeContent, inactiveContent) {
+            activeTab.classList.add('bg-white', 'text-black');
+            activeTab.classList.remove('bg-gray-200', 'text-gray-700');
+            inactiveTab.classList.remove('bg-white', 'text-black');
+            inactiveTab.classList.add('bg-gray-200', 'text-gray-700');
+
+            activeContent.classList.remove('opacity-0', 'hidden');
+            activeContent.classList.add('opacity-100');
+            inactiveContent.classList.remove('opacity-100');
+            inactiveContent.classList.add('opacity-0');
+            setTimeout(() => {
+                if (inactiveContent.classList.contains('opacity-0')) {
+                    inactiveContent.classList.add('hidden');
+                }
+            }, 500); // Match transition duration
+        }
+
+        tabWeb.addEventListener('click', () => activateProductTab(tabWeb, tabIos, productCoverWeb, productCoverIos));
+        tabIos.addEventListener('click', () => activateProductTab(tabIos, tabWeb, productCoverIos, productCoverWeb));
+
+        // Features Section Tabs
+        const featureTabs = document.querySelectorAll('.inline-flex button');
+        const featureContents = document.querySelectorAll('.feature-content');
+
+        featureTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                featureTabs.forEach(t => {
+                    t.classList.remove('active-feature-tab', 'bg-blue-60', 'text-white');
+                    t.classList.add('text-text-secondary');
+                });
+                tab.classList.add('active-feature-tab', 'bg-blue-60', 'text-white');
+                tab.classList.remove('text-text-secondary');
+
+                featureContents.forEach(content => content.classList.add('hidden'));
+                const targetId = tab.id.replace('feature-tab-', 'feature-content-');
+                document.getElementById(targetId).classList.remove('hidden');
+            });
+        });
+        // Initial active state for features
+        document.getElementById('feature-tab-discover').classList.add('bg-blue-60', 'text-white');
+        document.getElementById('feature-tab-discover').classList.remove('text-text-secondary');
+
+
+        // Testimonial Slider
+        const slider = document.getElementById('testimonial-slider');
+        const prevButton = document.getElementById('slider-prev');
+        const nextButton = document.getElementById('slider-next');
+        let currentIndex = 0;
+
+        function updateSlider() {
+            const itemWidth = slider.children[0].offsetWidth;
+            const visibleItems = window.innerWidth >= 1024 ? 3 : (window.innerWidth >= 720 ? 2 : 1);
+            const maxIndex = slider.children.length - visibleItems;
+
+            if (currentIndex < 0) currentIndex = maxIndex;
+            if (currentIndex > maxIndex) currentIndex = 0;
+
+            slider.style.transform = `translateX(-${currentIndex * itemWidth}px)`;
+        }
+
+        prevButton.addEventListener('click', () => {
+            currentIndex--;
+            updateSlider();
+        });
+
+        nextButton.addEventListener('click', () => {
+            currentIndex++;
+            updateSlider();
+        });
+
+        window.addEventListener('resize', () => {
+            currentIndex = 0; // Reset index on resize to prevent weird positions
+            updateSlider();
+        });
+        updateSlider(); // Initial call
+
+        // Pricing Toggle
+        const monthlyToggle = document.getElementById('pricing-toggle-monthly');
+        const annuallyToggle = document.getElementById('pricing-toggle-annually');
+        const proPrice = document.getElementById('pro-price');
+        const proBillingCycle = document.getElementById('pro-billing-cycle');
+        const teamPrice = document.getElementById('team-price');
+        const teamBillingCycle = document.getElementById('team-billing-cycle');
+
+        function setPricing(isAnnually) {
+            if (isAnnually) {
+                proPrice.textContent = '$24';
+                proBillingCycle.textContent = '/month';
+                teamPrice.textContent = '$79';
+                teamBillingCycle.textContent = '/month';
+                annuallyToggle.classList.add('bg-blue-60', 'text-white');
+                annuallyToggle.classList.remove('text-text-secondary');
+                monthlyToggle.classList.remove('bg-blue-60', 'text-white');
+                monthlyToggle.classList.add('text-text-secondary');
+            } else {
+                proPrice.textContent = '$29';
+                proBillingCycle.textContent = '/month';
+                teamPrice.textContent = '$99';
+                teamBillingCycle.textContent = '/month';
+                monthlyToggle.classList.add('bg-blue-60', 'text-white');
+                monthlyToggle.classList.remove('text-text-secondary');
+                annuallyToggle.classList.remove('bg-blue-60', 'text-white');
+                annuallyToggle.classList.add('text-text-secondary');
+            }
+        }
+
+        monthlyToggle.addEventListener('click', () => setPricing(false));
+        annuallyToggle.addEventListener('click', () => setPricing(true));
+        setPricing(false); // Default to monthly
+
+        // FAQ Accordion
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.closest('.accordion-item');
+                const content = item.querySelector('.accordion-content');
+                const icon = header.querySelector('i');
+
+                content.classList.toggle('hidden');
+                icon.classList.toggle('rotate-180');
+            });
+        });
+    </script>
+</body>
+</html>
