@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="zh-TW" class="scroll-smooth">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+    <title>Apple Store 線上商店 - Apple (台灣)</title>
+    <meta name="description" content="馬年送好禮，事事都飛躍。探索最新裝置，為每個人找到貼心新年好禮。選購各式 iPhone、iPad、Apple Watch、Mac 與 Apple TV，發現眾多配件、娛樂產品，並取得有關裝置的專家支援服務。" />
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"SF Pro TC"', '"SF Pro Text"', '"SF Pro Icons"', 'Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        apple: {
+                            dark: '#1d1d1f',
+                            gray: '#f5f5f7',
+                            lightgray: '#e8e8ed',
+                            textgray: '#6e6e73',
+                            blue: '#0066cc',
+                            hoverblue: '#0077ed'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* Custom utilities for pixel-perfect Apple look */
+        .apple-nav-blur {
+            background-color: rgba(29, 29, 31, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+</head>
+<body class="bg-apple-gray text-apple-dark font-sans antialiased pt-12">
+
+    <!-- Global Navigation -->
+    <nav class="apple-nav-blur fixed top-0 left-0 w-full z-50 h-12 transition-all duration-300" aria-label="全域">
+        <div class="max-w-[1024px] mx-auto px-4 h-full flex items-center justify-between md:justify-center relative">
+            
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-btn" class="md:hidden text-gray-300 hover:text-white focus:outline-none" aria-label="主選單">
+                <i class="fa-solid fa-bars text-lg"></i>
+            </button>
+
+            <!-- Nav Links (Desktop) -->
+            <ul id="nav-links" class="hidden md:flex items-center justify-between w-full text-xs font-medium text-gray-300 tracking-wide">
+                <li><a href="https://www.apple.com/tw/" class="hover:text-white transition-colors px-2 py-3 block" aria-label="Apple"><i class="fa-brands fa-apple text-lg"></i></a></li>
+                <li><a href="/tw/store" class="hover:text-white transition-colors px-2 py-3 block">商店</a></li>
+                <li><a href="https://www.apple.com/tw/mac/" class="hover:text-white transition-colors px-2 py-3 block">Mac</a></li>
+                <li><a href="https://www.apple.com/tw/ipad/" class="hover:text-white transition-colors px-2 py-3 block">iPad</a></li>
+                <li><a href="https://www.apple.com/tw/iphone/" class="hover:text-white transition-colors px-2 py-3 block">iPhone</a></li>
+                <li><a href="https://www.apple.com/tw/watch/" class="hover:text-white transition-colors px-2 py-3 block">Watch</a></li>
+                <li><a href="https://www.apple.com/tw/apple-vision-pro/" class="hover:text-white transition-colors px-2 py-3 block">Vision</a></li>
+                <li><a href="https://www.apple.com/tw/airpods/" class="hover:text-white transition-colors px-2 py-3 block">AirPods</a></li>
+                <li><a href="https://www.apple.com/tw/tv-home/" class="hover:text-white transition-colors px-2 py-3 block">TV 和家庭</a></li>
+                <li><a href="https://www.apple.com/tw/services/" class="hover:text-white transition-colors px-2 py-3 block">娛樂</a></li>
+                <li><a href="/tw/shop/accessories/all" class="hover:text-white transition-colors px-2 py-3 block">配件</a></li>
+                <li><a href="https://www.apple.com/tw/support/" class="hover:text-white transition-colors px-2 py-3 block">支援服務</a></li>
+                <li><a href="/tw/search" class="hover:text-white transition-colors px-2 py-3 block" aria-label="搜尋 apple.com"><i class="fa-solid fa-magnifying-glass text-sm"></i></a></li>
+                <li><a href="/tw/shop/bag" class="hover:text-white transition-colors px-2 py-3 block" aria-label="購物袋"><i class="fa-solid fa-bag-shopping text-sm"></i></a></li>
+            </ul>
+
+            <!-- Mobile Logo & Bag (Visible only on mobile) -->
+            <a href="https://www.apple.com/tw/" class="md:hidden text-gray-300 hover:text-white" aria-label="Apple"><i class="fa-brands fa-apple text-xl"></i></a>
+            <a href="/tw/shop/bag" class="md:hidden text-gray-300 hover:text-white" aria-label="購物袋"><i class="fa-solid fa-bag-shopping text-lg"></i></a>
+        </div>
+
+        <!-- Mobile Dropdown Menu -->
+        <div id="mobile-menu" class="hidden absolute top-12 left-0 w-full h-screen bg-[#1d1d1f] text-white px-8 pt-4 pb-24 overflow-y-auto z-40">
+            <div class="relative mb-6">
+                <i class="fa-solid fa-magnifying-glass absolute left-3 top-3 text-gray-400"></i>
+                <input type="text" placeholder="搜尋 apple.com" class="w-full bg-[#333336] text-white rounded-lg py-2 pl-10 pr-4 focus:outline-none focus:ring-2 focus:ring-apple-blue">
+            </div>
+            <ul class="flex flex-col space-y-4 text-2xl font-semibold border-b border-gray-700 pb-6">
+                <li><a href="/tw/store" class="block hover:text-gray-300">商店</a></li>
+                <li><a href="https://www.apple.com/tw/mac/" class="block hover:text-gray-300">Mac</a></li>
+                <li><a href="https://www.apple.com/tw/ipad/" class="block hover:text-gray-300">iPad</a></li>
+                <li><a href="https://www.apple.com/tw/iphone/" class="block hover:text-gray-300">iPhone</a></li>
+                <li><a href="https://www.apple.com/tw/watch/" class="block hover:text-gray-300">Watch</a></li>
+                <li><a href="https://www.apple.com/tw/apple-vision-pro/" class="block hover:text-gray-300">Vision</a></li>
+                <li><a href="https://www.apple.com/tw/airpods/" class="block hover:text-gray-300">AirPods</a></li>
+                <li><a href="https://www.apple.com/tw/tv-home/" class="block hover:text-gray-300">TV 和家庭</a></li>
+                <li><a href="https://www.apple.com/tw/services/" class="block hover:text-gray-300">娛樂</a></li>
+                <li><a href="/tw/shop/accessories/all" class="block hover:text-gray-300">配件</a></li>
+                <li><a href="https://www.apple.com/tw/support/" class="block hover:text-gray-300">支援服務</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Global Message Segment -->
+    <aside class="bg-white text-center py-3 text-sm text-apple-dark border-b border-gray-200">
+        <p>選購最新產品，享受免額外付費的運送服務。</p>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="w-full" role="main">
+        
+        <!-- Store Header Section -->
+        <div class="max-w-[1024px] mx-auto px-4 sm:px-6 pt-16 pb-12">
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-4">
+                <div class="flex-1">
+                    <h1 class="text-[40px] md:text-[48px] font-semibold tracking-tight leading-tight text-apple-dark">
+                        商店
+                    </h1>
+                </div>
+                <div class="flex-1 lg:text-right">
+                    <p class="text-[20px] md:text-[24px] font-medium text-apple-textgray leading-snug">
+                        購買你喜愛的產品，<br class="hidden lg:block" />這是最好的方式。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Shelves Placeholders (Preserving original structure IDs) -->
+        <div id="shelf-1" class="w-full"></div>
+        <div id="shelf-2" class="w-full"></div>
+        <div id="shelf-3" class="w-full"></div>
+        <div id="shelf-4" class="w-full"></div>
+        <div id="shelf-5" class="w-full"></div>
+        <div id="shelf-6" class="w-full"></div>
+        <div id="shelf-9" class="w-full"></div>
+        <div id="shelf-10" class="w-full"></div>
+
+        <!-- Quick Links Section -->
+        <div class="max-w-[1024px] mx-auto px-4 sm:px-6 py-12">
+            <h2 class="text-[24px] md:text-[28px] font-semibold tracking-tight mb-6 text-apple-dark">快速連結</h2>
+            <nav aria-label="快速連結" class="overflow-x-auto hide-scrollbar pb-4">
+                <ul class="flex flex-nowrap md:flex-wrap gap-3 whitespace-nowrap" role="list">
+                    <li>
+                        <a href="https://www.apple.com/tw/retail" target="_blank" class="inline-block bg-apple-lightgray hover:bg-[#d2d2d7] text-apple-dark px-5 py-3 rounded-full text-[15px] font-medium transition-colors duration-200">
+                            尋找商店<span class="sr-only">(以新視窗開啟)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://secure.store.apple.com/tw/shop/order/list" target="_blank" class="inline-block bg-apple-lightgray hover:bg-[#d2d2d7] text-apple-dark px-5 py-3 rounded-full text-[15px] font-medium transition-colors duration-200">
+                            訂單狀態<span class="sr-only">(以新視窗開啟)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tw/shop/help" target="_blank" class="inline-block bg-apple-lightgray hover:bg-[#d2d2d7] text-apple-dark px-5 py-3 rounded-full text-[15px] font-medium transition-colors duration-200">
+                            購物協助<span class="sr-only">(以新視窗開啟)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tw/shop/help/returns_refund" target="_blank" class="inline-block bg-apple-lightgray hover:bg-[#d2d2d7] text-apple-dark px-5 py-3 rounded-full text-[15px] font-medium transition-colors duration-200">
+                            退貨<span class="sr-only">(以新視窗開啟)</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="/tw/shop/yoursaves" target="_blank" class="inline-block bg-apple-lightgray hover:bg-[#d2d2d7] text-apple-dark px-5 py-3 rounded-full text-[15px] font-medium transition-colors duration-200">
+                            你的收藏<span class="sr-only">(以新視窗開啟)</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </main>
+
+    <!-- Global Footer -->
+    <footer class="bg-apple-gray pt-8 pb-12 border-t border-gray-300" role="contentinfo" aria-labelledby="footer-label">
+        <div class="max-w-[1024px] mx-auto px-4 sm:px-6">
+            <h2 id="footer-label" class="sr-only">註腳</h2>
+            
+            <!-- Footnotes -->
+            <div class="text-[12px] text-apple-textgray leading-relaxed border-b border-gray-300 pb-4 mb-4">
+                <div class="mb-3">
+                    <ul class="list-none p-0 m-0">
+                        <li>價格皆含稅與運送費用。</li>
+                    </ul>
+                </div>
+                <ul class="space-y-2 list-none p-0 m-0" role="list">
+                    <li class="flex gap-2">
+                        <span class="shrink-0">①</span>
+                        <span>實際換購估價視你折抵換購裝置的狀況、推出年份與機型而有所差異。並非所有裝置均符合折抵條件。你必須已達法定成年年齡，才有折抵換購的資格，以獲享折抵優惠或取得 Apple Store 禮品卡。你現有裝置的價值，可能適用於購買新 Apple 裝置，或加值到 Apple Store 禮品卡。實際獲得的換購價值，是根據收到符合條件的裝置，是否吻合你在估價時所提供的描述而定。可能須按照新裝置的全額售價繳納加值型營業稅。店內換購須出示政府核發的有效照片證件，才能享有此項優惠 (當地法律可能要求保存這份資訊)。優惠可能無法在所有直營店提供，店內和線上折抵換購的優惠可能會有所不同。部分直營店可能會有額外的要求。Apple 或 Apple 的換購服務合作夥伴保留以任何理由拒絕、取消任何折抵換購交易，或限制接受任何裝置 (及其數量) 參與本優惠的權利。更多詳情可自 Apple 的換購合作夥伴取得，以了解符合換購及回收條件的裝置。須遵守 Apple 的換購服務合作夥伴所訂立的其他條款。</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="shrink-0">②</span>
+                        <span>僅適用於新訂戶。試用結束後，每月 NT$165。優惠限時提供，僅適用於擁有符合條件新裝置的 Apple Music 新訂戶。符合條件的音訊裝置兌換優惠，須使用連接或配對執行最新 iOS 或 iPadOS 的 Apple 裝置。Apple Watch 兌換優惠，須使用連接或配對執行最新 iOS 的 iPhone。優惠在符合條件裝置啟用後的三個月內有效。不論購買多少部符合條件的裝置，每個 Apple 帳號僅可獲享一次優惠。訂閱方案將自動續訂直到取消為止。須受限制與其他<a href="https://www.apple.com/tw/promo" class="text-apple-dark hover:underline">條款</a>約束。</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="shrink-0">※</span>
+                        <span>Apple Intelligence 現已推出 Beta 版。部分功能可能未於所有地區提供，或未適用於所有語言。有關功能和語言的支援狀況以及系統需求，請參閱 <a href="https://support.apple.com/zh-tw/121115" target="_blank" class="text-apple-dark hover:underline">support.apple.com/121115<span class="sr-only">(以新視窗開啟)</span></a>。</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="shrink-0">§</span>
+                        <span>僅限新訂戶和符合資格的重新訂閱用戶。免額外付費試用結束後，每月 NT$250。Apple TV 訂閱服務不包括第三方品牌的訂閱服務，也不包括在 Apple TV app 中可供租借或購買的內容。每個「Apple 帳號」僅可獲享一次優惠，如果你是「家人共享」群組的成員，不論你或家人購買多少部裝置，每個家庭僅可獲享一次優惠。如果你或你的家人之前已接受 Apple TV 三個月或一年免額外付費訂閱服務優惠，則不再適用此優惠。優惠在符合條件的裝置啟用後的三個月內有效。訂閱方案將自動續訂直到取消為止。須受限制與其他<a href="https://www.apple.com/tw/promo" target="_blank" class="text-apple-dark hover:underline">條款<span class="sr-only">(以新視窗開啟)</span></a>約束。</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="shrink-0">1.</span>
+                        <span>零利率分期付款方案僅適用於 NT$1,500 以上之購買金額。零利率分期付款僅可在 Apple 直營店、透過電話購買、透過交流購買及 Apple Online Store 購物時享有。分期付款方案是由信用卡發卡銀行所提供：玉山銀行、台新銀行、星展銀行 (台灣)、國泰世華銀行、台北富邦商業銀行、以及中國信託商業銀行。所有的零利率分期付款購物都須經你的信用卡發卡銀行核准。 零利率分期付款的還款期限最長可達 12 個月。不同銀行的還款期限與最低購買額度可能有所不同。 若你的信用卡發卡銀行未核准你的訂單使用此零利率分期付款方案，Apple 員工並無法得知其原因。由於技術因素，某些信用卡可能無法適用分期付款優惠。如須進一步了解你的分期付款購物授權結果，請聯絡你的信用卡發卡銀行。請參閱銀行網站以了解細則及各項費用。使用美國運通卡，金融卡或透過 Apple Pay 購物無法使用此方案。分期付款手續費將會出現於你的信用卡對帳單。此方案適用於廣告或標籤價格。所有訂單均享免額外付費運送服務。如果你想以零利率分期方式來付款，你必須刷信用卡 (店內) 或輸入信用卡詳細資訊 (線上) 才能下訂單。訂單一旦完成，便不能更改信用卡。若您要選用其他信用卡，必須取消目前的訂單，再重新下單。</span>
+                    </li>
+                    <li class="flex gap-2">
+                        <span class="shrink-0">2.</span>
+                        <span>優惠價格適用於符合資格的顧客。如須進一步了解如何獲享優惠價資格，請洽詢直營店內的 Apple 專員，或致電 0800-020-021 與我們聯繫。</span>
+                    </li>
+                </ul>
+                <p class="mt-4 pt-4 border-t border-gray-300">我們會透過你的網際網路 IP 位址所對應的地理區域，或你上次瀏覽 Apple 網站輸入的位置資訊，估計你的約略位置。</p>
+            </div>
+
+            <!-- Breadcrumbs -->
+            <nav aria-label="導覽列" class="text-[12px] text-apple-textgray mb-4 flex items-center space-x-2">
+                <a href="https://www.apple.com/tw/" class="hover:text-apple-dark transition-colors" aria-label="Apple 首頁">
+                    <i class="fa-brands fa-apple text-sm"></i>
+                </a>
+                <span class="text-gray-400"><i class="fa-solid fa-chevron-right text-[8px]"></i></span>
+                <span class="text-apple-dark">Apple Store 線上商店</span>
+            </nav>
+
+            <!-- Completed Truncated Section -->
+            <nav role="navigation" aria-label="更多 Apple 購買方式" class="text-[12px] text-apple-textgray border-b border-gray-300 pb-4 mb-4">
+                更多購買方式：<a href="https://www.apple.com/tw/retail/" class="text-apple-blue hover:underline">尋找當地的 Apple 直營店</a>或<a href="https://locate.apple.com/tw/zh/" class="text-apple-blue hover:underline">經銷商</a>，或致電 0800-020-021。
+            </nav>
+
+            <!-- Copyright & Legal Links -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between text-[12px] text-apple-textgray">
+                <div class="mb-2 md:mb-0">
+                    Copyright © 2024 Apple Inc. 保留一切權利。
+                </div>
+                <ul class="flex flex-wrap gap-x-4 gap-y-2 mb-2 md:mb-0">
+                    <li><a href="https://www.apple.com/tw/legal/privacy/" class="hover:text-apple-dark hover:underline">隱私權政策</a></li>
+                    <li class="border-l border-gray-400 pl-4"><a href="https://www.apple.com/tw/legal/internet-services/terms/site.html" class="hover:text-apple-dark hover:underline">使用條款</a></li>
+                    <li class="border-l border-gray-400 pl-4"><a href="https://www.apple.com/tw/shop/browse/open/salespolicies" class="hover:text-apple-dark hover:underline">銷售及退款</a></li>
+                    <li class="border-l border-gray-400 pl-4"><a href="https://www.apple.com/tw/legal/" class="hover:text-apple-dark hover:underline">法律聲明</a></li>
+                    <li class="border-l border-gray-400 pl-4"><a href="https://www.apple.com/tw/sitemap/" class="hover:text-apple-dark hover:underline">網站地圖</a></li>
+                </ul>
+                <div class="mt-2 md:mt-0">
+                    <a href="https://www.apple.com/choose-country-region/" class="hover:text-apple-dark hover:underline">台灣</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Menu JavaScript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const icon = menuBtn.querySelector('i');
+
+            menuBtn.addEventListener('click', function() {
+                mobileMenu.classList.toggle('hidden');
+                if (mobileMenu.classList.contains('hidden')) {
+                    icon.classList.remove('fa-xmark');
+                    icon.classList.add('fa-bars');
+                    document.body.style.overflow = 'auto';
+                } else {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-xmark');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
